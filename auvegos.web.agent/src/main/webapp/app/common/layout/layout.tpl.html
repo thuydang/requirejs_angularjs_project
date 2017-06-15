@@ -1,0 +1,26 @@
+<!--
+<nav class="navbar navbar-default" style="margin:0;" ui-view="topbar"></nav>
+<div id="red"></div>
+<div id="gray"></div>
+<nav class="navbar-default navbar-static-side menu-sidebar ng-scope" ui-view="navigation" role="navigation"></nav>
+-->
+
+<div id="layout-container" class="container-flex">
+
+	<!-- Header: toolbar-->
+	<div class="header-flex">
+	<div ui-view="topbanner"></div>
+	</div>
+	<!-- Page Content Wrapper -->
+
+	<div id="pageContent" class="content-flex">
+		<div ui-view="sidenav"></div>
+		<div ui-view="content"></div> 
+	</div>
+	<!-- Footer Content Wrapper -->
+	<div class="footer-flex">
+	<div ui-view="bottombanner"></div> 
+	</div>
+<!-- </ui-view> -->
+
+</div>

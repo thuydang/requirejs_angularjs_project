@@ -1,0 +1,32 @@
+.navbar-login
+{
+    width: 305px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navbar-login-session
+{
+    padding: 10px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.icon-size
+{
+    font-size: 37px;
+}
+
+.btn-profile
+{
+    height: 45px;
+		margin-top: 10px;
+	}
+
+.btn-user {
+		background-color: #00435C;
+	}
+
+.btn-user p{
+		color: #ffffff;
+}

@@ -1,0 +1,19 @@
+<div id="page-wrapper" class="row network-overview-content">
+	<div id="network-left-column" class="col-sm-12 col-md-6 col-lg-6">
+		<div id="topology-panel" class="panel panel-default network-overview-container-panel network-overview-topology network-expandable" ng-class="{isExpanded:isExpanded}">
+			<div class="panel-heading">
+				Network Topology
+				<span id="network-icon-enlarge" ng-click="changeExpanded()" class="pull-right glyphicon clickable_space hidden-xs hidden-sm" ng-class="isExpanded ? 'glyphicon-minus' : 'glyphicon-plus'"></span>
+			</div>
+			<div class="panel-body">
+			<div id="ipCyContainer" style="height: 100%">
+				<div id="iplayercy" class="topology"></div>
+			</div>
+			</div>
+		</div>
+	</div>	
+
+	<div id="-la-right-column network-right-column" class="col-sm-12 col-md-6 col-lg-6">
+		<div ui-view="networkDetails"></div>
+	</div>
+</div>

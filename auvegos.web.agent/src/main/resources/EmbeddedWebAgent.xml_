@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+  <import resource="classpath:de/dailab/jiactng/agentcore/conf/Agent.xml" />
+  <bean name="EmbeddedWebAgent" parent="SimpleAgent">
+    <property name="agentBeans">
+      <list>
+        <ref bean="EmbeddedWebBean" />
+        <ref bean="HelloProviderBean" />
+      </list>
+    </property>
+    <property name="executionInterval" value="10" />
+  </bean>
+  <bean id ="ewb" name="EmbeddedWebBean" singleton="false"
+  class="de.gtarc.nemo.agentpjs.embeddedwebagent.beans.EmbeddedWebBean">
+    <property name="port" value="8989" />
+  </bean>
+  <bean name="HelloProviderBean" singleton="false"
+  class="de.gtarc.nemo.agentpjs.embeddedwebagent.webapp.rest.HelloProvider">
+    <property name="ewb" ref="ewb" />
+  </bean>
+</beans>

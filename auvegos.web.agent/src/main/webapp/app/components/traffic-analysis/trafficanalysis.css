@@ -1,0 +1,177 @@
+/** 
+ * Content wrapper 
+ **********************************/
+.traffic-analysis-content {
+	padding: 0px; margin: 0px; 
+	background-color: #d3d3d3; 
+}
+
+/***** Panels container ************/
+.la-container-panel {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.la-container-panel > .panel-heading {
+	background-color: #00435C;
+	color: white;
+	height: 28px;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: left;
+	font-family: calibri;
+	padding: 8px 8px 8px 8px;
+}
+
+.la-container-panel > .panel-body {
+	padding: 8px;
+}
+
+.btn-wrapable-labels > label {
+	white-space: normal;
+}
+
+#la-right-column {
+	z-index: 0;
+	height: 75vh;
+}
+
+.container-c {
+	overflow: auto;
+}
+
+.table-fixed {
+	margin-bottom: 0px;
+}
+
+.break-word {
+	/* For Firefox */
+	white-space: pre-wrap;
+	word-break: break-all;
+
+	/* For Chrome and IE */
+	word-wrap: break-word;
+}
+
+.table-fixed thead {
+	font-size: 12px;
+	overflow-y: scroll;
+	background-color: #00435C;
+	color: white;
+	height: 24px;
+	font-weight: bold;
+	font-family: calibri;
+}
+
+.table-fixed tbody {
+	font-size: 14px;
+	height: 24px;
+	font-family: calibri;
+}
+
+.table-fixed>tbody>tr:nth-child(odd)>td, .table-fixed>tbody>tr:nth-child(odd)>th {
+	background-color: #d2d2d2;
+}
+ 
+.table-fixed>tbody>tr:nth-child(even)>td, .table-fixed>tbody>tr:nth-child(even)>th {
+	background-color: #f5f5f5;
+}
+
+.table-fixed tbody tr:hover td, .table-fixed tbody tr:hover th {
+	background-color: #2A85A2;
+}
+
+.table-fixed tbody td, .table-fixed thead > tr> th {
+	border-bottom-width: 0;
+}
+
+.btn-log-analysis { 
+  color: #ffffff; 
+  background-color: #194f61; 
+  border-color: #194f61;
+  padding: 6px 6px 6px 6px;
+}
+
+.btn-log-analysis > span {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: calibri;
+} 
+ 
+.btn-log-analysis:hover, 
+.btn-log-analysis:focus, 
+.btn-log-analysis:active, 
+.btn-log-analysis.active, 
+.open .dropdown-toggle.btn-log-analysis { 
+  color: #ffffff; 
+  background-color: #2A85A2; 
+  border-color: #2A85A2; 
+} 
+ 
+.btn-log-analysis:active, 
+.btn-log-analysis.active, 
+.open .dropdown-toggle.btn-log-analysis { 
+  background-image: none; 
+} 
+ 
+.btn-log-analysis.disabled, 
+.btn-log-analysis[disabled], 
+fieldset[disabled] .btn-log-analysis, 
+.btn-log-analysis.disabled:hover, 
+.btn-log-analysis[disabled]:hover, 
+fieldset[disabled] .btn-log-analysis:hover, 
+.btn-log-analysis.disabled:focus, 
+.btn-log-analysis[disabled]:focus, 
+fieldset[disabled] .btn-log-analysis:focus, 
+.btn-log-analysis.disabled:active, 
+.btn-log-analysis[disabled]:active, 
+fieldset[disabled] .btn-log-analysis:active, 
+.btn-log-analysis.disabled.active, 
+.btn-log-analysis[disabled].active, 
+fieldset[disabled] .btn-log-analysis.active { 
+  background-color: #2A85A2; 
+  border-color: #2A85A2; 
+} 
+ 
+.btn-log-analysis .badge { 
+  color: #2A85A2; 
+  background-color: #ffffff; 
+}
+
+.flex-body {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
+	max-height: calc(100% - 30px);
+	max-height: -moz-calc(100% - 30px);
+	max-height: -webkit-calc(100% - 30px);
+	max-height: -o-calc(100% - 30px);
+	flex-direction: column;
+}
+
+.flex-scroll {
+	overflow-y: scroll;
+	-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+	-moz-box-flex: 1;         /* OLD - Firefox 19- */
+	height: 20%;               /* For old syntax, otherwise collapses. */
+	-webkit-flex: 1;          /* Chrome */
+	-ms-flex: 1;              /* IE 10 */
+	flex: 1;
+}
+
+/***** Fix nvd3 ************/
+svg {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Trying to get SVG to act like a greedy block in all browsers */
+  display: block;
+	/*
+  width:100%;
+  height:100%;
+	*/
+}

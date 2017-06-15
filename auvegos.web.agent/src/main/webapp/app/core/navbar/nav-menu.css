@@ -1,0 +1,11 @@
+.navbar-nav > .active > a:hover {
+	color: #23527c;
+}
+
+.navbar-nav > .active > a, 
+.navbar-nav > .active > a:focus 
+{
+	background-color: #19556c;
+	color: #fff;
+}
+

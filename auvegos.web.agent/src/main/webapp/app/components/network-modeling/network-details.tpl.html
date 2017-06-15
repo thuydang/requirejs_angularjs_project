@@ -1,0 +1,111 @@
+<div id="network-right-column">
+		<div class="panel panel-default network-overview-container-panel" style="height: 30%">
+		
+			<div class="panel-heading">
+				<div class="row">
+				<div class="col-md-3">Products</div>
+				<div class="input-group col-md-9" style="">
+				<!--
+					<input class="form-control" ng-model="searchProducts" placeholder="Filter" type="search" />
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+				-->
+				</div>
+			
+			</div>
+			</div>
+			<div class="panel-body flex-body">
+				<div>
+					<table class="table table-hover table-fixed">
+						<thead>
+							<tr>
+								<th class="col-xs-3">
+									<span class="clickable_space" ng-click="sort('Ip')">
+										IP <span class="{{Header[0]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-7">
+									<span class="clickable_space" ng-click="sort('Product')">
+										Products  <span class="{{Header[1]}}"></span>
+									</span>
+								</th>
+								<!-- <th class="col-xs-2" align="center">
+									<span class="clickable_space" ng-click="sort('CWENames')">
+										Weaknesses <span class="{{Header[2]}}"></span>
+									</span>
+								</th> -->
+								<th class="col-xs-2" align="center">
+									<span class="clickable_space" ng-click="sort('CVENames')">
+										Vulnerability <span class="{{Header[3]}}"></span>
+									</span>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="flex-scroll">
+					<table class="table table-hover table-fixed table-striped">
+						<tbody>
+							<tr ng-repeat="item in allTableItems|orderBy:sortKey:reverse|filter:searchProducts" ng-click="updateVulnerabilityTable(item)">
+								<td class="col-xs-3 break-word">{{item.IP}}</td>
+								<td class="col-xs-7 break-word">{{item.Product}}</td>
+								<!-- <td class="col-xs-2 break-word">{{item.CWECount}}</td> -->
+								<td class="col-xs-2 break-word">{{item.CVECount}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			 </div>
+			
+			<div class="panel panel-default la-container-panel" style="height: 70%">
+			<div class="panel-heading">Vulnerabilities</div>
+			<div class="panel-body flex-body">
+				<!--
+				<div class="input-group" style="padding-top: 8px;">
+					<input class="form-control" ng-model="searchVulnerabilities" placeholder="Filter" type="search" />
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+				</div>
+				-->
+				<div>
+					<table class="table table-hover table-fixed">
+						<thead>
+							<tr>
+								<th class="col-xs-1">
+									<span class="clickable_space" ng-click="sortVulnerability('CveName')">
+										Vulnerability <span class="{{Header[0]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-1">
+									<span class="clickable_space" ng-click="sortVulnerability('CWEName')">
+										Weakness  <span class="{{Header[1]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-1" align="center">
+									<span class="clickable_space" ng-click="sortVulnerability('Description')">
+										Description <span class="{{Header[2]}}"></span>
+									</span>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				
+				<div id="vulnerabilityTable" class="flex-scroll">
+					<table class="table table-hover table-fixed table-striped">
+						<tbody>
+							<tr ng-repeat="item in allVulnerabilityTableItems|orderBy:sortKeyVulnerability:reverseVulnerability|filter:searchVulnerabilities" ng-click="updateVulnerabilityTable(item)">
+								<td class="col-xs-1">{{item.Name}}</td>
+								<td class="col-xs-1">{{item.CWE}}</td>
+								<td style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 1px;"
+								 class="col-xs-1"><abbr title="{{item.Description}}">{{item.Description}}</abbr></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			</div>
+</div>

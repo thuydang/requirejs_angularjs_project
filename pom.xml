@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.dailab.acs</groupId>
+		<artifactId>acs-core</artifactId>
+		<version>2.5.0-SNAPSHOT</version>
+		<relativePath></relativePath>
+	</parent>
+
+  <groupId>de.dailab.acs</groupId>
+  <artifactId>webgui</artifactId>
+  <name>${project.artifactId}</name>
+  <version>2.5.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <description>Parent project for web gui development</description>
+
+	<ciManagement>
+		<system>Jenkins</system>
+		<url>http://jenkins.dai-lab.de/job/Adaptive%20Cybersecurity%20-%20acs-web/</url>
+	</ciManagement>
+
+	<scm>
+		<connection>scm:git:https://gitlab.tubit.tu-berlin.de/acs/acs-web.git</connection>
+		<developerConnection>scm:git:https://gitlab.tubit.tu-berlin.de/acs/acs-web.git</developerConnection>
+		<url>https://gitlab.tubit.tu-berlin.de/acs/acs-web.git</url>
+	</scm>
+
+  <modules>
+    <module>auvegos.web.agent</module>
+  </modules>
+  
+</project>

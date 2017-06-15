@@ -1,0 +1,43 @@
+<div class="row cve-dialog -modal-dialog">
+	<div class="col-sm-12 col-md-12 col-lg-12"> 
+		<div class="panel panel-default panel-default-dialog">
+
+			<div class="panel-heading panel-heading-dialog">
+		<div class="row cve-dialog-heading">
+			<div class="cve-dialog-title">
+				{{item.cveName}}
+			</div>
+			<div class="cve-dialog-headline">
+				<span class="cve-dialog-headline-p-1">{{item.cveNumAffectedHosts}}</span><!--
+				--><span class="cve-dialog-headline-p-2">AFFECTED HOSTS</span><!--
+				--><span class="cve-dialog-headline-p-2">{{item.percent}}% since last scan</span>
+			</div>
+		</div>
+		</div>
+
+		<!--
+		<div class="row sp-body-top-5-products-item-row-2">
+		<div class="col-md-12 sp-body-top-5-products-item-row-2-col12">
+		<div class="progress" 
+		ng-class="{
+		'progress-1' : getRandomNumber(randomArrayBugVariationNum, vulnerabilityData.indexOf(item)) >= 0,
+		'progress-2' : getRandomNumber(randomArrayBugVariationNum, vulnerabilityData.indexOf(item)) < 0,
+		}">
+		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:%; background-color: white;">
+		<span class="sr-only">20% Complete</span>
+		</div>
+		</div>
+		</div>
+		</div>
+		-->
+		<div class="panel-body panel-body-dialog">
+		<div class="row cve-dialog-body">
+			<div class="cve-dialog-item-description-p">
+				<p>{{item.cveDescription}}</p>
+			</div>
+		</div>
+		</div>
+
+	</div>
+	</div>
+</div>

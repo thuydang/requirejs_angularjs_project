@@ -1,0 +1,107 @@
+<ul class="nav navbar-nav navbar-right">
+	<li>
+		<div uib-dropdown on-toggle="toggled(open)">
+			<button id="simple-dropdown" type="button" class="btn btn-profile" uib-dropdown-toggle>
+				<span class="glyphicon glyphicon-user"></span> 
+				<strong>{{account}}</strong>
+				<span class="glyphicon glyphicon-chevron-down"></span>
+			</button>
+			<ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+				<li role="menuitem">
+					<div class="navbar-login">
+						<div class="row">
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<p class="text-center margin-top-10">
+								<span class="glyphicon glyphicon-user icon-size"></span>
+								</p>
+							</div>
+							<div class=" col-sm-8 col-md-8 col-lg-8">
+								<a ui-sref="main.ceo" class="btn btn-default btn-block btn-sm" ng-click="account='CEO'">
+									<p class="text-left"><strong>CEO View</strong></p>
+									<p class="text-left small">System Overview Report</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li role="menuitem">
+					<div class="navbar-login">
+						<div class="row">
+							<div class="col-sm-4 col-md-4 col-lg-4">
+								<p class="text-center margin-top-10">
+								<span class="glyphicon glyphicon-user icon-size"></span>
+								</p>
+							</div>
+							<div class=" col-sm-8 col-md-8 col-lg-8">
+								<a ui-sref="main.networkParent.network" class="btn btn-default btn-block btn-sm" ng-click="account='SO'">
+									<p class="text-left"><strong>Security Officer View</strong></p>
+									<p class="text-left small">System Operation Dashboard</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="divider"></li>
+				<li role="menuitem">
+					<div class="navbar-login navbar-login-session">
+						<div class="row">
+							<div class="col-lg-12">
+								<p>
+								<a href="#" class="btn btn-danger btn-block">Logout</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+		</div>
+	</li>
+</ul>
+<!--
+	<div class="navbar-header">
+	<button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+	<span class="glyphicon glyphicon-user"></span> 
+	<strong>Nombre</strong>
+	<span class="glyphicon glyphicon-chevron-down"></span>
+	</button>
+	</div>
+	<div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+	<ul class="nav navbar-nav navbar-right">
+	<li class="dropdown">
+	<ul class="dropdown-menu">
+	<li>
+	<div class="navbar-login">
+	<div class="row">
+	<div class="col-lg-4">
+	<p class="text-center">
+	<span class="glyphicon glyphicon-user icon-size"></span>
+	</p>
+	</div>
+	<div class="col-lg-8">
+	<p class="text-left"><strong>Nombre Apellido</strong></p>
+	<p class="text-left small">correoElectronico@email.com</p>
+	<p class="text-left">
+	<a href="#" class="btn btn-primary btn-block btn-sm">Actualizar Datos</a>
+	</p>
+	</div>
+	</div>
+	</div>
+	</li>
+	<li class="divider"></li>
+	<li>
+	<div class="navbar-login navbar-login-session">
+	<div class="row">
+	<div class="col-lg-12">
+	<p>
+	<a href="#" class="btn btn-danger btn-block">Cerrar Sesion</a>
+	</p>
+	</div>
+	</div>
+	</div>
+	</li>
+	</ul>
+	</li>
+	</ul>
+	</div>
+-->

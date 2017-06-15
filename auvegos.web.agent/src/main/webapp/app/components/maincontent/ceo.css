@@ -1,0 +1,746 @@
+
+	/* Auvegos Classes */
+/** Buffering column */
+@media (min-width: 600px) and (max-width: 1200px){
+.col-lg-5 {
+	width: 50%;
+}
+.col-lg-1 {
+	width: 0%;
+}
+
+.ipad-padding {
+	padding-left: 8px;
+	padding-right: 8px;
+}
+.top-5-list-container {
+    padding: 15px 8px 15px 8px;
+		max-height: 670px;
+}
+
+} /* media */
+
+@media (min-width: 1280px) and (max-width: 1439px){
+	/* Padding spaces around content */
+.col-lg-5 {
+	width: 48%;
+}
+.col-lg-1 {
+	width: 0%;
+}
+
+.row-buffer {
+	height: 0px;
+}
+.col-buffer {
+	width: 10%;
+	height: 1px;
+	float: left;
+	background-color: black;
+	}
+.col-bufferred {
+	width: 40%;
+}
+
+.top-5-list-container {
+    padding: 25px 15px 25px 15px;
+		max-height: 670px;
+		overflow: auto;
+}
+/* Font size*/
+.sp-body-2-progress-bar .text-e4.font-panel-body,
+.sp-body-last-patches .text-col.font-panel-body,
+.list-panel .panel-heading.font-panel-heading,
+.top-5-item-description-p.font-panel-body {
+	font-size: 12px;
+}
+.panel-default-item > .heading-small-panel.font-panel-heading {
+	font-size: 12px;
+	height: 18px;
+}
+
+} /* media 1280 */
+
+
+@media (min-width: 1440px) and (max-width: 2441px){
+.col-lg-5 {
+	width: 48%;
+}
+.col-lg-1 {
+	width: 1%;
+}
+
+.row-buffer {
+	height: 15px;
+}
+
+.top-5-list-container {
+    padding: 30px 15px 30px 15px;
+		max-height: 750px;
+}
+
+/* Font size*/
+.sp-body-2-progress-bar .text-e4.font-panel-body,
+.sp-body-last-patches .text-col.font-panel-body,
+.list-panel .panel-heading.font-panel-heading,
+.top-5-item-description-p.font-panel-body {
+	font-size: 13px;
+	margin-bottom: 0px;
+}
+.panel-default-item > .heading-small-panel.font-panel-heading {
+	font-size: 13px;
+	height: 22px;
+}
+
+} /*** media 1440px */
+
+/* Last 2 Middle Panels */
+/* Top 5 Vulnerable Products and Vulnerabilities */
+
+.sp-body-top-5-products-item-row-1 {
+    padding: 0px; margin: 0px 0px 0px 0px;
+    width:100%;
+    float: left;
+}
+.sp-body-top-5-products-item-row-1-col12 {
+    padding: 0px 0px 0px 0px;
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+.sp-body-top-5-products-item-row-1-icon {
+    position: relative;
+    bottom: 3px;
+}
+.sp-body-top-5-products-item-row-2 {
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    width:100%;
+    height: 26px;
+}
+.sp-body-top-5-products-item-row-2-col12 {
+    padding: 8px 0px 8px 0px;
+    margin: 0px;
+    /*height: 26px;*/
+}
+.sp-body-top-5-products-item-row-3 {
+    height: 24px;
+    width:100%;
+    padding: 0px;
+    margin: 0px;
+}
+.top-5-item-description-p {
+    /*height: 24px;*/
+    font-size: 11px;
+    color: white;
+    border-collapse: collapse;
+    line-height: 1;
+    margin-left: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+.numberSmall {
+    margin: 0px;
+    padding: 0px;
+    font-size: 24px; font-weight: bold;
+    color: white;
+}
+.percentNumber1 {
+    margin: 0px;
+    padding-left: 8px;
+    font-size: 12px;
+    color: #000000;
+}
+
+
+
+
+/** Work top down from here */
+
+/* Small Panel - Hosts */
+.sp-body-hosts .e1{
+    padding: 0px;
+    margin: 0px 0px 0px 0px;
+    width:100%;
+}
+.sp-body-hosts .e2{
+    padding: 0px 0px 0px 0px;
+    margin-top: 0px;
+    margin-bottom: -8px;
+}
+.sp-body-hosts .e1 .e2 p{
+    font-size: 12px;
+    color: white;
+    border-collapse: collapse;
+    line-height: 1;
+    margin-left: 0px;
+    padding: 0px;
+    font-weight: normal;
+}
+.sp-body-hosts .number-big{
+    margin: 0px;
+    padding: 0px;
+    font-size: 42px; font-weight: bold;
+    color: white;
+}
+.sp-body-hosts .icon{
+    position: relative;
+    bottom:7px;
+}
+
+
+
+
+/* Small Panels - Last Patches */
+.sp-body-last-patches{
+    margin:0px; padding: 8px 8px 8px 8px;
+}
+.sp-body-last-patches .e1{
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+.sp-body-last-patches .date-row{
+}
+.sp-body-last-patches .text-row{
+}
+.sp-body-last-patches .e2{
+    margin: 0px;
+    height: 100%;
+    color: white;
+}
+.sp-body-last-patches .e1 .date-col{
+    padding: 0px 0px 4px 0px;
+    font-size: 11px;
+    font-weight: bold;
+}
+.sp-body-last-patches .text-col{
+    padding: 4px 0px 0px 0px;
+    font-size: 11px;
+    font-weight: normal;
+    border-collapse: collapse;
+    line-break: strict; line-height: 1;
+}
+
+
+
+
+/* Top 5 Vulnerable Hosts - Small Panels */
+
+
+/** Hosts List */
+/* Define 5 classes for 5 risk levels*/
+.host-risk-level-1 .panel {
+    background-color: rgb(26, 130, 25);
+}
+.host-risk-level-1 .panel .panel-heading ,
+.host-risk-level-1 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-pos
+{
+    background-color: rgb(54, 70, 11);
+}
+.host-risk-level-1 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-neg
+{
+		 background-color: rgba(26, 130, 25, 0.6);
+}
+.host-risk-level-1 .panel .panel-body .e1 .e2 .percent .e4 .color-pos
+{
+    color: rgb(54, 70, 11);
+}
+.host-risk-level-1 .panel .panel-body .e1 .e2 .percent .e4 .color-neg
+{
+		 /*color: rgba(26, 130, 25, 0.6);*/
+		 color: rgba(255, 255, 255, 1);
+}
+/* small floating */
+.host-risk-level-1 .floating-box-small * p{
+    color: rgb(26, 130, 25);
+}
+.host-risk-level-1 .floating-box-small * svg{
+    fill: rgb(26, 130, 25);
+}
+
+.host-risk-level-2 .panel {
+    background-color: rgb(150, 194, 35);
+}
+.host-risk-level-2 .panel .panel-heading ,
+.host-risk-level-2 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-pos
+{
+    background-color: rgb(54, 70, 11);
+}
+.host-risk-level-2 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-neg
+{
+		 background-color: rgba(150, 194, 35, 0.6);
+}
+.host-risk-level-2 .panel .panel-body .e1 .e2 .percent .e4 .color-pos
+{
+    color: rgb(54, 70, 11);
+}
+.host-risk-level-2 .panel .panel-body .e1 .e2 .percent .e4 .color-neg
+{
+		 /*color: rgba(150, 194, 35, 0.6);*/
+		 color: rgba(255, 255, 255, 1);
+}
+/* small floating */
+.host-risk-level-2 .floating-box-small * p{
+    color: rgb(150, 194, 35);
+}
+.host-risk-level-2 .floating-box-small * svg{
+    fill: rgb(150, 194, 35);
+}
+
+.host-risk-level-3 .panel {
+    background-color: rgb(250, 180, 0);
+}
+.host-risk-level-3 .panel .panel-heading ,
+.host-risk-level-3 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-pos
+{
+    background-color: rgb(224, 131, 9);
+}
+.host-risk-level-3 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-neg
+{
+		 background-color: rgba(250, 180, 0, 0.6);
+}
+.host-risk-level-3 .panel .panel-body .e1 .e2 .percent .e4 .color-pos
+{
+    color: rgb(224, 131, 9);
+}
+.host-risk-level-3 .panel .panel-body .e1 .e2 .percent .e4 .color-neg
+{
+		 /*color: rgba(250, 180, 0, 0.6);*/
+		 color: rgba(255, 255, 255, 1);
+}
+/* small floating */
+.host-risk-level-3 .floating-box-small * p{
+    color: rgb(250, 180, 0);
+}
+.host-risk-level-3 .floating-box-small * svg{
+    fill: rgb(250, 180, 0);
+}
+
+.host-risk-level-4 .panel {
+    background-color: rgb(240, 125, 0);
+}
+.host-risk-level-4 .panel .panel-heading ,
+.host-risk-level-4 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-pos
+{
+    background-color: rgb(221, 58, 0);
+}
+.host-risk-level-4 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-neg
+{
+		 background-color: rgba(240, 125, 0, 0.6);
+}
+.host-risk-level-4 .panel .panel-body .e1 .e2 .percent .e4 .color-pos
+{
+    color: rgb(221, 58, 0);
+}
+.host-risk-level-4 .panel .panel-body .e1 .e2 .percent .e4 .color-neg
+{
+		 /*color: rgba(240, 125, 0, 0.6);*/
+		 color: rgba(255, 255, 255, 1);
+}
+/* small floating */
+.host-risk-level-4 .floating-box-small * p{
+    color: rgb(240, 125, 0);
+}
+.host-risk-level-4 .floating-box-small * svg{
+    fill: rgb(240, 125, 0);
+}
+
+/*
+.host-risk-level-5 .panel {
+    background-color: rgba(221, 14, 24, 0.6);
+}
+.host-risk-level-5 .panel .panel-heading,
+.host-risk-level-5 .panel .panel-body .e1 .e2 .e3 .e4 .progress
+{
+    background-color: rgb(221, 58, 0);
+}
+.host-risk-level-5 .panel .panel-body .e1 .e2 .e3 .e4 p
+{
+    color: rgb(198, 40, 40);
+}
+*/
+.host-risk-level-5 .panel {
+    background-color: rgba(221, 14, 24, 1);
+}
+.host-risk-level-5 .panel .panel-heading,
+.host-risk-level-5 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-pos
+{
+    background-color: rgb(170, 20, 15);
+}
+.host-risk-level-5 .panel .panel-body .e1 .e2 .progress-row .e4 .progress-neg
+{
+		 background-color: rgba(221, 14, 24, 0.6);
+}
+.host-risk-level-5 .panel .panel-body .e1 .e2 .percent .e4 .color-pos
+{
+    color: rgb(170, 20, 15);
+}
+.host-risk-level-5 .panel .panel-body .e1 .e2 .percent .e4 .color-neg
+{
+		 /*color: rgba(221, 14, 24, 0.6);*/
+		 color: rgba(255, 255, 255, 1);
+}
+/* small floating */
+.host-risk-level-5 .floating-box-small * p {
+    color: rgba(221, 14, 24, 1);
+}
+.host-risk-level-5 .floating-box-small * svg {
+    color: rgba(221, 14, 24, 1);
+}
+
+.panel-transparent {
+		 background-color: transparent !important;
+}
+
+/**** NEW STYLE *********************************/
+/************************************************/
+
+/**** MIDDLE PANELS */
+.section-ceo-content {
+		padding: 0px; margin: 0px; 
+		background-color: #d3d3d3; 
+		overflow-y: auto;
+}
+
+/* Large Panels */
+/* Large Panel - System Overview */
+/*
+.lp-body-system-overview{
+    margin:0px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.lp-body-system-overview .e2{
+    padding: 8px;
+}
+.lp-last-patches{
+    height: 140px;
+}
+.lp-body-last-patches{
+    margin:0px;
+    padding:0px;
+}
+.lp-body-last-patches .e1{
+    margin:0px;
+}
+.lp-body-last-patches .e2{
+    padding: 8px 8px 8px 8px;
+    height: 112px;
+}
+*/
+
+
+/* Middle Content */
+
+/**** MIDDLE PANELS */
+.section-ceo-content {
+               padding: 0px; margin: 0px; 
+               background-color: #d3d3d3; 
+							 height:85vh;
+               overflow-y: auto;
+}
+
+						 /* Middle Content - Col - 1 */
+						 /* System Overview & Last Patches */
+
+						 /** Top 5 List: host, products, vulnerabilities */
+
+						 /* move to media
+						 .top-5-list-container {
+    padding: 30px 15px 30px 15px;
+}
+*/
+.list-panel {
+	margin-bottom: 0px;
+}
+.list-panel > .panel-heading {
+	background-color: #00435C;
+	color: white;
+	height: 28px;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	font-family: Calibri;
+	padding: 8px 8px 8px 8px;
+}
+.list-panel > .panel-body {
+	padding: 0px;
+}
+
+/* Item in the list */
+.top-5-list-item-container {
+    padding: 0px 0px 0px 0px;
+		margin-left: 15px;
+		margin-right: 15px;
+		height: auto;
+		overflow:auto;
+}
+.top-5-list-item-container a:hover{
+	cursor: pointer;
+}
+.panel-default-item {
+	margin: 8px;
+	border-radius: 4px;
+	background-color: #2A85A2;
+	/* Fixing height */
+	height: 102px;
+	overflow: hidden;
+}
+.panel-default-item > .heading-small-panel {
+	margin: 0px;
+	background-color: #00435C;
+	color: white;
+	height: 17px;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	padding: 2px 8px 4px 8px;
+}
+.panel-default-item> .body-small-panel {
+	padding: 8px 8px 8px 8px;
+}
+
+/* Small Panels with 2 Progress Bars */
+/* Products - Vulnerabilies - Top 5 Hosts */
+.sp-body-2-progress-bar .e1{
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+}
+.sp-body-2-progress-bar .e1 .e2{
+}
+.sp-body-2-progress-bar .e1 .e2 .e3{
+    margin: 0px 0px -2px 0px; /* contained p adds 2px*/
+}
+.sp-body-2-progress-bar .e1 .e2 .percent{
+    padding: 0px 0px 0px 0px;
+    width:100%;
+    float: left;
+}
+.sp-body-2-progress-bar .e1 .e2 .percent .e4 p{
+	color: white;
+	border-collapse: collapse;
+	line-height: 1;
+	margin-left: 0px;
+	padding: 0px;
+	font-weight: normal;
+	font-size:12px;
+}
+.sp-body-2-progress-bar .e1 .e2 .number-icon{
+    padding: 0px;
+    width:100%;
+}
+.sp-body-2-progress-bar .e1 .e2 .text{
+    padding: 0px 0px 0px 0px;
+    width:100%;
+    font-size: 10px;
+}
+.sp-body-2-progress-bar .e1 .e2 .text .e4 p{
+    color: white;
+		font-size: 9px;
+}
+.sp-body-2-progress-bar .e1 .e2 .progress-row{
+    padding: 0px 0px 0px 0px;
+    width:100%;
+}
+.sp-body-2-progress-bar .e1 .e2 .e3 .e4{
+    padding: 0px 0px 0px 0px;
+    margin-top: 0px;
+    /* margin-bottom: 6px; contained p adds 2px*/
+    font-size:12px;
+}
+.sp-body-2-progress-bar .text-e4{
+    padding:0px; 
+		margin-top: -4px;
+    color: white; 
+		font-weight: bold;
+}
+.sp-body-2-progress-bar .e1 .e2 .progress-row .e4-left{
+    padding: 4px 0px 0px 0px;
+}
+.sp-body-2-progress-bar .e1 .e2 .progress-row .e4-right{
+    padding: 4px 0px 0px 0px;
+}
+.sp-body-2-progress-bar .e1 .e2 .e3 .number-small{
+    margin: 0px;
+    padding: 0px;
+    font-size: 22px; font-weight: bold;
+    color: white;
+}
+.sp-body-2-progress-bar .e1 .e2 .e3 .icon{
+    position: relative;
+    bottom:3px;
+}
+
+/*Progress Div */
+.progress{
+    height: 6px; width:100%;
+    margin: 0px; padding: 0px;
+    border-radius: 0px;
+    float: left;}
+
+.progress-1 {
+	background-color: #00435C;
+	}
+
+.progress-2 {
+	background-color: #90b4bf;
+	}
+
+
+
+
+/**** HEADER */
+
+/**** FOOTER */
+
+
+
+/**** CVE Dialog *******************
+ * ********************************/
+/*
+.panel-default-item {
+	margin: 8px;
+	border-radius: 4px;
+	background-color: #2A85A2;
+}
+.panel-default-item > .heading-small-panel {
+	margin: 0px;
+	background-color: #00435C;
+	color: white;
+	height: 16px;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	padding: 2px 8px 4px 8px;
+}
+*/
+.modal-dialog {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width:500px;
+	height:300px;
+}
+/*
+.modal-dialog {
+  height: 80% !important;
+  padding-top:10%;
+}
+
+.modal-content {
+  height: 100% !important;
+  overflow:visible;
+}
+
+.modal-body {
+  height: 80%;
+  overflow: auto;
+}
+*/
+.panel-default-dialog{
+	margin: 0px;
+	border-radius: 4px;
+	background-color: #00435c;
+}
+
+.panel-heading-dialog,
+.panel-body-dialog{
+	margin: 0px;
+	padding: 0px;
+}
+.cve-dialog-heading{
+	margin: 0px;
+	background-color: #00435c;
+}
+	
+.cve-dialog-title{
+	margin: 0px;
+	color: white;
+	font-size: 26px;
+	font-weight: bold;
+	text-align: left;
+	padding: 8px 8px 8px 8px;
+}
+.cve-dialog-headline {
+    /*height: 24px;*/
+	padding: 16px 0px 16px 0px;
+	background-color: #337ab7;
+    }
+.cve-dialog-headline-p-1 {
+    /*height: 24px;*/
+    font-size: 24px;
+    color: white;
+    border-collapse: collapse;
+    line-height: 1;
+    font-weight: bold;
+	padding: 0px 8px 0px 8px;
+}
+.cve-dialog-headline-p-2 {
+    font-size: 20px;
+    color: white;
+    border-collapse: collapse;
+    line-height: 1;
+    margin-left: 0px;
+	padding: 0px 8px 0px 8px;
+    font-weight: normal;
+}
+.cve-dialog-body {
+    /*height: 24px;*/
+    font-size: 18;
+    color: black;
+    background-color: white;
+    border-collapse: collapse;
+    line-height: 1;
+    margin: 0px;
+    font-weight: normal;
+	padding: 8px 8px 8px 8px;
+}
+
+/** Customization */
+p {
+	margin: 0;
+}
+
+.margin-0 { margin:0px; }
+.margin-top-0 { margin-top:0px; }
+.margin-top-5 { margin-top:5px; }
+.margin-top-7 { margin-top:7px; }
+.margin-top-8 { margin-top: 8px; }
+.margin-top-10 { margin-top:10px; }
+.margin-top-15 { margin-top:15px; }
+.margin-top-17 { margin-top:17px; }
+.margin-top-30 { margin-top:30px; }
+
+.margin-left-0 { margin-left:0px; }
+.margin-bottom-0 { margin-bottom:0px; }
+
+.margin-right-0 { margin-right:0px; }
+
+.padding-0 { padding:0px; }
+.padding-8 { padding:8px; }
+.padding-left-0 { padding-left:0px; }
+.padding-left-4 { padding-left:4px; }
+.padding-right-0 { padding-right:0px; }
+.padding-right-4 { padding-right:4px; }
+
+.float-left {float: left;}
+
+.width-512 { width:512px; }
+
+.height-278 { height: 278px; }
+.height-112 { height: 112px; }
+
+.display-inline-block {
+	display: inline-block;
+}
+
+/* vertical align center */
+.vcenter {
+	display: inline-block;
+	vertical-align: middle;
+	float: none;
+}

@@ -1,0 +1,299 @@
+/**
+ * STYLE FOR  Header & footers
+ * *****************************************/
+.header{
+	height: 64px;
+	width: 100%;
+	background-color: #00435C;}
+.footer {
+	/*
+	position: absolute;
+	bottom: 0;
+	*/
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 54px;
+	background-color: #00435C;
+	/* sticky footer */
+	position:absolute;
+	bottom:0;
+}
+
+.row-main-area {
+	padding: 0px;
+	margin: 0px 0px 0px 0px;
+	width: 100%;
+	/*
+	height: 648px;
+	*/
+	background-color: #d3d3d3;
+}
+
+/** Sticky header, footer */
+/* -------------------------------------------------- */
+.layout-container {
+	display: table;
+	height: 100%;
+}
+
+.block {
+	display: table-row;
+	height: 1px;
+}
+
+.push {
+	height: auto;
+}
+
+/** Common */
+
+/* Top Banner */
+#top-banner{
+	margin: 0px; padding: 0px;
+	height: 64px;
+}
+#top-banner-left{
+	margin: 0px; padding: 0px;
+	height: 64px; 
+}
+.top-banner-left-col-1{
+	padding: 16px 8px 16px 30px;
+	/*width: 216px; */
+	height: 100%;
+	float: left;
+}
+
+#top-banner-left-col-2 {
+	padding: 15px 4px 16px 8px; 
+	margin: 0px;
+	/* 
+	height: 64px; 
+	width: 212px;*/
+	float: left;
+}
+
+/* <div id="top-banner..><p>...</p></div>*/
+.top-banner-title {
+	font-family: calibri; 
+	font-size: 18px; 
+	font-weight: bolder; 
+	color: white; 
+	margin: 0px; 
+	padding: 0px; 
+	/*
+	width: 200px; 
+	outline-width: 200px;
+	 */
+}
+
+#top-banner-left-col-3{
+	padding: 36px 4px 16px 4px; margin: 0px;
+	height: 64px; 
+	/* width: 68px;*/
+	float: left;
+}
+
+.top-banner-timestamp {
+	font-family: calibri; 
+	font-size: 12px; 
+	font-weight: bolder; 
+	color: #add8e6; 
+	margin:0px; 
+	padding:0px; 
+}
+
+#top-banner-right{
+	margin: 0px; padding: 0px;
+	height: 64px; 
+	display: inline-block;
+}
+.gtarc-logo {
+	padding-top: 400px;
+	margin-right: 16px;
+	margin-top: 8px;
+}
+.top-banner-right-menu {
+	margin-right: 31px;
+	margin-top: 27px;
+	float: right;
+
+}
+.top-banner-menu-item {
+	/*
+	padding: 0px; margin: 0px;
+	 */
+	display: inline;
+	float: left;
+	/*
+	width: 103px; height: 100%;
+	 */
+}
+.top-banner-menu-item-left {
+	/*
+	padding: 36px 4px 16px 8px;
+	 */
+	display: inline;
+	float: left;
+	padding-right: 4px;
+	position: relative;
+	top: -3px;
+}
+.top-banner-menu-item-right{
+	/*
+	 */
+	display: inline;
+	float: left;
+	padding-left: 24px;
+}
+
+.top-banner-right-col-1{
+	padding: 0px; margin: 0px;
+	width: 103px; height: 100%;
+}
+.top-banner-right-col-2{
+	padding: 0px; margin: 0px;
+	width: 76.2px; height: 100%;
+}
+.top-banner-right-col-3{
+	padding: 0px; margin: 0px;
+	width: 96.2px; height: 100%;
+}
+.top-banner-right-col-4{
+	padding: 0px; margin: 0px;
+	width: 150px; height: 100%;
+	float: right;
+}
+
+.top-banner-right-col-1-1{
+	padding: 36px 4px 16px 8px;
+	width:32px; height: 64px;
+}
+.top-banner-right-col-1-2{
+	padding: 33px 8px 16px 4px;
+	width: 71px; height: 64px;
+}
+.top-banner-right-col-2-1{
+	padding: 36px 4px 16px 8px;
+	width:32px; height: 64px;
+}
+.top-banner-right-col-2-2{
+	padding: 33px 8px 16px 4px;
+	width: 44.2px;
+}
+.top-banner-right-col-3-1{
+	padding: 36px 4px 16px 8px;
+	width:32px; height: 64px;
+}
+.top-banner-right-col-3-2{
+	padding:33px 8px 16px 4px;
+	width: 64.2px; height: 64px;
+}
+.top-banner-right-col-4-1{
+	padding: 36px 4px 16px 8px;
+	width:32px; height: 64px;
+}
+.top-banner-right-col-4-2{
+	padding: 33px 30px 16px 4px;
+	width: 118px; height: 64px;
+}
+.top-banner-right-p{
+	font-family: Calibri !important; 
+	font-weight: bold; 
+	font-size: 13px;
+	color: #add8e6;
+	height: 100%;
+	float: left;
+	margin: 0px; padding: 0px;
+}
+.top-banner-right-p:active,
+.top-banner-right-p.active {
+	color: #fff;
+}
+
+/* Bottom Banner */
+#bottom-banner{
+	margin: 0px;
+	height: 54px;
+	display: inline-block;
+}
+.bottom-banner-left{
+	height: 54px; width: 96px;
+	margin: 0px; padding: 28px 30px 10px 30px;
+	float: left;
+}
+/* Legend */
+.bottom-banner-menu-item {
+	display:inline;
+	float: left;
+	padding-right: 16px;
+}
+.bottom-banner-menu-item-left {
+	display:inline;
+	float: left;
+	padding-right: 8px;
+	position: relative;
+	top: 0px;
+	height: 18px;
+	width: 18px;
+}
+.bottom-banner-menu-item-right {
+	display:inline;
+	float: left;
+}
+.bottom-banner-menu-item-right p{
+	display:inline;
+	float: left;
+}
+
+.bottom-banner-right{
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	float: right;
+}
+.bottom-banner-right-gtarc{
+	
+	margin-right: 16px; 
+	padding: 0px;
+	float: right;
+}
+/* The logos */
+.bottom-banner-right-item {
+	padding: 0px 0px 0px 16px;
+	margin: 0px;
+	display: inline;
+	float:left;
+}
+.bottom-banner-right-col-1{
+	padding: 0px 16px 0px 0px;
+	position: relative;
+	top: 3px;
+	/*
+	height: 54px; width: 117px;
+	left: -22px;
+	 */
+}
+.bottom-banner-right-col-2{
+	height: 54px; width: 142px;
+	padding: 16px 16px 16px 16px;
+}
+.bottom-banner-right-col-3{
+	height: 54px; width: 108px;
+	padding: 9px 30px 10px 16px; margin: 0px;
+}
+
+.legend { 
+	margin-left:16px; 
+	margin-top:21px;
+}
+
+.padding-right-8 {
+	padding-right: 8px; 
+}
+
+.margin-top-14 {
+	margin-top: -14px; 
+}
+
+.margin-top-3 {top: 3px; }
+.margin-top-8 { margin-top: 8px; }
+.margin-top-8 { margin-top: 16px; }

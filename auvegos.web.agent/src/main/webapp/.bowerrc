@@ -1,0 +1,7 @@
+
+{
+	  "directory": "assets/libs",
+		"resolvers": [
+			"bower-npm-resolver"
+		]
+}

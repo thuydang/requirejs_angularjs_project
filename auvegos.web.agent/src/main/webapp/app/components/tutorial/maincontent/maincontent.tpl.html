@@ -1,0 +1,864 @@
+
+<!-- Main content -->
+<!-- Content dimention watcher 
+<div size-getter 
+											size-getter-height="getContentHeight" 
+			 								size-getter-width="getContentWidth" 
+											style="width: 100%; height:85vh;">
+
+</div> 
+	<div id="middle-panel" class="row section-ceo-content" style="height:{{getContentHeight}}px">
+-->
+
+	<div id="middle-panel" class="row section-ceo-content" >
+	<!-- Left Column -->
+	<div class="row-buffer"></div>
+
+	<div class="clearfix"></div>
+	<div class="col-lg-1 -col-buffer"></div>
+	<div class="-col-bufferred">
+	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5 ipad-padding">
+		<div class="row margin-left-0">
+			<div id="middle-panel-column-1" class="col-md-12 top-5-list-container">
+				<!-- System Overview & Last Patches Container -->
+				<div class="row">
+					<div class="col-md-12 ">
+						<div class="panel panel-default list-panel">
+							<div class="panel-heading font-panel-heading">SYSTEM OVERVIEW</div>
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div size-watcher 
+											size-watcher-height="refHeightPosition" 
+			 								size-watcher-width="refWidthPosition" 
+											style="width: 100%; padding:8px;">
+											<svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" id="svg_system_meter" viewBox="0 0 497 250" preserveAspectRatio="xMidYMid meet" enable-background="new 0 0 496 248" xml:space="preserve">
+												<g id="chevron-arrow-out">
+												<polygon id="chevron-10-arrow-out" display="none" fill="#DD0E18" points="417.883,221.095 432.277,209.703 435.094,227.48 	"/>
+												<polygon id="chevron-9-arrow-out" display="none" fill="#DD0E18" points="401.254,169.915 411.424,154.631 419.595,170.668 	"/>
+												<polygon id="chevron-8-arrow-out" display="none" fill="#F07D00" points="369.623,126.379 374.572,108.7 387.3,121.428 	"/>
+												<polygon id="chevron-7-arrow-out" display="none" fill="#F07D00" points="326.088,94.747 325.331,76.404 341.369,84.576 	"/>
+												<polygon id="chevron-6-arrow-out" display="none" fill="#FAB400" points="274.908,78.118 268.521,60.907 286.299,63.723 	"/>
+												<polygon id="chevron-5-arrow-out" display="none" fill="#FAB400" points="221.094,78.118 209.701,63.723 227.479,60.907 	"/>
+												<polygon id="chevron-4-arrow-out" display="none" fill="#96C223" points="169.915,94.747 154.631,84.577 170.669,76.405 	"/>
+												<polygon id="chevron-3-arrow-out" display="none" fill="#96C223" points="126.378,126.377 108.7,121.428 121.428,108.7 	"/>
+												<polygon id="chevron-2-arrow-out" display="none" fill="#5AA032" points="94.748,169.913 76.405,170.668 84.576,154.63 	"/>
+												<polygon id="chevron-1-arrow-out" display="none" fill="#5AA032" points="78.118,221.092 60.906,227.479 63.722,209.701 	"/>
+												</g>
+												<g id="chevron">
+												<path id="chevron-10" fill="#DD0E18" d="M495.98,246c-0.201-25.336-4.214-49.758-11.472-72.743l-59.695,19.396 c5.192,16.882,8.051,34.788,8.175,53.347H495.98z"/>
+												<path id="chevron-9" fill="#DD0E18" d="M483.272,169.452c-7.895-23.654-19.252-45.716-33.475-65.594l-50.549,36.726 c10.331,14.661,18.585,30.888,24.346,48.258L483.272,169.452z"/>
+												<path id="chevron-8" fill="#F07D00" d="M396.895,137.35l50.55-36.727c-14.68-19.829-32.238-37.389-52.069-52.066l-36.582,50.352 C373.294,109.786,386.131,122.752,396.895,137.35z"/>
+												<path id="chevron-7" fill="#F07D00" d="M392.141,46.202c-19.877-14.224-41.939-25.58-65.593-33.473l-19.183,59.039 c17.37,5.89,33.578,14.291,48.202,24.774L392.141,46.202z"/>
+												<path id="chevron-6" fill="#FAB400" d="M322.743,11.493C299.758,4.235,275.335,0.221,250,0.02v62 c18.647,0.199,36.627,3.169,53.562,8.503L322.743,11.493z"/>
+												<path id="chevron-5" fill="#FAB400" d="M246,0.02c-25.335,0.202-49.757,4.215-72.743,11.474l19.18,59.031 c16.936-5.335,34.916-8.305,53.562-8.504V0.02z"/>
+												<path id="chevron-4" fill="#96C223" d="M169.452,12.729c-23.654,7.894-45.716,19.25-65.595,33.474l36.575,50.34 c14.624-10.485,30.833-18.885,48.203-24.776L169.452,12.729z"/>
+												<path id="chevron-3" fill="#96C223" d="M100.623,48.556c-19.828,14.678-37.389,32.238-52.066,52.067l50.534,36.715 c10.764-14.598,23.627-27.537,38.127-38.414L100.623,48.556z"/>
+												<path id="chevron-2" fill="#5AA032" d="M46.202,103.857c-14.222,19.879-25.58,41.94-33.474,65.595l59.677,19.391 c5.76-17.371,14.015-33.599,24.345-48.26L46.202,103.857z"/>
+												<path id="chevron-1" fill="#5AA032" d="M63.012,246c0.124-18.56,2.981-36.465,8.175-53.347l-59.694-19.396 C4.234,196.242,0.221,220.664,0.02,246H63.012z"/>
+												</g>
+												<g id="chevron-overlay">
+												<path id="chevron-overlay-10" display="none" fill="#DD0E18" d="M495.98,246c-0.201-25.336-4.214-49.758-11.472-72.743l-59.695,19.396 c5.192,16.882,8.051,34.788,8.175,53.347H495.98z"/>
+												<path id="chevron-overlay-9" display="none" fill="#DD0E18" d="M483.272,169.452c-7.895-23.654-19.252-45.716-33.475-65.594l-50.549,36.726 c10.331,14.661,18.585,30.888,24.346,48.258L483.272,169.452z"/>
+												<path id="chevron-overlay-8" display="none" fill="#F07D00" d="M396.895,137.35l50.55-36.727c-14.68-19.829-32.238-37.389-52.069-52.066l-36.582,50.352 C373.294,109.786,386.131,122.752,396.895,137.35z"/>
+												<path id="chevron-overlay-7" display="none" fill="#F07D00" d="M392.141,46.202c-19.877-14.224-41.939-25.58-65.593-33.473l-19.183,59.039 c17.37,5.89,33.578,14.291,48.202,24.774L392.141,46.202z"/>
+												<path id="chevron-overlay-6" display="none" fill="#FAB400" d="M322.743,11.493C299.758,4.235,275.335,0.221,250,0.02v62 c18.647,0.199,36.627,3.169,53.562,8.503L322.743,11.493z"/>
+												<path id="chevron-overlay-5" display="none" fill="#FAB400" d="M246,0.02c-25.335,0.202-49.757,4.215-72.743,11.474l19.18,59.031 c16.936-5.335,34.916-8.305,53.562-8.504V0.02z"/>
+												<path id="chevron-overlay-4" display="none" fill="#96C223" d="M169.452,12.729c-23.654,7.894-45.716,19.25-65.595,33.474l36.575,50.34 c14.624-10.485,30.833-18.885,48.203-24.776L169.452,12.729z"/>
+												<path id="chevron-overlay-3" display="none" fill="#96C223" d="M100.623,48.556c-19.828,14.678-37.389,32.238-52.066,52.067l50.534,36.715 c10.764-14.598,23.627-27.537,38.127-38.414L100.623,48.556z"/>
+												<path id="chevron-overlay-2" display="none" fill="#5AA032" d="M46.202,103.857c-14.222,19.879-25.58,41.94-33.474,65.595l59.677,19.391 c5.76-17.371,14.015-33.599,24.345-48.26L46.202,103.857z"/>
+												<path id="chevron-overlay-1" display="none" fill="#5AA032" d="M63.012,246c0.124-18.56,2.981-36.465,8.175-53.347l-59.694-19.396 C4.234,196.242,0.221,220.664,0.02,246H63.012z"/>
+												</g>
+												<g id="chevron-arrow-in">
+												<polygon id="chevron-10-arrow-in" display="none" fill="#FFFFFF" points="461.339,214.208 432.55,236.995 426.919,201.438 	"/>
+												<polygon id="chevron-9-arrow-in" display="none" fill="#FFFFFF" points="440.455,149.937 420.116,180.505 403.773,148.428 	"/>
+												<polygon id="chevron-8-arrow-in" display="none" fill="#FFFFFF" points="400.732,95.265 390.835,130.622 365.38,105.165 	"/>
+												<polygon id="chevron-7-arrow-in" display="none" fill="#FFFFFF" points="346.06,55.543 347.572,92.228 315.496,75.884 	"/>
+												<polygon id="chevron-6-arrow-in" display="none" fill="#FFFFFF" points="214.208,34.661 236.995,63.451 201.438,69.082 	"/>
+												<polygon id="chevron-5-arrow-in" display="none" fill="#FFFFFF" points="281.788,34.66 294.562,69.083 259.005,63.45 	"/>
+												<polygon id="chevron-4-arrow-in" display="none" fill="#FFFFFF" points="149.936,55.544 180.504,75.884 148.428,92.228 	"/>
+												<polygon id="chevron-3-arrow-in" display="none" fill="#FFFFFF" points="95.263,95.267 130.621,105.166 105.165,130.621 	"/>
+												<polygon id="chevron-2-arrow-in" display="none" fill="#FFFFFF" points="55.542,149.94 92.228,148.428 75.883,180.505 	"/>
+												<polygon id="chevron-1-arrow-in" display="none" fill="#FFFFFF" points="34.659,214.213 69.082,201.438 63.45,236.995 	"/>
+												</g>
+											</svg>
+										</div>
+									</div>
+									<!-- floating element positioned according to svg. Directive size-watcher -->
+									<div id="floating-box-container">
+										<div class="top-5-list-item-container" ng-class="{
+											'host-risk-level-1' : (statistics.statisticOverallRisk) >= 0,
+											'host-risk-level-2' : (statistics.statisticOverallRisk) >= 3,
+											'host-risk-level-3' : (statistics.statisticOverallRisk) >= 5,
+											'host-risk-level-4' : (statistics.statisticOverallRisk) >= 7,
+											'host-risk-level-5' : (statistics.statisticOverallRisk) >= 9,
+										}">
+
+												<a ng-click="setReferenceResult()">
+											<div id="floating-box-large" class="panel panel-default panel-default-item" style="position: absolute; 
+											top: {{refHeightPosition * 0.75}}px; 
+											left:{{refWidthPosition/2  + largeBoxPosX(statistics.statisticOverallRisk, statistics.statisticOverallRisk*15) }}px; 
+											width: auto;">
+											<div class="panel-heading heading-small-panel" style="">CURRENT RISK</div>
+											<div class="panel-body body-small-panel">
+												<div class="row margin-0 padding-0">
+													<div class="col-md-12 margin-0 padding-0">
+														<p style="color: white;">{{makeNumberSigned(getPercentDiff(statistics.statisticOverallRisk, refStatistics.statisticOverallRisk))}}%</p>
+													</div>
+												</div>
+												<div class="clearfix"></div>
+												<div class="row margin-0 padding-0">
+													<div class="col-md-12 margin-0 padding-0">
+														<div class="number-small display-inline-block" style="font-weight: bolder; font-size: 45px; color: white; line-height:1">{{oneDecimal(statistics.statisticOverallRisk)}}</div>
+														<div class="scaling-svg-container display_inline_block" 
+									 style="width:25px; 
+									 height:18px;
+									 padding-bottom: 0%">
+															<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																							 class="scaling-svg"
+												x="0px" y="0px"
+										viewBox="0 0 47 42" 
+					xml:space="preserve">
+																<g>
+																<path fill="#FFFFFF" d="M40.612,23.15c0,1.023,0.848,1.849,1.895,1.849c1.041,0,1.887-0.826,1.887-1.849
+																c0-1.021-0.846-1.856-1.887-1.856C41.46,21.294,40.612,22.129,40.612,23.15 M40.612,17.459c0,1.026,0.848,1.861,1.895,1.861
+																c1.041,0,1.887-0.835,1.887-1.861c0-1.024-0.846-1.85-1.887-1.85C41.46,15.609,40.612,16.435,40.612,17.459 M28.489,17.653
+																c-0.799,1.646-3.947,2.708-5.191,3.92C25.6,7.236,18.041,1.698,14.081,0C17.715,14.607,0.825,14.467,0.042,25.781
+																C-0.595,34.968,6.11,39.795,10.712,42c-0.879-1.737-1.562-3.75-1.562-5.853c0-4.384,5.805-6.722,6.945-10.842
+																c1.109,1.881,3.131,4.659,2.174,7.629c0,0,1.094,0.181,2.27-1.007c0.406,1.793,1.328,5.583-1.021,9.727
+																C33.146,34.828,30.205,22.816,28.489,17.653 M47,13.065l-4.496-8.066L38,13.065H47z"/>
+																</g>
+															</svg>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+												</a>
+										</div>
+
+
+										<div class="top-5-list-item-container" ng-class="{
+											'host-risk-level-1' : (refStatistics.statisticOverallRisk) >= 0,
+											'host-risk-level-2' : (refStatistics.statisticOverallRisk) >= 3,
+											'host-risk-level-3' : (refStatistics.statisticOverallRisk) >= 5,
+											'host-risk-level-4' : (refStatistics.statisticOverallRisk) >= 7,
+											'host-risk-level-5' : (refStatistics.statisticOverallRisk) >= 9,
+										}">
+											<div id="floating-box-small" class="panel panel-transparent floating-box-small" style="position: absolute; 
+											top: {{refHeightPosition * 0.45 - abs(5.5 - 5)*5}}px; 
+											left:{{refWidthPosition/2 - 0 + largeBoxPosX(refStatistics.statisticOverallRisk, refStatistics.statisticOverallRisk* 12) }}px;
+											height:50px; width: 87px; border-radius: 4px;">
+												<div class="panel-body" style="height: 50px; width: 100%; padding: 0px; margin: 0px; border-radius: 4px;">
+													<div class="row" style="height: 25px; padding: 0px; margin: 0px; width:100%;">
+														<div class="col-md-6" style="padding: 0px 0px 0px 4px; height: 25px; margin: 0px;">
+															<p style="font-weight: bolder; font-size: 21px; width: 100%; height: 100%; margin: 0px; padding: 0px; float: left;">{{(refStatistics.statisticOverallRisk)}}</p>
+														</div>
+														<div class="col-md-6" style="padding: 7px 0px 0px 2px; margin: 0px;">
+															<div class="scaling-svg-container display_inline_block" 
+										style="width:17px; 
+										height:15px;
+										padding-bottom: 0%">
+																<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								style="float: left;"
+												class="scaling-svg"
+						x="0px" y="0px"
+							viewBox="0 0 47 42" 
+			 xml:space="preserve">
+																	<g>
+																	<path d="M42.498,26.385c1.043,0,1.888-0.828,1.888-1.848c0-1.026-0.845-1.854-1.888-1.854
+																	c-1.042,0-1.887,0.828-1.887,1.854C40.611,25.557,41.456,26.385,42.498,26.385z"/>
+																	<path d="M42.498,20.704c1.043,0,1.888-0.829,1.888-1.849c0-1.027-0.845-1.854-1.888-1.854
+																	c-1.042,0-1.887,0.827-1.887,1.854C40.611,19.875,41.456,20.704,42.498,20.704z"/>
+																	<polygon  points="37.999,29 42.5,37.07 47,29 	"/>
+																	<path  d="M23.296,21.576C25.599,7.238,18.043,1.703,14.085,0C17.717,14.604,0.827,14.469,0.042,25.788
+																	C-0.596,34.973,6.11,39.79,10.711,42c-0.88-1.731-1.562-3.749-1.562-5.857c0-4.381,5.806-6.721,6.946-10.84
+																	c1.11,1.885,3.129,4.665,2.168,7.63c0,0,1.1,0.188,2.271-1.007c0.417,1.795,1.335,5.584-1.017,9.73
+																	c13.629-6.828,10.685-18.838,8.972-23.995C27.687,19.304,24.546,20.366,23.296,21.576z"/>
+																	</g>
+																</svg>
+															</div>
+														</div>
+													</div>
+													<div class="row" style="height: 10px; margin: 0px; padding: 0px;">
+														<div class="col-lg-12 col-md-12 col-sm-12" style="height: 15px; width: 100%; padding: 0px 0px 0px 4px; margin: 0px;">
+															<p style="font-weight: bolder; font-size: 11px; height: 100%; margin: 0px; padding: 0px; float: left;">PAST REPORT</p>
+														</div>
+													</div>
+													<div class="row" style="height: 10px; margin: 0px; padding: 0px; width: 100%;">
+														<div class="col-lg-12 col-md-12 col-sm-12" style="height: 15px; width: 100%; padding: 0px 0px 0px 4px; margin: 0px;">
+															<p style="font-weight: bolder; font-size: 11px; width: 100%; height: 100%; margin: 0px; padding: 0px; float: left;">{{comparativeTimestamp}}</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+										<!-- // floating elements -->
+								</div>
+
+									<!-- System overview row 2 -->
+									<div class="row margin-0">
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel">HOSTS</div>
+												<div class="panel-body body-small-panel sp-body-hosts">
+													<div class="row e1 float-left">
+														<div class="col-md-12 e2">
+															<p>{{makeNumberSigned(statistics.statisticNumHosts - refStatistics.statisticNumHosts)}}</p>
+														</div>
+													</div>
+													<div class="row e1">
+														<div class="col-md-12 e2">
+															<span class="number-big">{{statistics.statisticNumHosts}}</span>
+															<div class="icon" style="width:25px; height:18px; display: inline-block;" >
+																<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								x="0px" y="0px"
+																viewBox="0 0 51 42" 
+								preserveAspectRatio='xMaxYMax slice'
+								style="width: 100%; height: 100%; padding-bottom: 0%, overflow: none"
+				xml:space="preserve">
+																	<path fill="#FFFFFF" d="M11.738,36.829H0.375v3.95h11.363V42h10.523v-1.221h11.365v-3.95H22.262v-1.223h-3.247v-4.637h-4.027v4.637
+																	h-3.249V36.829z M29.354,4.682h-7.697v-2.51h7.697V4.682z M4.272,3.034c0,0.594-0.484,1.069-1.087,1.069S2.098,3.628,2.098,3.034
+																	c0-0.589,0.485-1.067,1.088-1.067S4.272,2.445,4.272,3.034 M34,5.12V1.731C34,0.772,33.207,0,32.235,0H1.767
+																	C0.791,0,0,0.772,0,1.731V5.12c0,0.958,0.791,1.733,1.767,1.733h30.467C33.207,6.853,34,6.078,34,5.12 M29.354,14.989h-7.697v-2.51
+																	h7.697V14.989z M4.272,13.341c0,0.597-0.484,1.07-1.087,1.07s-1.088-0.473-1.088-1.07c0-0.588,0.485-1.07,1.088-1.07
+																	S4.272,12.753,4.272,13.341 M34,15.426v-3.392c0-0.955-0.793-1.728-1.765-1.728H1.767C0.791,10.307,0,11.08,0,12.035v3.392
+																	c0,0.958,0.791,1.73,1.767,1.73h30.467C33.207,17.157,34,16.384,34,15.426 M29.354,25.293h-7.697v-2.507h7.697V25.293z
+																	M4.272,23.648c0,0.594-0.484,1.067-1.087,1.067s-1.088-0.473-1.088-1.067c0-0.591,0.485-1.067,1.088-1.067
+																	S4.272,23.057,4.272,23.648 M34,25.73v-3.386c0-0.957-0.793-1.73-1.765-1.73H1.767C0.791,20.614,0,21.386,0,22.344v3.386
+																	c0,0.961,0.791,1.732,1.767,1.732h30.467C33.207,27.462,34,26.691,34,25.73"/></svg>
+															</div>
+														</div>
+													</div>
+													<div class="row e1">
+														<div class="e2">
+															<div class="progress progress-2">
+																<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPercent(statistics.statisticNumHosts, refStatistics.statisticNumHosts)}}%; background-color: white; margin: 0px; padding: 0px;">
+																	<span class="sr-only">70% Complete</span>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel">PRODUCTS</div>
+												<div class="panel-body body-small-panel sp-body-2-progress-bar">
+													<div class="row e1">
+														<div class="col-md-6 e2 padding-left-0 padding-right-4">
+															<div class="row e3 percent">
+																<div class="col-md-12 e4">
+																	<p>{{makeNumberSigned(statistics.statisticNumProdInstances - refStatistics.statisticNumProdInstances)}}</p>
+																</div>
+															</div>
+															<div class="row e3 number-icon">
+																<span class="number-small">{{statistics.statisticNumProdInstances}}</span>
+																<div class="scaling-svg-container display_inline_block" 
+										 style="width:19px; 
+										 height:12px;
+										 padding-bottom: 0%">
+																	<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								 class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="0 0 59 42" 
+					 xml:space="preserve">
+																		<path fill="#FFFFFF" d="M52.613,23.146c0,1.025,0.845,1.854,1.889,1.854c1.041,0,1.886-0.829,1.886-1.854
+																		c0-1.021-0.845-1.849-1.886-1.849C53.458,21.296,52.613,22.124,52.613,23.146 M52.613,17.463c0,1.025,0.845,1.853,1.889,1.853
+																		c1.041,0,1.886-0.828,1.886-1.853c0-1.022-0.845-1.851-1.886-1.851C53.458,15.612,52.613,16.441,52.613,17.463 M38.715,38.715H3.297
+																		V10.43h35.418V38.715z M38.498,5.434c0,1.632-1.324,2.962-2.96,2.962c-1.631,0-2.957-1.331-2.957-2.962
+																		c0-1.631,1.326-2.96,2.957-2.96C37.174,2.474,38.498,3.803,38.498,5.434 M30.614,5.434c0,1.632-1.327,2.962-2.96,2.962
+																		c-1.632,0-2.96-1.331-2.96-2.962c0-1.631,1.328-2.96,2.96-2.96C29.287,2.474,30.614,3.803,30.614,5.434 M20.38,6.8H3.634V3.644
+																		H20.38V6.8z M42,39.802V2.194C42,0.981,41.017,0,39.802,0H2.198C0.98,0,0,0.976,0,2.194v37.608C0,41.016,0.98,42,2.198,42h37.604
+																		C41.017,42,42,41.016,42,39.802 M59,13.069l-4.501-8.071L50,13.069H59z"/>
+																	</svg>
+																</div>
+															</div>
+															<div class="row e3 text">
+																<div class="col-md-12 text-e4 font-panel-body">
+																	<p>INSTANCES</p>
+																</div>
+															</div>
+															<div class="row e3 progress-row">
+																<div class="col-md-12 e4-left">
+																	<div class="progress" style="background-color: #00435C;">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPercent(statistics.statisticNumProdInstances, refStatistics.statisticNumProdInstances)}}%; background-color: white;">
+																			<span class="sr-only">60% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-6 e2 padding-left-4 padding-right-0">
+															<div class="row e3 percent">
+																<div class="col-md-12 e4">
+																	<p>{{makeNumberSigned(statistics.statisticNumProdUnique - refStatistics.statisticNumProdUnique)}}</p>
+																</div>
+															</div>
+															<div class="row e3 number-icon">
+																<span class="number-small">{{statistics.statisticNumProdUnique}}</span>
+																<div class="scaling-svg-container display_inline_block" 
+										 style="width:19px; 
+										 height:12px;
+										 padding-bottom: 0%">
+																	<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								 class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="0 0 59 42" 
+					 xml:space="preserve">
+																		<path fill="#FFFFFF" d="M52.613,23.146c0,1.025,0.845,1.854,1.889,1.854c1.041,0,1.886-0.829,1.886-1.854
+																		c0-1.021-0.845-1.849-1.886-1.849C53.458,21.296,52.613,22.124,52.613,23.146 M52.613,17.463c0,1.025,0.845,1.853,1.889,1.853
+																		c1.041,0,1.886-0.828,1.886-1.853c0-1.022-0.845-1.851-1.886-1.851C53.458,15.612,52.613,16.441,52.613,17.463 M38.715,38.715H3.297
+																		V10.43h35.418V38.715z M38.498,5.434c0,1.632-1.324,2.962-2.96,2.962c-1.631,0-2.957-1.331-2.957-2.962
+																		c0-1.631,1.326-2.96,2.957-2.96C37.174,2.474,38.498,3.803,38.498,5.434 M30.614,5.434c0,1.632-1.327,2.962-2.96,2.962
+																		c-1.632,0-2.96-1.331-2.96-2.962c0-1.631,1.328-2.96,2.96-2.96C29.287,2.474,30.614,3.803,30.614,5.434 M20.38,6.8H3.634V3.644
+																		H20.38V6.8z M42,39.802V2.194C42,0.981,41.017,0,39.802,0H2.198C0.98,0,0,0.976,0,2.194v37.608C0,41.016,0.98,42,2.198,42h37.604
+																		C41.017,42,42,41.016,42,39.802 M59,13.069l-4.501-8.071L50,13.069H59z"/>
+																	</svg>
+																</div>
+															</div>
+															<div class="row e3 text">
+																<div class="col-md-12 text-e4 font-panel-body">
+																	<p>UNIQUE</p>
+																</div>
+															</div>
+															<div class="row e3 progress-row">
+																<div class="col-md-12 e4-right">
+																	<div class="progress" style="background-color: #00435C;">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPercent(statistics.statisticNumProdUnique, refStatistics.statisticNumProdUnique)}}%; background-color: white;">
+																			<span class="sr-only">80% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel">VULNERABILITIES</div>
+												<div class="panel-body body-small-panel sp-body-2-progress-bar">
+													<div class="row e1">
+														<div class="col-md-6 e2 padding-left-0 padding-right-4">
+															<div class="row e3 percent">
+																<div class="col-md-12 e4">
+																	<p>{{makeNumberSigned(statistics.statisticNumVulnsInstances - refStatistics.statisticNumVulnsInstances)}}</p>
+																</div>
+															</div>
+															<div class="row e3 number-icon">
+																<span class="number-small">{{statistics.statisticNumVulnsInstances}}</span>
+																<div class="scaling-svg-container display_inline_block" 
+										 style="width:13px; 
+										 height:12px;
+										 padding-bottom: 0%">
+																	<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								 class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="-5 0 52 38" 
+					 xml:space="preserve">
+
+																		<g>
+																		<path fill="#FFFFFF" d="M40.32,22H34v-7.666l4.762-4.638c0.33-0.341,0.608-0.743,0.608-1.207c0-0.465-0.112-0.866-0.444-1.208
+																		c-0.332-0.34-0.697-0.51-1.153-0.51c-0.454,0-0.835,0.209-1.167,0.549L32.078,12H9.924L5.381,7.321
+																		C5.05,6.981,4.654,6.791,4.2,6.791s-0.849,0.16-1.181,0.5C2.686,7.633,2.521,8.03,2.521,8.495c0,0.464-0.114,0.862,0.22,1.203
+																		L7,14.334V22H1.68c-0.454,0-0.85,0.281-1.18,0.619C0.166,22.959,0,23.414,0,23.879c0,0.466,0.166,1.07,0.5,1.411
+																		C0.83,25.628,1.226,26,1.68,26h5.881c0,3,0.506,5.134,1.521,7.171l-5.301,6.001c-0.299,0.355-0.434,0.727-0.408,1.202
+																		c0.025,0.474,0.206,0.85,0.538,1.172c0.333,0.284,0.709,0.418,1.13,0.418c0.49,0,0.909-0.192,1.259-0.568l4.805-5.555l0.395,0.375
+																		c0.244,0.232,0.624,0.522,1.14,0.871c0.518,0.348,1.095,0.696,1.733,1.045c0.638,0.349,1.239,0.643,2.124,0.884
+																		C17.379,39.26,18,39.38,19,39.38V15h3v24.38c1,0,2.029-0.116,2.887-0.347c0.856-0.234,1.744-0.493,2.322-0.78
+																		c0.577-0.286,1.23-0.613,1.791-0.979c0.56-0.364,0.969-0.619,1.145-0.763c0.175-0.143,0.328-0.259,0.415-0.349l5.208,5.281
+																		c0.315,0.34,0.715,0.511,1.188,0.511s0.868-0.171,1.184-0.511c0.332-0.34,0.501-0.741,0.501-1.205c0-0.466-0.167-0.867-0.499-1.205
+																		l-5.459-5.432C33.854,31.474,34.44,29,34.44,26h5.88c0.454,0,0.85-0.345,1.18-0.683c0.333-0.341,0.5-0.831,0.5-1.295
+																		c0-0.466-0.167-1.019-0.5-1.359C41.17,22.324,40.774,22,40.32,22z"/>
+																		<path fill="#FFFFFF" d="M26.945,2.67C25.31,1,23.327,0.035,21,0.035s-4.309,1.028-5.945,2.699C13.418,4.406,12.602,6,12.602,9H29.4
+																		C29.4,6,28.582,4.342,26.945,2.67z"/>
+																		</g>
+																	</svg>
+																</div>
+															</div>
+															<div class="row e3 text">
+																<div class="col-md-12 text-e4 font-panel-body">
+																	<p>INSTANCES</p>
+																</div>
+															</div>
+															<div class="row e3 progress-row">
+																<div class="col-md-12 e4-left">
+																	<div class="progress" style="background-color: #00435C;">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPercent(statistics.statisticNumVulnsInstances, refStatistics.statisticNumVulnsInstances)}}%; background-color: white;">
+																			<span class="sr-only">60% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-6 e2 padding-left-4 padding-right-0">
+															<div class="row e3 percent">
+																<div class="col-md-12 e4">
+																	<p>{{makeNumberSigned(statistics.statisticNumVulnsUnique - refStatistics.statisticNumVulnsUnique)}}</p>
+																</div>
+															</div>
+															<div class="row e3 number-icon">
+																<span class="number-small">{{statistics.statisticNumVulnsUnique}}</span>
+																<div class="scaling-svg-container display_inline_block" 
+										 style="width:19px; 
+										 height:12px;
+										 padding-bottom: 0%">
+																	<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																								 class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="0 0 59 42" 
+					 xml:space="preserve">
+
+																		<g>
+																		<path fill="#FFFFFF" d="M40.32,22H34v-7.666l4.762-4.638c0.33-0.341,0.608-0.743,0.608-1.207c0-0.465-0.112-0.866-0.444-1.208
+																		c-0.332-0.34-0.697-0.51-1.153-0.51c-0.454,0-0.835,0.209-1.167,0.549L32.078,12H9.924L5.381,7.321
+																		C5.05,6.981,4.654,6.791,4.2,6.791s-0.849,0.16-1.181,0.5C2.686,7.633,2.521,8.03,2.521,8.495c0,0.464-0.114,0.862,0.22,1.203
+																		L7,14.334V22H1.68c-0.454,0-0.85,0.281-1.18,0.619C0.166,22.959,0,23.414,0,23.879c0,0.466,0.166,1.07,0.5,1.411
+																		C0.83,25.628,1.226,26,1.68,26h5.881c0,3,0.506,5.134,1.521,7.171l-5.301,6.001c-0.299,0.355-0.434,0.727-0.408,1.202
+																		c0.025,0.474,0.206,0.85,0.538,1.172c0.333,0.284,0.709,0.418,1.13,0.418c0.49,0,0.909-0.192,1.259-0.568l4.805-5.555l0.395,0.375
+																		c0.244,0.232,0.624,0.522,1.14,0.871c0.518,0.348,1.095,0.696,1.733,1.045c0.638,0.349,1.239,0.643,2.124,0.884
+																		C17.379,39.26,18,39.38,19,39.38V15h3v24.38c1,0,2.029-0.116,2.887-0.347c0.856-0.234,1.744-0.493,2.322-0.78
+																		c0.577-0.286,1.23-0.613,1.791-0.979c0.56-0.364,0.969-0.619,1.145-0.763c0.175-0.143,0.328-0.259,0.415-0.349l5.208,5.281
+																		c0.315,0.34,0.715,0.511,1.188,0.511s0.868-0.171,1.184-0.511c0.332-0.34,0.501-0.741,0.501-1.205c0-0.466-0.167-0.867-0.499-1.205
+																		l-5.459-5.432C33.854,31.474,34.44,29,34.44,26h5.88c0.454,0,0.85-0.345,1.18-0.683c0.333-0.341,0.5-0.831,0.5-1.295
+																		c0-0.466-0.167-1.019-0.5-1.359C41.17,22.324,40.774,22,40.32,22z"/>
+																		<path fill="#FFFFFF" d="M26.945,2.67C25.31,1,23.327,0.035,21,0.035s-4.309,1.028-5.945,2.699C13.418,4.406,12.602,6,12.602,9H29.4
+																		C29.4,6,28.582,4.342,26.945,2.67z"/>
+																		</g>
+																	</svg>
+																</div>
+															</div>
+															<div class="row e3 text">
+																<div class="col-md-12 text-e4 font-panel-body">
+																	<p>UNIQUE</p>
+																</div>
+															</div>
+															<div class="row e3 progress-row">
+																<div class="col-md-12 e4-right">
+																	<div class="progress progress-2">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{getPercent(statistics.statisticNumVulnsUnique, refStatistics.statisticNumVulnsUnique)}}%; background-color: white;">
+																			<span class="sr-only">80% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row margin-top-30">
+						<div class="col-md-12">
+							<div class="panel panel-default list-panel">
+								<div class="panel-heading font-panel-heading">LAST PATCHES</div>
+								<div class="panel-body">
+									<div class="row margin-0">
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel font-panel-heading">Apache HTTP Server</div>
+												<div class="panel-body sp-body-last-patches">
+													<div class="row e1 date-row">
+														<div class="col-md-12 e2 date-col">
+															<p>2016/06/10 | 17:25</p>
+														</div>
+													</div>
+													<div class="row e1 text-row">
+														<div class="col-md-12 e2 text-col font-panel-body">
+															<p>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel font-panel-heading">AP-1200</div>
+												<div class="panel-body sp-body-last-patches">
+													<div class="row e1 date-row">
+														<div class="col-md-12 e2 date-col">
+															<p>2016/06/10 | 17:25</p>
+														</div>
+													</div>
+													<div class="row e1 text-row">
+														<div class="col-md-12 e2 text-col font-panel-body">
+															<p>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6 col-md-4 padding-0">
+											<div class="panel panel-default panel-default-item">
+												<div class="panel-heading heading-small-panel font-panel-heading">DAFIS-ST2540-ControllerA</div>
+												<div class="panel-body sp-body-last-patches">
+													<div class="row e1 date-row">
+														<div class="col-md-12 e2 date-col">
+															<p>2016/06/10 | 17:25</p>
+														</div>
+													</div>
+													<div class="row e1 text-row">
+														<div class="col-md-12 e2 text-col font-panel-body">
+															<p>
+															</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Right Column -->
+		<div class="col-xs-12 col-sm-12 col-md-6 col-lg-5">
+			<div class="row margin-right-0">
+				<!-- Host Lists Container -->
+				<div class="col-sm-4 col-md-4 col-lg-4 top-5-list-container">
+					<div class="panel panel-default list-panel">
+						<div class="panel-heading font-panel-heading">TOP 5 VULNERABLE HOSTS</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Host List Items here -->
+									<div ng-repeat="item in hostData">
+										<div class="row">
+											<div class="-col-md-12 top-5-list-item-container" ng-class="{
+											'host-risk-level-1' : (item.hostRiskIndex) >= 0,
+											'host-risk-level-2' : (item.hostRiskIndex) >= 3,
+											'host-risk-level-3' : (item.hostRiskIndex) >= 5,
+											'host-risk-level-4' : (item.hostRiskIndex) >= 7,
+											'host-risk-level-5' : (item.hostRiskIndex) >= 9,
+											}">
+												<!--
+							'host-risk-level-5' : getRandomNumber(HostRisk, $index) >= 8,
+												-->
+												<div class="panel panel-default panel-default-item">
+													<div class="panel-heading heading-small-panel font-panel-heading">{{item.hostName}}</div>
+													<div class="panel-body body-small-panel sp-body-2-progress-bar">
+														<div class="row e1">
+															<div class="col-md-6 e2 padding-right-4 padding-left-0">
+																<div class="row e3 percent">
+																	<div class="col-md-12 e4">
+																		<p class="hostsSmallPanel-Row-1-p"
+										 ng-class="{
+										 'color-pos' : getRandomNumberSigned(HostRiskVariation, hostData.indexOf(item)) >= 0,
+										 'color-neg' : getRandomNumbersigned(HostRiskVariation, hostData.indexOf(item)) < 0,
+										 }">{{getRandomNumberSigned(HostRiskVariation, hostData.indexOf(item))}}%</p>
+																	</div>
+																</div>
+																<div class="clearfix"></div>
+																<div class="row e3 number-icon">
+																	<div class="number-small display_inline_block">{{oneDecimal(item.hostRiskIndex)}}</div>
+																	<div class="scaling-svg-container display_inline_block" 
+											style="width:19px; 
+											height:12px;
+											padding-bottom: 0%">
+																		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																									class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="0 0 47 42" 
+					 xml:space="preserve">
+																			<path fill="#FFFFFF" d="M23.297,21.576C25.6,7.238,18.044,1.703,14.086,0C17.718,14.604,0.827,14.469,0.043,25.788
+																			C-0.596,34.973,6.11,39.79,10.712,42c-0.881-1.731-1.562-3.749-1.562-5.857c0-4.381,5.807-6.721,6.947-10.84
+																			c1.11,1.885,3.129,4.665,2.168,7.63c0,0,1.1,0.188,2.271-1.007c0.417,1.795,1.335,5.584-1.017,9.73
+																			c13.63-6.828,10.685-18.838,8.972-23.995C27.688,19.304,24.547,20.366,23.297,21.576z"/> 
+																		</svg>
+																	</div>
+																</div>
+																<div class="row e3 text">
+																	<div class="col-md-12 e4">
+																		<p>RISK</p>
+																	</div>
+																</div>
+																<div class="row e3 progress-row">
+																	<div class="col-md-12 e4 e4-left">
+																		<div class="progress" 
+											 ng-class="{
+											 'progress-pos' : getRandomNumberSigned(HostRiskVariation, hostData.indexOf(item)) >= 0,
+											 'progress-neg' : getRandomNumbersigned(HostRiskVariation, hostData.indexOf(item)) < 0,
+											 }">
+
+																			<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{100 - getAbs(getRandomNumber(HostRiskVariation, hostData.indexOf(item)))}}%; background-color: white;">
+																				<span class="sr-only">70% Complete</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-md-6 e2 padding-left-4 padding-right-0">
+																<div class="row e3 percent">
+																	<div class="col-md-12 e4">
+																		<p class="hostsSmallPanel-Row-1-p"
+																		ng-class="{
+																		'color-pos' : makeNumberSigned(getRandomNumber(HostBugDiff, hostData.indexOf(item))) >= 0,
+																		'color-neg' : makeNumberSigned(getRandomNumber(HostBugDiff, hostData.indexOf(item))) < 0,
+									}">{{makeNumberSigned(getRandomNumber(HostBugDiff, hostData.indexOf(item)))}}</p>
+																	</div>
+																</div>
+																<div class="row e3 number-icon">
+																	<span class="number-small">{{item.hostNumVulns}}</span>
+																	<div class="scaling-svg-container display_inline_block" 
+																	style="width:13px; 
+								 height:12px;
+								 padding-bottom: 0%">
+																		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																		class="scaling-svg"
+																		x="0px" y="0px"
+																		viewBox="-5 0 52 38" 
+																		xml:space="preserve">
+
+																			<g>
+
+																			<path fill="#FFFFFF" d="M40.32,22H34v-7.666l4.762-4.638c0.33-0.341,0.608-0.743,0.608-1.207c0-0.465-0.112-0.866-0.444-1.208
+
+																				c-0.332-0.34-0.697-0.51-1.153-0.51c-0.454,0-0.835,0.209-1.167,0.549L32.078,12H9.924L5.381,7.321
+
+																				C5.05,6.981,4.654,6.791,4.2,6.791s-0.849,0.16-1.181,0.5C2.686,7.633,2.521,8.03,2.521,8.495c0,0.464-0.114,0.862,0.22,1.203
+
+																				L7,14.334V22H1.68c-0.454,0-0.85,0.281-1.18,0.619C0.166,22.959,0,23.414,0,23.879c0,0.466,0.166,1.07,0.5,1.411
+
+																				C0.83,25.628,1.226,26,1.68,26h5.881c0,3,0.506,5.134,1.521,7.171l-5.301,6.001c-0.299,0.355-0.434,0.727-0.408,1.202
+
+																				c0.025,0.474,0.206,0.85,0.538,1.172c0.333,0.284,0.709,0.418,1.13,0.418c0.49,0,0.909-0.192,1.259-0.568l4.805-5.555l0.395,0.375
+
+																				c0.244,0.232,0.624,0.522,1.14,0.871c0.518,0.348,1.095,0.696,1.733,1.045c0.638,0.349,1.239,0.643,2.124,0.884
+
+																				C17.379,39.26,18,39.38,19,39.38V15h3v24.38c1,0,2.029-0.116,2.887-0.347c0.856-0.234,1.744-0.493,2.322-0.78
+
+																				c0.577-0.286,1.23-0.613,1.791-0.979c0.56-0.364,0.969-0.619,1.145-0.763c0.175-0.143,0.328-0.259,0.415-0.349l5.208,5.281
+
+																				c0.315,0.34,0.715,0.511,1.188,0.511s0.868-0.171,1.184-0.511c0.332-0.34,0.501-0.741,0.501-1.205c0-0.466-0.167-0.867-0.499-1.205
+
+																				l-5.459-5.432C33.854,31.474,34.44,29,34.44,26h5.88c0.454,0,0.85-0.345,1.18-0.683c0.333-0.341,0.5-0.831,0.5-1.295
+
+																				c0-0.466-0.167-1.019-0.5-1.359C41.17,22.324,40.774,22,40.32,22z"/>
+
+																			<path fill="#FFFFFF" d="M26.945,2.67C25.31,1,23.327,0.035,21,0.035s-4.309,1.028-5.945,2.699C13.418,4.406,12.602,6,12.602,9H29.4
+
+																				C29.4,6,28.582,4.342,26.945,2.67z"/>
+
+																			</g></svg>
+																	</div>
+																</div>
+																<div class="row e3 text">
+																	<div class="col-md-12 e4">
+																		<p>VULNERABILITY</p>
+																	</div>
+																</div>
+																<div class="row e3 progress-row">
+																	<div class="col-md-12 e4 e4-right">
+																		<div class="progress" 
+											 ng-class="{
+											 'progress-pos' : makeNumberSigned(getRandomNumber(HostBugDiff, hostData.indexOf(item))) >= 0,
+											 'progress-neg' : makeNumberSigned(getRandomNumber(HostBugDiff, hostData.indexOf(item))) < 0,
+											 }">
+
+																			<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{100 - getAbs(getRandomNumber(HostBugDiff, hostData.indexOf(item)))}}%; background-color: white;">
+																				<span class="sr-only">70% Complete</span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Product Lists Container -->
+				<div class="col-sm-4 col-md-4 col-lg-4 top-5-list-container">
+					<div class="panel panel-default list-panel">
+						<div class="panel-heading font-panel-heading">TOP 5 VULNERABLE PRODUCTS</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Softwarey List Items here -->
+									<div ng-repeat="item in softwareData">
+										<div class="row">
+											<div class="-col-md-12 top-5-list-item-container -col-top-5-products-item">
+												<a ng-click="openProductDialog(item, $index)">
+													<div class="panel panel-default panel-default-item">
+														<div class="panel-heading heading-small-panel font-panel-heading">{{textCutN(item.cpeVendor + ": " + item.cpeProduct + " ", 20)}}<span class="glyphicon glyphicon-plus pull-right"></span></div>
+														<div class="panel-body body-small-panel sp-body-top-5-products">
+															<div class="row sp-body-top-5-products-item-row-1">
+																<div class="col-md-12 sp-body-top-5-products-item-row-1-col12">
+																	<!-- big number -->
+																	<span class="numberSmall">{{item.cpeNumVulns}}</span>
+																	<!-- icon -->
+																	<div class="scaling-svg-container display_inline_block" 
+											style="width:13px; 
+											height:12px;
+											padding-bottom: 0%">
+																		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																									class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="2 0 30 42" 
+					 xml:space="preserve">
+																			<g>
+																			<path fill="#FFFFFF" d="M40.32,22H34v-7.666l4.762-4.638c0.33-0.341,0.608-0.743,0.608-1.207c0-0.465-0.112-0.866-0.444-1.208
+
+c-0.332-0.34-0.697-0.51-1.153-0.51c-0.454,0-0.835,0.209-1.167,0.549L32.078,12H9.924L5.381,7.321
+
+C5.05,6.981,4.654,6.791,4.2,6.791s-0.849,0.16-1.181,0.5C2.686,7.633,2.521,8.03,2.521,8.495c0,0.464-0.114,0.862,0.22,1.203
+
+L7,14.334V22H1.68c-0.454,0-0.85,0.281-1.18,0.619C0.166,22.959,0,23.414,0,23.879c0,0.466,0.166,1.07,0.5,1.411
+
+C0.83,25.628,1.226,26,1.68,26h5.881c0,3,0.506,5.134,1.521,7.171l-5.301,6.001c-0.299,0.355-0.434,0.727-0.408,1.202
+
+c0.025,0.474,0.206,0.85,0.538,1.172c0.333,0.284,0.709,0.418,1.13,0.418c0.49,0,0.909-0.192,1.259-0.568l4.805-5.555l0.395,0.375
+
+c0.244,0.232,0.624,0.522,1.14,0.871c0.518,0.348,1.095,0.696,1.733,1.045c0.638,0.349,1.239,0.643,2.124,0.884
+
+C17.379,39.26,18,39.38,19,39.38V15h3v24.38c1,0,2.029-0.116,2.887-0.347c0.856-0.234,1.744-0.493,2.322-0.78
+
+c0.577-0.286,1.23-0.613,1.791-0.979c0.56-0.364,0.969-0.619,1.145-0.763c0.175-0.143,0.328-0.259,0.415-0.349l5.208,5.281
+
+c0.315,0.34,0.715,0.511,1.188,0.511s0.868-0.171,1.184-0.511c0.332-0.34,0.501-0.741,0.501-1.205c0-0.466-0.167-0.867-0.499-1.205
+
+l-5.459-5.432C33.854,31.474,34.44,29,34.44,26h5.88c0.454,0,0.85-0.345,1.18-0.683c0.333-0.341,0.5-0.831,0.5-1.295
+
+c0-0.466-0.167-1.019-0.5-1.359C41.17,22.324,40.774,22,40.32,22z"/>
+
+																			<path fill="#FFFFFF" d="M26.945,2.67C25.31,1,23.327,0.035,21,0.035s-4.309,1.028-5.945,2.699C13.418,4.406,12.602,6,12.602,9H29.4
+
+C29.4,6,28.582,4.342,26.945,2.67z"/>
+
+																			</g>
+																		</svg>
+																	</div>
+																	<!-- Percent Number -->
+																	<span id="percentNumber" class="percentNumber1">{{getRandomNumberSigned(SoftwareVariationNum, softwareData.indexOf(item))}}%</span>
+																</div>
+															</div>
+															<div class="row sp-body-top-5-products-item-row-2">
+																<div class="col-md-12 sp-body-top-5-products-item-row-2-col12" >
+																	<div class="progress" 
+											ng-class="{
+											'progress-1' : getRandomNumber(SoftwareVariationNum, softwareData.indexOf(item)) >= 0,
+											'progress-2' : getRandomNumber(SoftwareVariationNum, softwareData.indexOf(item)) < 0,
+											}">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{100 - getAbs(getRandomNumberSigned(SoftwareVariationNum, softwareData.indexOf(item)))}}%; background-color: white;">
+																			<span class="sr-only">60% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row margin-0">
+																<div class="col-md-12 top-5-item-description-p font-panel-body">
+																	<p>{{textCutN(item.cpeVendor + " " + item.cpeProduct +" "+ item.version +" "+ item.edition +" "+ item.update +" "+ item.language +" "+ item.cpeDescription, 45)}}
+																	<!--orem ipsum dolor sit amet, consetetur sadipscing elit.nonumy eirmod tempor invidunt ut labore et--></p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Vulnerability Lists Container -->
+				<div class="col-sm-4 col-md-4 col-lg-4 top-5-list-container">
+					<div class="panel panel-default list-panel">
+						<div class="panel-heading font-panel-heading">TOP 5 VULNERABILITIES</div>
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-md-12">
+									<!-- Vulnerability List Items here -->
+									<div ng-repeat="item in vulnerabilityData">
+										<div class="row">
+											<div class="-col-md-12 top-5-list-item-container">
+												<a ng-click="openVulnDialog(item, $index)">
+													<div class="panel panel-default panel-default-item">
+														<div class="panel-heading heading-small-panel font-panel-heading">{{item.cveName}}<span class="glyphicon glyphicon-plus pull-right"></span></div>
+														<div class="panel-body body-small-panel sp-body-top-5-products">
+															<div class="row sp-body-top-5-products-item-row-1">
+																<div class="col-md-12 sp-body-top-5-products-item-row-1-col12">
+																	<span class="numberSmall">{{item.cveNumAffectedHosts}}</span>
+																	<!-- icon -->
+																	<div class="scaling-svg-container display_inline_block" 
+											style="width:12px; 
+											height:12px;
+											padding-bottom: 0%">
+																		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" 
+																									class="scaling-svg"
+												 x="0px" y="0px"
+										 viewBox="3 0 24 42" 
+					 xml:space="preserve">
+																			<path fill="#FFFFFF" d="M11.738,36.829H0.375v3.95h11.363V42h10.523v-1.221h11.365v-3.95H22.262v-1.223h-3.247v-4.637h-4.027v4.637
+																			h-3.249V36.829z M29.354,4.682h-7.697v-2.51h7.697V4.682z M4.272,3.034c0,0.594-0.484,1.069-1.087,1.069S2.098,3.628,2.098,3.034
+																			c0-0.589,0.485-1.067,1.088-1.067S4.272,2.445,4.272,3.034 M34,5.12V1.731C34,0.772,33.207,0,32.235,0H1.767
+																			C0.791,0,0,0.772,0,1.731V5.12c0,0.958,0.791,1.733,1.767,1.733h30.467C33.207,6.853,34,6.078,34,5.12 M29.354,14.989h-7.697v-2.51
+																			h7.697V14.989z M4.272,13.341c0,0.597-0.484,1.07-1.087,1.07s-1.088-0.473-1.088-1.07c0-0.588,0.485-1.07,1.088-1.07
+																			S4.272,12.753,4.272,13.341 M34,15.426v-3.392c0-0.955-0.793-1.728-1.765-1.728H1.767C0.791,10.307,0,11.08,0,12.035v3.392
+																			c0,0.958,0.791,1.73,1.767,1.73h30.467C33.207,17.157,34,16.384,34,15.426 M29.354,25.293h-7.697v-2.507h7.697V25.293z
+																			M4.272,23.648c0,0.594-0.484,1.067-1.087,1.067s-1.088-0.473-1.088-1.067c0-0.591,0.485-1.067,1.088-1.067
+																			S4.272,23.057,4.272,23.648 M34,25.73v-3.386c0-0.957-0.793-1.73-1.765-1.73H1.767C0.791,20.614,0,21.386,0,22.344v3.386
+																			c0,0.961,0.791,1.732,1.767,1.732h30.467C33.207,27.462,34,26.691,34,25.73"/>
+																		</svg>
+																	</div><!--
+																	--><span class="percentNumber1">{{getRandomNumberSigned(BugVariationNum, vulnerabilityData.indexOf(item))}}%</span>
+																</div>
+															</div>
+															<div class="row sp-body-top-5-products-item-row-2">
+																<div class="col-md-12 sp-body-top-5-products-item-row-2-col12">
+																	<div class="progress" 
+											ng-class="{
+											'progress-1' : getRandomNumber(BugVariationNum, vulnerabilityData.indexOf(item)) >= 0,
+											'progress-2' : getRandomNumber(BugVariationNum, vulnerabilityData.indexOf(item)) < 0,
+											}">
+																		<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:{{100 - getAbs(getRandomNumberSigned(BugVariationNum, vulnerabilityData.indexOf(item)))}}%; background-color: white;">
+																			<span class="sr-only">20% Complete</span>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="row margin-0">
+																<div class="col-md-12 top-5-item-description-p font-panel-body">
+																	<!-- 1024x768: 50, larger 70, largerer 90-->
+																	<p>{{textCutN(item.cveDescription, 45)}}</p>
+																</div>
+															</div>
+														</div>
+													</div>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-1 -col-buffer"></div>
+	<div class="clearfix"></div>
+	</div>
+

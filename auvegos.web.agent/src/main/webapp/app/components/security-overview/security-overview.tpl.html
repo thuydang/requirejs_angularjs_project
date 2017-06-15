@@ -1,0 +1,82 @@
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
+-->
+
+	<!-- RIGHT PANEL - NETWORK -->
+	<div id="network-right-column" >
+	<!--<div class="col-sm-6 col-md-6 col-lg-6">-->
+		<div class="panel panel-default container-panel" style="height: 65%">
+			<div class="panel-heading">
+				Attack Scenarios
+				<span id="reset" class="pull-right glyphicon glyphicon-resize-full" aria-hidden="true"></span>
+				<select class="pull-right dropdown-list" ng-model="selectedAttackGraph" ng-change="selectedAttackGraphChanged()"
+					ng-options="selectedAttackGraph.name for selectedAttackGraph in attackGraphs"> </select>
+			</div>
+			<div class="panel-body flex-body">
+				<div id="info"></div>
+				<div id="attackgraphcy"></div>
+			</div>
+		</div>
+
+	<!--</div>-->
+	<!-- LEFT PANEL - Statistics -->
+	
+	<!--<div class="col-sm-6 col-md-6 col-lg-6" > -->
+		<div class="panel panel-default container-panel" style="height: 35%">
+			<div class="panel-heading">Infected Hosts</div>
+			<div class="panel-body flex-body">
+			<div>
+			<table class="table table-hover table-fixed">
+						<thead>
+							<tr>
+								<th class="col-xs-6">Malware / Exploit</th>
+								<th class="col-xs-6">Hostname</th>
+							</tr>
+						</thead>
+					</table>
+			</div>		
+			<div class="flex-scroll">
+					<table id="malware_table" class="table table-hover table-fixed table-striped ">
+						<tbody>
+							<tr style="background-color : red; font-family: calibri; font-size: 13px;" ng-repeat="malware in malwares">
+								<td class="col-xs-6 break-word">{{malware.name}}</td>
+								<td class="col-xs-6 break-word">{{malware.hostname}}</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- div class="col-sm-6 col-md-6 col-lg-6">
+		<div style="padding: 20px; margin: 10px auto; background-color: #ffffff;">
+			<div class="btn-group btn-group-justified" data-toggle="buttons">
+				<label class="btn btn-primary active"> <input type="radio"
+																									name="options" id="option1" autocomplete="on" checked>
+					Vulnerability Count
+				</label> <label class="btn btn-primary"> <input type="radio"
+																										name="options" id="option2" autocomplete="on"> Privilege
+																										Count
+				</label> <label class="btn btn-primary"> <input type="radio"
+																										name="options" id="option3" autocomplete="on">
+					Information Asset Usage
+				</label>
+			</div>
+			<div>
+				<div id='chart' style='width: 100%'>
+					<svg style='height: 500px' />
+				</div>
+			</div>
+			<ul class="pagination pagination-sm">
+				<li ng-class="{active:0}"><a href="#/securityoverview"
+																 ng-click="firstChartPage()">First</a></li>
+				<li
+								 ng-repeat="nc in range(shownChartPageNumbers[0],shownChartPageNumbers[1])"><a
+				 href="#/securityoverview" ng-click="setChartPage()" ng-bind="nc+1">1</a></li>
+				<li><a href="#/securityoverview"
+					 ng-click="previousChartPage()">Previous</a></li>
+				<li><a href="#/securityoverview" ng-click="nextChartPage()">Next</a></li>
+				<li><a href="#/securityoverview" ng-click="lastChartPage()">Last</a></li>
+			</ul>
+		</div>
+	</div-->
+</div>

@@ -1,0 +1,107 @@
+<div id="la-right-column">
+		<!-- LEFT TABLE TOP -->
+		<div class="panel panel-default la-container-panel" style="height: 30%">
+			<div class="panel-heading">Applications View</div>
+			<div class="panel-body flex-body">
+				<div>
+					<table class="table table-hover table-fixed">
+						<thead>
+							<tr>
+								<th class="col-xs-2">IP</th>
+								<th class="col-xs-4">Application</th>
+								<th class="col-xs-6">Malware</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="flex-scroll">
+					<table class="table table-hover table-fixed table-striped">
+						<tbody style="height: 150px;">
+							<tr ng-repeat="item in applicationTable.getItems()" ng-click="setProduct(item)">
+								<td class="col-xs-2">{{item.Ip}}</td>
+								<td class="col-xs-4">{{item.Application}}</td>
+								<td class="col-xs-6 break-word">{{item.Malware}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default la-container-panel" style="height: 70%">
+			<div class="panel-heading">Detailed Application's Malware View</div>
+			<div class="panel-body flex-body" style="max-height: -webkit-calc(100% - 38px);">
+				<div class="btn-group btn-group-justified btn-wrapable-labels">
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option1'" ng-model="logType" ng-change="logTable.filterData()">
+						<span>All Logs</span>
+					</label>
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option2'" ng-model="logType" ng-change="logTable.filterData('Registry', 'Operation')">
+						<span>Registry Logs</span>
+					</label>
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option3'" ng-model="logType" ng-change="logTable.filterData('File', 'Operation')">
+						<span>File Logs</span>
+					</label>
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option4'" ng-model="logType" ng-change="logTable.filterData('Memory', 'Operation')">
+						<span>Memory Logs</span>
+					</label>
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option5'" ng-model="logType" ng-change="logTable.filterData('Process', 'Operation')">
+						<span>Process Logs</span>
+					</label>
+					<label class="btn btn-primary btn-log-analysis" uib-btn-radio="'option6'" ng-model="logType" ng-change="logTable.filterData('Network', 'Operation')">
+						<span>Network Logs</span>
+					</label>
+				</div>
+				<div class="input-group" style="padding-top: 8px;">
+					<input class="form-control" ng-model="searchText" placeholder="Filter" type="search" ng-change="search()" />
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-search"></span>
+					</span>
+				</div>
+				<div style="padding-top: 8px;" ng-style="tableFilteredList.length > 5 && {'-webkit-margin-after': '8px'}">
+					<table class="table table-hover table-fixed">
+						<thead>
+							<tr>
+								<th class="col-xs-2">
+									<span class="clickable_space" ng-click="sort('Ip')">
+										IP <span class="{{Header[0]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-2">
+									<span class="clickable_space" ng-click="sort('Application')">
+										Application <span class="{{Header[1]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-2">
+									<span class="clickable_space" ng-click="sort('Operation')">
+										Operation <span class="{{Header[2]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-4">
+									<span class="clickable_space" ng-click="sort('Entity')">
+										Entity <span class="{{Header[3]}}"></span>
+									</span>
+								</th>
+								<th class="col-xs-2">
+									<span class="clickable_space" ng-click="sort('Time')">
+										Time <span class="{{Header[4]}}"></span>
+									</span>
+								</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="flex-scroll">
+					<table class="table table-hover table-fixed table-striped">
+						<tbody>
+							<tr ng-repeat="item in logTable.getItems() | orderBy:sortKey:reverse | filter:ApplicationFilter | filter:searchText">
+								<td class="col-xs-2 break-word">{{item.Ip}}</td>
+								<td class="col-xs-2 break-word">{{item.Application}}</td>
+								<td class="col-xs-2">{{item.Operation}}</td>
+								<td class="col-xs-4 break-word">{{item.Entity}}</td>
+								<td class="col-xs-2 break-word">{{item.Time}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+</div>

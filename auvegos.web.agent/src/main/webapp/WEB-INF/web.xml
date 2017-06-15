@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!-- Useful for debugging. Optional. -->
+  <display-name>JEE7 Webapp for Embedded Tomcat</display-name>
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
+  <context-param>
+    <param-name>org.jboss.weld.development</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+    <param-value>.xhtml</param-value>
+  </context-param>
+  
+   <servlet>
+        <servlet-name>ServletContainerApp</servlet-name>
+        <servlet-class>de.gtarc.auvegos.embeddedwebagent.webapp.servlet.SecurityManagerServlet</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+       		<param-value>
+       		 	de.gtarc.auvegos.embeddedwebagent.webapp.rest.filter.JerseyCORSResponseFilter,
+       			de.gtarc.auvegos.embeddedwebagent.webapp.rest.DemoNetworkInfo,
+       			de.gtarc.auvegos.embeddedwebagent.webapp.rest.SecurityDatabaseAccessor
+       		</param-value>
+        </init-param>
+        <!-- 
+		<init-param>org.glassfish.jersey.servlet.ServletContainer
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>
+				de.gtarc.auvegos.embeddedwebagent.webapp.rest.filter
+    		</param-value>
+		</init-param>
+         -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletContainerApp</servlet-name>
+        <url-pattern>rest/*</url-pattern>
+    </servlet-mapping>
+  
+  
+  <!-- Register listener for container events -->
+  <!--
+  <listener>
+    <listener-class>
+    org.jboss.weld.environment.servlet.Listener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>
+    com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+        -->
+  <!-- JSF Servlet -->
+  <!--
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsf</welcome-file>
+  </welcome-file-list>
+                                -->
+  <!-- END JSF Servlet -->
+  <!-- JAX-RS 1.1 configuration through Jersey -->
+  <!--
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>
+    com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>
+      com.sun.jersey.config.property.packages</param-name>
+      <param-value>de.gtarc.nemo.example.webapp</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+        -->
+  <!-- End Jersey JAX-RS configuration -->
+  <!-- Enable Weld CDI, also needs META-INF/context.xml entry -->
+  <resource-env-ref>
+    <description>Object factory for the CDI Bean
+    Manager</description>
+    <resource-env-ref-name>BeanManager</resource-env-ref-name>
+    <resource-env-ref-type>
+    javax.enterprise.inject.spi.BeanManager</resource-env-ref-type>
+  </resource-env-ref>
+</web-app>

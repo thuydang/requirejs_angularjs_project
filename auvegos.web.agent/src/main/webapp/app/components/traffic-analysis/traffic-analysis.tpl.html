@@ -1,0 +1,116 @@
+<div id="la-right-column">
+	<!-- LEFT TABLE TOP -->
+	<div class="panel panel-default la-container-panel" style="height: 50%">
+		<div class="panel-heading">Traffic Analysis Table</div>
+		<div class="panel-body flex-body">
+			<div class="btn-group btn-group-justified btn-wrapable-labels">
+				<label class="btn btn-log-analysis" ng-model="tableType"
+					uib-btn-radio="'option1'" ng-change="showTrafficAnalysis()"><span>Traffic
+						Analysis</span></label> <label class="btn btn-log-analysis"
+					ng-model="tableType" uib-btn-radio="'option2'"
+					ng-change="showDnsAnalysis()"><span>DNS Analysis</span></label>
+			</div>
+			<div class="input-group" style="padding-top: 8px;">
+				<input class="form-control" ng-model="searchText"
+					placeholder="Search" type="search" /> <span
+					class="input-group-addon"> <span
+					class="glyphicon glyphicon-search"></span>
+				</span>
+			</div>
+			<div style="padding-top: 8px;"></div>
+			<table class="table table-hover table-fixed table-striped">
+				<thead>
+					<tr>
+						<th
+							style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 1px;"
+							ng-repeat="column in cols" ng-click="sort(column)">{{column}}
+							<span class="glyphicon sort-icon" ng-show="sortKey==column"
+							ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+						</th>
+					</tr>
+				</thead>
+			</table>
+			<div class="flex-scroll">
+				<table class="table table-hover table-fixed table-striped">
+					<tbody>
+						<tr
+							ng-repeat="row in rows|orderBy:sortKey:reverse|filter:searchText">
+							<td
+								style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; max-width: 1px;"
+								ng-repeat="column in cols">
+								<div ng-if="row[column].length > 20">
+									<abbr title="{{row[column]}}">{{row[column]}}</abbr>
+								</div>
+								<div ng-if="!row[column].length || row[column].length <= 20">{{row[column]}}</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="chartBody" class="panel panel-default la-container-panel"
+		style="height: 50%;">
+		<div class="panel-heading">Traffic Analysis Charts</div>
+		<div class="panel-body flex-body">
+			<div ng-hide="tableType == 'option2'">
+			  	<div class="btn-group btn-group-justified btn-wrapable-labels">
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option1'" ng-model="chartType"
+						ng-change="openNetworkFlowDensityChart()"
+						style="white-space: normal;"><span>Flow Count</span>
+					</label>	
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option2'" ng-model="chartType"
+						ng-change="openNetworkTotalBytesChart()"
+						style="white-space: normal;"><span>Flow Byte Count</span>
+					</label>
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option3'" ng-model="chartType"
+						ng-change="openNetworkPacketCountChart()"
+						style="white-space: normal;"><span>Packet Count</span>
+					</label>
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option4'" ng-model="chartType"
+						ng-change="openNetworkPacketByteCountChart()"
+						style="white-space: normal;"><span>Packet Byte Count</span>
+					</label>
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option5'" ng-model="chartType"
+						ng-change="openNetworkPacketDurationChart()"
+						style="white-space: normal;"><span>Packet Duration</span>
+					</label>	
+							<!-- <label class="btn btn-log-analysis"
+						uib-btn-radio="'option2'" ng-model="chartType"
+						 ng-change="openNetworkHostsChart()"> 
+						<span>Network Hosts</span>-->
+				</div> 
+				<div style="padding-top: 8px;"></div>
+				<div id='chart'>
+					<svg />
+				</div>
+			</div>
+			<div ng-hide="tableType == 'option1'">
+				<div class="btn-group btn-group-justified btn-wrapable-labels">
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option1'" ng-model="chartType"
+						uib-btn-radio="'option1'" ng-change="openDnsClassChart()"
+						style="white-space: normal;"><span>DNS Query Class</span></label>
+					<label class="btn btn-log-analysis"
+						uib-btn-radio="'option2'" ng-model="chartType"
+						uib-btn-radio="'option2'"
+						ng-change="openDnsQueryStatisticsChart()"
+						style="white-space: normal;">DNS <span>Query
+							Statistics</span></label> <label class="btn btn-log-analysis"
+						uib-btn-radio="'option3'" ng-model="chartType"
+						uib-btn-radio="'option3'" ng-change="openDnsHistoryChart()"
+						style="white-space: normal;"><span>DNS History</span></label>
+				</div>
+				<div id='chartDns'>
+					<svg />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
