@@ -1,0 +1,62 @@
+<style>
+    #theMap {
+        height: 600px;
+        width: 40%;
+    }
+</style>
+
+<div class="service-list">
+    <h1>Your services</h1>
+
+    <div class="search-outer"><input ng-model="search" placeholder="Search service..."></div>
+
+    <!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+
+    <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
+        <ul ng-model="serviceList">
+            <li ng-repeat="item in serviceList | filter:search" markable>
+                Name: {{item.name}}
+                Area: {{item.area}}
+                Type: {{item.type}}
+                <button class="btn btn-default" ng-click="removeService($index)">Remove
+                    </button>
+                <button class="btn btn-default" ng-click="removeService($index)">Edit
+                </button>
+</li>
+        </ul>
+    </div>
+
+    <div class="add-more-outer">
+        <input ng-model="addMe" type="text" placeholder="Add more item(s)" autofocus onkeydown="if (event.keyCode==13) $('.add-btn').click()">
+        <span ng-click="addItem()" class="add-btn"></span>
+    </div>
+
+    <p class="error">{{errortext}}</p>
+
+</div>    
+
+
+
+            <div id="theMap"></div>
+            <script>
+                function initMap() {
+                    var opt = {
+                        zoom: 14,
+                        center: {
+                            lat: 52.5126,
+                            lng: 13.3219
+                        }
+                    }
+                    var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+                    var marker = new google.maps.Marker({
+                        position: { lat: 52.5126, lng: 13.3219 },
+                        map: theMap,
+                        title: "Alba is here"
+                    });
+                }
+            </script>
+            <script>
+                document.getElementById("theMap").style.right = "-200px";
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
+            

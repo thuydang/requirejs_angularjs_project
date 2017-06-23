@@ -157,7 +157,32 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
 					});
 				}]
 			}
-		})
+            })
+
+            .state('main.services', {
+                //parent: 'main.networkParent',
+                url: '/services',
+                views: {
+                    'content@main': {
+                        controller: 'ServiceCtrl',
+                        //templateUrl: 'app/components/tutorial/index.html'
+                        templateUrl: 'app/components/tutorial/iscosimulation/simulation.tpl.html'
+                    }
+
+                },
+                resolve: {
+                    loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            //files: ['app/app.controller'].concat(TopBarHelperProvider.getControllers()).concat(NavHelperProvider.getControllers())
+                            files: [
+                                'app/components/tutorial/iscosimulation/simulation.controller',
+                                //'assets/libs/angular-wizard/dist/angular-wizard.min.css',
+
+                            ]
+                        });
+                    }]
+                }
+            })
 		//------------ end tutorial-------------
 		.state('main.home', {
 			url: '/home', /* e.g http://localhost:8000/#/home */
@@ -348,7 +373,10 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
 				}
 
 			}
-		})
+            })
+
+
+        
 		.state('main.networkParent.trafficanalysis', {
 			parent:'main.networkParent',
 			url: '/trafficanalysis',
