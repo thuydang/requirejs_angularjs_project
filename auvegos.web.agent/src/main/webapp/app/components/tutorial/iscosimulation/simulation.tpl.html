@@ -8,26 +8,47 @@
 <div class="service-list">
     <h1>Your services</h1>
 
-    <div class="search-outer"><input ng-model="search" placeholder="Search service..."></div>
-
+    <div class="search-outer"><input ng-model="search" placeholder="Search or add service..."></div>
+    <button class="btn btn-default" ng-click="add($index)">
+        Add
+    </button>
     <!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+
 
     <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
         <ul ng-model="serviceList">
             <li ng-repeat="item in serviceList | filter:search" markable>
-                Name: {{item.name}}
-                Area: {{item.area}}
-                Type: {{item.type}}
-                <button class="btn btn-default" ng-click="removeService($index)">Remove
-                    </button>
-                <button class="btn btn-default" ng-click="removeService($index)">Edit
+                Name: {{item.name}} <br />
+                Area: {{item.area}}<br />
+                Type: {{item.type}}<br />
+                <button class="btn btn-default" ng-click="removeService($index)">
+                    Remove
                 </button>
-</li>
-        </ul>
-    </div>
+                <button class="btn btn-default" ng-click="updateService($index)">
+                    Edit
+                </button>
+                
+                    
+     <!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">  -->
+    <br>
+
+    </li>
+    </ul>
+</div>
+
+    <table >
+        <tr><th>Service properties </th></tr>
+        <tr ng-repeat="i in ['Name'    , 'Sensor   ', 'Location    ', 'Type     ' ]">
+            <td>
+                {{i}}
+                <button class="btn btn-default" ng-click="edit($index)">Change </button>
+            </td>
+        </tr>
+    </table>
+    <div class="add-btn"> <button>Save </button> </div>
 
     <div class="add-more-outer">
-        <input ng-model="addMe" type="text" placeholder="Add more item(s)" autofocus onkeydown="if (event.keyCode==13) $('.add-btn').click()">
+        <input ng-model="Save" type="text" placeholder="Add property" autofocus onkeydown="if (event.keyCode==13) $('.add-btn').click()">
         <span ng-click="addItem()" class="add-btn"></span>
     </div>
 
