@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div>
+    <h3>Service creation</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a service
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">Weather</a></li>
+            <li><a href="#">Temperature</a></li>
+            <li><a href="#">Humidity</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <form>
+            <br></br>
+            Area selection type:
+            <input type="radio" ng-model="areaSelection" value="Random">Random
+            <input type="radio" ng-model="areaSelection" value="Manual">Manual
+        </form>
+    </div>
+    <div >
+        <br></br>
+        <p>Select sensor types:</p>
+        <input type="checkbox" ng-model="all"> Check all<br></br>
+        <div ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">
+            <input type="checkbox" ng-checked="all">Weather {{i}}<br>
+        </div>
+        <br></br><br></br>
+
+    </div>
+
+</div>
+<div class="container" style="position: fixed; bottom: 0; width:inherit; margin-bottom: 20px">
+    <button type="button" class="btn btn-success"style="padding-right: 17px;padding-left: 17px;">Save</button>
+    <button type="button" class="btn btn-warning" style="margin-left: 20px">Cancel</button>
+
+</div>
+</body>
+</html>
