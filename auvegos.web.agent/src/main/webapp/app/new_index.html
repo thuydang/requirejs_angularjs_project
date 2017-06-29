@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>My HTML File</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+    #content,
+    #sidebar {
+      min-height: 500px;
+    }
+    #row-main {
+      overflow-x: hidden; /* necessary to hide collapsed sidebar */
+    }
+    #content {
+      background-color: lightyellow;
+
+      -webkit-transition: width 0.3s ease;
+      -moz-transition: width 0.3s ease;
+      -o-transition: width 0.3s ease;
+      transition: width 0.3s ease;
+    }
+    #content .btn-group {
+      margin-bottom: 10px;
+    }
+    .col-md-6 .width-12,
+    .col-md-12 .width-6 {
+      display: none; /* just hiding labels for demo purposes */
+    }
+    #sidebar {
+      background-color: lightgrey;
+
+      -webkit-transition: margin 0.3s ease;
+      -moz-transition: margin 0.3s ease;
+      -o-transition: margin 0.3s ease;
+      transition: margin 0.3s ease;
+    }
+    .collapsed {
+      display: none; /* hide it for small displays */
+    }
+    @media (min-width: 992px) {
+      .collapsed {
+        display: block;
+        margin-left: -50%; /* same width as sidebar */
+      }
+    }
+  </style>
+  <body>
+  <div class="jumbotron text-center">
+    <h1>Service Manager</h1>
+    <p>You can create or visualize a service!</p>
+  </div>
+  <div class="container">
+    <div class="row" id="row-main">
+      <div class="col-sm-6" id="MServices">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Service Creation</a></li>
+          <li><a data-toggle="tab" href="#menu1">Service Visualization</a></li>
+
+        </ul>
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <div ng-include="'view/ServiceCreation.html'"></div>
+
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <div ng-include="'view/ServiceVisualization.html'"></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6" id="Map">
+        <button type="button" class="btn btn-default toggle-sidebar"><<</button>
+        <h3>Map</h3>
+
+        <div ng-include="'view/Map.html'"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script>
+      $(document).ready(function () {
+          $(".toggle-sidebar").click(function () {
+              var $this = $(this);
+              $("#MServices").toggleClass("collapsed");
+              $("#Map").toggleClass("col-md-12 col-md-6");
+              if($this.text()=="<<"){
+                  $this.text(">>");
+              }
+              else{
+                  $this.text("<<");
+              }
+
+
+
+              return false;
+          });
+      });
+  </script>
+  </body>
+
+
+
+</html>
