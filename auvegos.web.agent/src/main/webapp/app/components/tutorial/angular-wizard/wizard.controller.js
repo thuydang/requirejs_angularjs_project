@@ -11,7 +11,7 @@ define([
 
 	app.register.controller('WizardCtrl', 
 			/* needed services */ ['$state', '$scope', '$timeout', '$uibModal', '$log', 
-			'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 
+			'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 'WizardHandler', 
 			function ($state, $scope, $timeout, $uibModal, $log, 
 				EventAggregator, NetworkInfoWebsocketService, NetworkInfoRestServices, WizardHandler) {
 

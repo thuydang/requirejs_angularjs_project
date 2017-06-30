@@ -112,51 +112,65 @@
 </div>
 
     <style>
+				.angular-google-map-container { height: 400px; }
+
         #theMap {
             height: 600px;
             width: 60%;
         }
     </style>
 
+		<div id="theMap" >
+			<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+				<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+				</ui-gmap-marker>
+			</ui-gmap-google-map>
+			<div ng-cloak>
+				<ul>
+					<li>coords update ctr: {{coordsUpdates}}</li>
+					<li>dynamic move ctr: {{dynamicMoveCtr}}</li>
+				</ul>
+			</div>
+		</div>
+		<!--
+		<div id="theMap" ng-model="map" >
+		<script>
+function initMap() {
+								var opt = {
+										zoom: 14,
+										center: {
+												lat: 52.5126,
+												lng: 13.3219
+										}
+								}
+								var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+								var marker = new google.maps.Marker({
+										position: { lat: 52.5126, lng: 13.3219 },
+										map: theMap,
+										title: "Alba is here"
+								});
 
-    <div id="theMap" ng-model="map" >
-        <script>
-            function initMap() {
-                var opt = {
-                    zoom: 14,
-                    center: {
-                        lat: 52.5126,
-                        lng: 13.3219
-                    }
-                }
-                var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
-                var marker = new google.maps.Marker({
-                    position: { lat: 52.5126, lng: 13.3219 },
-                    map: theMap,
-                    title: "Alba is here"
-                });
+google.maps.event.addListener(theMap, 'click', function (event) {
+	placeMarker(event.latLng);
+	addLocationM(event.latLng)
 
-                google.maps.event.addListener(theMap, 'click', function (event) {
-                    placeMarker(event.latLng);
-                    addLocationM(event.latLng)
+});
 
-                });
+function placeMarker(location) {
+	// if currerent service type is manual
+	if ($scope.dispServ.type === "manual") {
+		var marker = new google.maps.Marker({
+			position: location,
+			map: theMap
 
-                function placeMarker(location) {
-                    // if currerent service type is manual
-                    if ($scope.dispServ.type === "manual") {
-                        var marker = new google.maps.Marker({
-                            position: location,
-                            map: theMap
-
-                        });
-                    }
-                    // else do something
-                }
-            }
-        </script>
-    </div>
-    
+		});
+	}
+// else do something
+}
+}
+		</script>
+		</div>
+		--> 
 </div>
 
 
@@ -165,46 +179,46 @@
 
 
 <!--   <button ng- click="removeService($index)" >
-                Remove
-    </button >
+	Remove
+	</button >
 
-</div >
-     <!--   <button ng- click="editService(service.name)" >
-                Edit
-        </button > <br /> <br />
-
-
-
-                <div ng-show="addBar">
-                    <form name="AddService" ng-submit="addServices()">
-                        <input type="text" name="newService" ng-model="newService" required />
-                        <button ng-disabled="servicesFrm.$invalid" ng-click="addServices()">Add</button>
-                    </form>
-
-                    <!---  <input type="form" ng-model="addMe" aria-label="Toggle ngShow"> -->
-<!-- <div class="search-outer" ng-show="adding"> <input ng-model="search" placeholder="Add another service..."></div> -->
-<!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
-<!--  <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
-                                    <ul ng-model="serviceList">
-                                        <li ng-repeat="item in serviceList | filter:search" markable>
-                                            Name: {{ item.name }} <br />
-                                            Area: {{ item.area }}<br />
-                                            Type: {{ item.type }}<br />
-                                            <button class="btn btn-default" ng-click="removeService($index)">
-                                                Remove
-                </button>
-                                            <button class="btn btn-default" ng-click="updateService($index)">
-                                                Edit
-                </button>
+	</div >
+	<!--   <button ng- click="editService(service.name)" >
+	 Edit
+	 </button > <br /> <br />
 
 
-                                            <!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">
-                                                <br>
 
-    </li>
-    </ul>
-</div>
-                                        -->
+	 <div ng-show="addBar">
+	 <form name="AddService" ng-submit="addServices()">
+	 <input type="text" name="newService" ng-model="newService" required />
+	 <button ng-disabled="servicesFrm.$invalid" ng-click="addServices()">Add</button>
+	 </form>
+
+	 <!---  <input type="form" ng-model="addMe" aria-label="Toggle ngShow"> -->
+	 <!-- <div class="search-outer" ng-show="adding"> <input ng-model="search" placeholder="Add another service..."></div> -->
+	 <!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+	 <!--  <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
+		<ul ng-model="serviceList">
+		<li ng-repeat="item in serviceList | filter:search" markable>
+		Name: {{ item.name }} <br />
+		Area: {{ item.area }}<br />
+		Type: {{ item.type }}<br />
+		<button class="btn btn-default" ng-click="removeService($index)">
+		Remove
+		</button>
+		<button class="btn btn-default" ng-click="updateService($index)">
+		Edit
+		</button>
+
+
+		<!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">
+		<br>
+
+		</li>
+		</ul>
+		</div>
+		-->
 <!--         <style>
                                             #theMap {
                                                 height: 600px;
@@ -304,6 +318,7 @@
 
 
 
-
+	 <!--
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
+-->
 

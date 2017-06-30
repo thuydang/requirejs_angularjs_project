@@ -12,6 +12,7 @@ var module = [
   'angular-material',
   'angular-material-icons',
   'angular-wizard',
+  'angular-google-maps',
   'angular-utils-pagination',
   'ui-bootstrap',
   'jquery',
@@ -55,6 +56,7 @@ var e = [
   'restangular',
   'chart.js',
   'mgo-angular-wizard',
+	'uiGmapgoogle-maps',
 	  //'app.nodes',
   //'app.topology',
 	//-- common --
@@ -79,7 +81,7 @@ define(module, function(ng) {
 	// The overal config he is done here.
 	app.config(function ($stateProvider, $urlRouterProvider,  $ocLazyLoadProvider, 
 				$translateProvider,  $controllerProvider, $compileProvider, $provide, 
-				cssInjectorProvider, $mdThemingProvider) {
+				cssInjectorProvider, $mdThemingProvider, uiGmapGoogleMapApiProvider) {
 		
 		/** Holding all modules. Register new module with 
 		 * 'app.register.[controller|directive|factory|service]
@@ -91,6 +93,13 @@ define(module, function(ng) {
 			service : $provide.service
 
 		};
+
+		// google map config
+		uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE',
+        v: '3.28.18', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
 
 		// Route Settings
 		$urlRouterProvider.otherwise("/ceo"); // set the default route

@@ -13,6 +13,8 @@ require.config({
     'angular-cookies' : 'assets/libs/angular-cookies/angular-cookies.min',
     'angular-translate' : 'assets/libs/angular-translate/angular-translate.min',
     'angular-wizard' : 'assets/libs/angular-wizard/dist/angular-wizard.min',
+    'angular-simple-logger' : 'assets/libs/angular-simple-logger/dist/angular-simple-logger',
+    'angular-google-maps' : 'assets/libs/angular-google-maps/dist/angular-google-maps.min',
     'angular-translate-loader-static-files' : 'assets/libs/angular-translate-loader-static-files/angular-translate-loader-static-files.min',
     'jquery' : 'assets/libs/jquery/dist/jquery.min',
     'jquery-ui' : 'assets/libs/jquery-ui/jquery-ui.min',
@@ -54,6 +56,14 @@ require.config({
     'angular-wizard': {
 			deps: ['angular'],
       exports : 'mgo-angular-wizard'
+		},
+		'angular-simple-logger': {
+			deps: ['angular'],
+      exports : 'nemLogging'
+		},
+    'angular-google-maps': {
+			deps: ['angular', 'angular-simple-logger'],
+      exports : 'uiGmapgoogle-maps'
 		},
     'angular-translate-loader-static-files' : ['angular-translate'],
     'ngload' : ['angularAMD'],

@@ -31,6 +31,8 @@
     "angular-material-icons": "latest",
     "angular-utils-pagination": "latest",
     "angular-wizard": "1.1.1",
+		"angular-simple-logger": "0.1.7",
+    "angular-google-maps": "2.4.1",
     "html5-boilerplate": "~5.2.0",
     "underscore": "",
     "angular-resource": "",

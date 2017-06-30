@@ -168,7 +168,11 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                         //templateUrl: 'app/components/tutorial/index.html'
                         templateUrl: 'app/components/tutorial/iscosimulation/simulation.tpl.html'
                     }
-
+										//'map-view': {
+                    //    controller: 'GmapCtrl',
+                    //    //templateUrl: 'app/components/tutorial/index.html'
+                    //    templateUrl: 'app/components/tutorial/gmap/gmap.tpl.html'
+                    //}
                 },
                 resolve: {
                     loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -176,6 +180,7 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                             //files: ['app/app.controller'].concat(TopBarHelperProvider.getControllers()).concat(NavHelperProvider.getControllers())
                             files: [
                                 'app/components/tutorial/iscosimulation/simulation.controller',
+                                //'app/components/tutorial/gmap/gmap.controller',
                                 //'assets/libs/angular-wizard/dist/angular-wizard.min.css',
 
                             ]
