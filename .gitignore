@@ -5,3 +5,6 @@ target
 *.log
 workspace
 logs
+
+**/node_modules
+**/assets/libs
