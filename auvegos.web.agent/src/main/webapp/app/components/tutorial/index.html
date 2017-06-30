@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet" data-require="bootstrap@*" data-semver="4.0.5" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" data-require="bootstrap@*" data-semver="4.0.5"></script>
+  <script src="https://code.angularjs.org/latest/angular.min.js" data-require="angular.js@*" data-semver="4.0.0"></script>
+  <link href="style.css" rel="stylesheet" />
+  <script src="myApp.js"></script>
+ 
+  <style>
+    #theMap {
+      height: 600px;
+      width: 40%;
+    }
+  </style>
+</head>
+
+<body ng-app = "myApp">
+
+  <div ng-controller="exerciseTypeCtrl">
+    <h6> Select the service </h6>
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <select id="exerciseSuperCategory" data-role="listview" ng-options="service as service.text for service in services.cast" ng-model="itemsuper" ng-change="changeData()">
+        </select>
+      </li>
+    </ul>
+    
+      <div ng-show="add">
+      
+      <input  type="form" ng-model="addMe"  aria-label="Toggle ngShow">
+	<button ng-click="addItem()">Add</button>
+	</div>
+	
+    
+    <h6> Select the sensor </h6>
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <select data-role="listview" ng-options="type as type.text for type in types.cast " ng-model="item1" ng-change="update()">
+        </select>
+      </li>
+    </ul>
+    <h6> Type of sensor: </h6>
+    <ul data-role="listview" data-inset="true">
+      <li>
+        <select data-role="listview" ng-options="sType as sType.text for sType in sType.cast " ng-model="sensor">
+        </select>
+      </li>
+    </ul>
+    </div>
+  
+      <div id="theMap"></div>
+  <script>
+    function initMap() {
+
+      var opt = {
+        zoom: 14,
+        center: {
+          lat: 52.5126,
+          lng: 13.3219
+        }
+
+      }
+   var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+      var marker = new google.maps.Marker({
+        position: {lat: 52.5126, lng: 13.3219},
+        map: theMap,
+        title: "Alba is here"
+      });
+    } 
+
+   
+  </script>
+    <script>
+    document.getElementById("theMap").style.right = "-200px";
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
+</body>
+
+</html>

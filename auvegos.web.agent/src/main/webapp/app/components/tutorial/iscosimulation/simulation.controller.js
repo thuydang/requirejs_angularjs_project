@@ -10,118 +10,112 @@ define([
 
 
     app.register.controller('ServiceCtrl',
-			/* needed services */['$state', '$scope', '$timeout', '$uibModal', '$log',
-            'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices',
-            function ($state, $scope, $timeout, $uibModal, $log,
+			/* needed services */['$state','$scope', '$timeout', '$uibModal', '$log',
+                'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 
+                function ($state, $scope, $timeout, $uibModal, $log,
                 EventAggregator, NetworkInfoWebsocketService, NetworkInfoRestServices, WizardHandler) {
 
-                // List of object
+               // Controller Logic
+
+
+         
+               //service to display in details
+                $scope.dispServ = "";
+
+                //type of services
+                $scope.setRandom = false;
+
+                //open the details' card
+                $scope.detailed = false;
+
+                //manual set locations
+                $scope.locations = [];
+
+                // List of services
                 $scope.serviceList = [
                     {
-                        name: "weather",
-                        type: "manual",
-                        area: "Berlin",
-                        sensors: [
-
-                            {
-                                name: "sensor1",
-                                type: "temperature",
-                                value: "23",
-                                valueType: "C",
-                                latitude: "32.9999",
-                                longitude: "32.44444"
-                            },
-                            {
-                                name: "sensor2",
-                                type: "humidity",
-                                value: "23",
-                                valueType: "C",
-                                latitude: "32.9999",
-                                longitude: "32.44444"
-                            }
-                        ]
-                    },
-                    {
-                        name: "Parking",
-                        type: "manual",
-                        area: "Berlin",
-                        sensors: [
-
-                            {
-                                name: "sensor1",
-                                type: "temperature",
-                                value: "23",
-                                valueType: "C",
-                                latitude: "32.9999",
-                                longitude: "32.44444"
-                            },
-                            {
-                                name: "sensor2",
-                                type: "humidity",
-                                value: "23",
-                                valueType: "C",
-                                latitude: "32.9999",
-                                longitude: "32.44444"
-                            }
-                        ]
-                    }
+                    name: "Weather",
+                    area: "Berlin",
+                    sensor: ['Temperature', 'Humidity']
+                },
+                {
+                    name: "Parking",
+                    area: "BErl",
+                    sensor: ['Bike', 'Car']
+                }
                 ];
-                // Controller Logic
-                var options = {
-                    valueNames: ['id', 'service', 'sensor', 'type']
-                };
+                
+                //array of temp changes
+                $scope.tempArr = $scope.serviceList.slice();
 
                 // service functions
+                $scope.getService = function (service) {
+                    console.log(service);
+                    $scope.detailed = true;
+                    $scope.dispServ = service;
+                    $scope.dispServ.sensor = service.sensor;
+                
+                };
 
-                $scope.removeService = function (idx) {
-                    $scope.serviceList.splice(idx, 1);
-                    console.log(idx);
+       
+              //  $scope.addService = function () {
+               //     $scope.detailed = true;
+                //};
+
+                
+                $scope.addServices = function () {
+                    $scope.detailed = true;
+                    $scope.tempArr.push({ 'name': $scope.search });
+                    $scope.search = '';
+                    console.log($scope.tempArr);
+                    console.log($scope.serviceList);
+                };
+
+                $scope.editService = function ($index, i, updat) {
+                    var place = $scope.change;
+                    $scope.details = true;
+                    console.log(index);
+                    $scope.serviceList[index].i ="updat" ;
+                    console.log(updat);
+
+                };
+
+                $scope.saveChanges = function () {
+                    $scope.serviceList = $scope.tempArr;
+
                 };
 
 
-                $scope.updateService = function (service, prop, value) {
-                    $scope.serviceList[prop] = value;
+                $scope.cancelAll = function () {
+                    $scope.tempArr = $scope.serviceList;
                 };
 
-                $scope.update = function (prop, value) {
-                    $scope.onUpdate({ service: serviceList.name, prop: prop, value: value });
+                $scope.randomize = function () {
+                    $scope.setRandom = true;
                 };
-            
-            /*
-            // Init list
-            var contactList = new List('contacts', options);
 
-            var idField = $('#id-field'),
-                serviceField = $('#service-field'),
-                sensorField = $('#sensor-field'),
-                typeField = $('#type-field'),
-                addBtn = $('#add-btn'),
-                editBtn = $('#edit-btn').hide(),
-                removeBtns = $('.remove-item-btn'),
-                editBtns = $('.edit-item-btn');
-
-            // Sets callbacks to the buttons in the list
-            refreshCallbacks();
-
-            addBtn.click(function () {
-                contactList.add({
-                    id: Math.floor(Math.random() * 110000),
-                    service: serviceField.val(),
-                    sensor: sensorField.val(),
-                    type: typeField.val()
-                });
-                clearFields();
-                refreshCallbacks();
-            });
-
-            editBtn.click(function () {
-                var item = contactList.get('id', idField.val())[0];
-                item.values({
-                    id: idField.val(),
-                    service: nameField.val(),
-                    sens
+                $scope.randomPos = function (event) {
+                    $scope.setRandom = true;
+                    $scope.positions = [[52.5128, 13.3119], [52.5127, 13.3120], [52.5125, 13.3121]];
+                };
                
+            
+              //  $scope.addProperty = function (index) {
+               //     $scope.serviceList[index].push({ '$scope.newProperty': 'Alba' });
+               // }
+                $scope.removeService = function (index) {
+                    //can add alert later
+                   
 
+                    var x = document.getElementById("my select");
+                    x.remove(x.selectedIndex);
+                    // $scope.serviceList.splice(index, 1);
+                    //  console.log(index)
+                };
+
+               
+          
+                
             // end of controller  */
 
     }]);

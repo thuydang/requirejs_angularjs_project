@@ -1,83 +1,309 @@
-<style>
-    #theMap {
-        height: 600px;
-        width: 40%;
-    }
-</style>
 
-<div class="service-list">
-    <h1>Your services</h1>
+<link rel="stylesheet" href="StyleSheet1.css">
 
-    <div class="search-outer"><input ng-model="search" placeholder="Search or add service..."></div>
-    <button class="btn btn-default" ng-click="add($index)">
-        Add
-    </button>
-    <!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+<link rel="stylesheet" href="styles.css">
+
+<div layout="row" layout-sm="column"   >
+    <div ng-cloak flex>
 
 
-    <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
-        <ul ng-model="serviceList">
-            <li ng-repeat="item in serviceList | filter:search" markable>
-                Name: {{item.name}} <br />
-                Area: {{item.area}}<br />
-                Type: {{item.type}}<br />
-                <button class="btn btn-default" ng-click="removeService($index)">
-                    Remove
+        <md-content style=" background-color: rgb(84, 190, 171)">
+            <md-tabs md-dynamic-height md-border-bottom flex  md-swipe-content="true">
+                <md-tab label="Create" flex>
+                    <md-content class="md-padding" flex>
+
+                        <section style="background-color: lightcyan">
+                            <div class="service-list">
+                                <br />
+                                <input type="text" placeholder="Search service..." ng-model="search" />
+                                <md-button ng-click="addServices()" style="background-color: rgb(95,225,192)">
+                                    Add service
+                                </md-button>
+                                <br /> <br />
+                                <!--       <md-content flex layout-padding> -->
+
+                                <ul class="service-list">
+                                    <li ng-repeat="service in serviceList  | filter: search"   ng-click="getService(service)">
+                                        <h5 href="#"> {{service.name}} </h5>
+
+
+
+                                    </li>
+                                </ul>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </div>
+
+                        </section>
+
+
+                        <section>
+                            <md-card ng-show="detailed" style="background-color: lavender">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline" style="color:indianred">Service properties</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+
+                                <md-card-content>
+                                    <div layout="column">
+                                        <md-input-container>
+                                            <label>Name</label>
+                                            
+                                            <input placeholder={{dispServ.name}}>
+                                        </md-input-container>
+                                       
+                                        <md-input-container>
+                                            <label>Sensor</label>
+                                            <md-select ng-model="sensor">
+                                                <md-option ng-repeat=" item in dispServ.sensor" ng-value="item">
+                                                {{ item}}
+                                                </md-option>
+                                            </md-select>
+
+                                        </md-input-container>
+
+                                        <md-input-container>
+                                            <label>Type</label>
+                                            <md-select ng-model="ctrl.userState">
+
+                                                <md-option value="random">Random</md-option>
+                                                <md-option value="manual">Manual</md-option>
+
+                                            </md-select>
+                                        </md-input-container>
+
+                                        <md-input-container>
+                                            <label>Area</label>
+                                            <input>
+                                        </md-input-container> <br>
+                                    </div>
+                                </md-card-content>
+                            </md-card>
+
+
+                        </section>
+                        <section>
+                            <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="saveChanges()">Save</md-button>
+                            <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="cancelAll()">Cancel</md-button>
+                        </section>
+
+                    </md-content>
+                </md-tab>
+                <md-tab label="Visualize" flex>
+                    <md-content class="md-padding" flex>
+                        <div>
+                            <input type="text" placeholder="Search service..." ng-model="search" />
+                            <md-button ng-click="Visualize()" style="background-color: rgb(95,225,192)">
+                                Visualize
+                            </md-button>
+                            <ul class="service-list">
+                                <li ng-repeat="service in serviceList  | filter: search">
+                                    <h5> {{service}} </h5>
+                                </li>
+                            </ul>
+
+                            <md-divider ng-if="!$last"></md-divider>
+                        </div>
+                    </md-content>
+                </md-tab>
+
+            </md-tabs>
+    </md-content>
+</div>
+
+    <style>
+        #theMap {
+            height: 600px;
+            width: 60%;
+        }
+    </style>
+
+
+    <div id="theMap" ng-model="map" >
+        <script>
+            function initMap() {
+                var opt = {
+                    zoom: 14,
+                    center: {
+                        lat: 52.5126,
+                        lng: 13.3219
+                    }
+                }
+                var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+                var marker = new google.maps.Marker({
+                    position: { lat: 52.5126, lng: 13.3219 },
+                    map: theMap,
+                    title: "Alba is here"
+                });
+
+                google.maps.event.addListener(theMap, 'click', function (event) {
+                    placeMarker(event.latLng);
+                    addLocationM(event.latLng)
+
+                });
+
+                function placeMarker(location) {
+                    // if currerent service type is manual
+                    if ($scope.dispServ.type === "manual") {
+                        var marker = new google.maps.Marker({
+                            position: location,
+                            map: theMap
+
+                        });
+                    }
+                    // else do something
+                }
+            }
+        </script>
+    </div>
+    
+</div>
+
+
+
+
+
+
+<!--   <button ng- click="removeService($index)" >
+                Remove
+    </button >
+
+</div >
+     <!--   <button ng- click="editService(service.name)" >
+                Edit
+        </button > <br /> <br />
+
+
+
+                <div ng-show="addBar">
+                    <form name="AddService" ng-submit="addServices()">
+                        <input type="text" name="newService" ng-model="newService" required />
+                        <button ng-disabled="servicesFrm.$invalid" ng-click="addServices()">Add</button>
+                    </form>
+
+                    <!---  <input type="form" ng-model="addMe" aria-label="Toggle ngShow"> -->
+<!-- <div class="search-outer" ng-show="adding"> <input ng-model="search" placeholder="Add another service..."></div> -->
+<!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+<!--  <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
+                                    <ul ng-model="serviceList">
+                                        <li ng-repeat="item in serviceList | filter:search" markable>
+                                            Name: {{ item.name }} <br />
+                                            Area: {{ item.area }}<br />
+                                            Type: {{ item.type }}<br />
+                                            <button class="btn btn-default" ng-click="removeService($index)">
+                                                Remove
                 </button>
-                <button class="btn btn-default" ng-click="updateService($index)">
-                    Edit
+                                            <button class="btn btn-default" ng-click="updateService($index)">
+                                                Edit
                 </button>
-                
-                    
-     <!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">  -->
-    <br>
+
+
+                                            <!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">
+                                                <br>
 
     </li>
     </ul>
 </div>
+                                        -->
+<!--         <style>
+                                            #theMap {
+                                                height: 600px;
+                  width: 40%;
+              }
+          </style>
 
-    <table >
+                                        <div id="theMap" style="float:right">
+                                            <script>
+                                                function initMap() {
+                  var opt = {
+                                                    zoom: 14,
+                      center: {
+                                                    lat: 52.5126,
+                          lng: 13.3219
+                      }
+                  }
+                  var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+                  var marker = new google.maps.Marker({
+                                                    position: {lat: 52.5126, lng: 13.3219 },
+                      map: theMap,
+                      title: "Alba is here"
+                  });
+
+                  events: {
+                                                    click: function(maps, eventName, arguments) {
+                          var e = arguments[0];
+                          var lat = e.latLng.lat(), lng = e.latLng.lng();
+                          console.log("my lat is:" + lat + ", lng is:" + lng);
+                      }
+                  }
+                  google.maps.event.addListener(theMap, 'click', function(event) {
+                                                    placeMarker(event.latLng);
+                                                addLocationM(event.latLng)
+
+                        });
+
+                  function placeMarker(location) {
+                  var marker = new google.maps.Marker({
+                                                    position: location,
+                  map: theMap
+
+                 });
+                }
+
+              }
+
+
+    </script>
+    <script>
+              document.getElementById("theMap").style.right = "-0.1px";
+    </script>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--  <div>
+    <table ng-show="details">
         <tr><th>Service properties </th></tr>
-        <tr ng-repeat="i in ['Name'    , 'Sensor   ', 'Location    ', 'Type     ' ]">
-            <td>
-                {{i}}
-                <button class="btn btn-default" ng-click="edit($index)">Change </button>
+        <tr ng-repeat="i in ['name'    , 'Sensor   ', 'Location    ', 'Type     ' ]">
+            <td >
+                  {{i}}
+                <input type="text" placeholder="Edit..." ng-model="updat" />
+                <button  class="btn btn-default" ng-click="editService($index,i, updat)">Edit </button>
             </td>
         </tr>
     </table>
-    <div class="add-btn"> <button>Save </button> </div>
 
-    <div class="add-more-outer">
-        <input ng-model="Save" type="text" placeholder="Add property" autofocus onkeydown="if (event.keyCode==13) $('.add-btn').click()">
-        <span ng-click="addItem()" class="add-btn"></span>
-    </div>
+<!---        <div ng-show="details">
+            <form name="new property" ng-submit="addProperty($index)">
+                <input type="text" name="newProperty" ng-model="newProperty"  />
+                <button ng-disabled=" propertiesFrm.$invalid" ng-click="addProperty($index)">Add </button>
+            </form>
 
-    <p class="error">{{errortext}}</p>
+              <input type="form" ng-model="addMe" aria-label="Toggle ngShow">
+        </div>  -->
+<!--  <div class="add-btn"> <button>Save </button> </div>
 
-</div>    
+   <div class="add-more-outer" ng-show="details">
+       <input ng-model="Save" type="text" placeholder="Add property" autofocus onkeydown="if (event.keyCode==13) $('.add-btn').click()">
+       <span ng-click="addItem()" class="add-btn"></span>
+   </div>
+
+   <p class="error">{{errortext}}</p> -->
 
 
 
-            <div id="theMap"></div>
-            <script>
-                function initMap() {
-                    var opt = {
-                        zoom: 14,
-                        center: {
-                            lat: 52.5126,
-                            lng: 13.3219
-                        }
-                    }
-                    var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
-                    var marker = new google.maps.Marker({
-                        position: { lat: 52.5126, lng: 13.3219 },
-                        map: theMap,
-                        title: "Alba is here"
-                    });
-                }
-            </script>
-            <script>
-                document.getElementById("theMap").style.right = "-200px";
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
-            
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
+
