@@ -3,12 +3,12 @@
 
 <link rel="stylesheet" href="styles.css">
 
-<div layout="row" layout-sm="column"   >
+<div layout="row" layout-sm="column">
     <div ng-cloak flex>
 
 
         <md-content style=" background-color: rgb(84, 190, 171)">
-            <md-tabs md-dynamic-height md-border-bottom flex  md-swipe-content="true">
+            <md-tabs md-dynamic-height md-border-bottom flex md-swipe-content="true">
                 <md-tab label="Create" flex>
                     <md-content class="md-padding" flex>
 
@@ -23,7 +23,7 @@
                                 <!--       <md-content flex layout-padding> -->
 
                                 <ul class="service-list">
-                                    <li ng-repeat="service in serviceList  | filter: search"   ng-click="getService(service)">
+                                    <li ng-repeat="service in serviceList  | filter: search" ng-click="getService(service)">
                                         <h5 href="#"> {{service.name}} </h5>
 
 
@@ -48,15 +48,15 @@
                                     <div layout="column">
                                         <md-input-container>
                                             <label>Name</label>
-                                            
+
                                             <input placeholder={{dispServ.name}}>
                                         </md-input-container>
-                                       
+
                                         <md-input-container>
                                             <label>Sensor</label>
                                             <md-select ng-model="sensor">
                                                 <md-option ng-repeat=" item in dispServ.sensor" ng-value="item">
-                                                {{ item}}
+                                                    {{ item}}
                                                 </md-option>
                                             </md-select>
 
@@ -64,10 +64,10 @@
 
                                         <md-input-container>
                                             <label>Type</label>
-                                            <md-select ng-model="ctrl.userState">
+                                            <md-select ng-model="serviceType">
 
-                                                <md-option value="random">Random</md-option>
-                                                <md-option value="manual">Manual</md-option>
+                                                <md-option value="random" ng-click="setRandom()">Random</md-option>
+                                                <md-option value="manual" ng-click="setManual()">Manual</md-option>
 
                                             </md-select>
                                         </md-input-container>
@@ -108,11 +108,13 @@
                 </md-tab>
 
             </md-tabs>
-    </md-content>
-</div>
+        </md-content>
+    </div>
 
     <style>
-				.angular-google-map-container { height: 400px; }
+        .angular-google-map-container {
+            height: 400px;
+        }
 
         #theMap {
             height: 600px;
@@ -120,58 +122,65 @@
         }
     </style>
 
-		<div id="theMap" >
-			<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-				<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-				</ui-gmap-marker>
-			</ui-gmap-google-map>
-			<div ng-cloak>
-				<ul>
-					<li>coords update ctr: {{coordsUpdates}}</li>
-					<li>dynamic move ctr: {{dynamicMoveCtr}}</li>
-				</ul>
-			</div>
-		</div>
-		<!--
-		<div id="theMap" ng-model="map" >
-		<script>
-function initMap() {
-								var opt = {
-										zoom: 14,
-										center: {
-												lat: 52.5126,
-												lng: 13.3219
-										}
-								}
-								var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
-								var marker = new google.maps.Marker({
-										position: { lat: 52.5126, lng: 13.3219 },
-										map: theMap,
-										title: "Alba is here"
-								});
+    <div id="theMap">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.onclick">
+          <ui-gmap-marker ng-repeat="item in markers" options="item.options" position="item.position" idkey="item.id" icon="item.icon" setMap="map"> 
+               
+        </ui-gmap-google-map>
+        <div ng-cloak>
+            <ul>
+                <li>coords update ctr: {{coordsUpdates}}</li>
+                <li>dynamic move ctr: {{dynamicMoveCtr}}</li>
+            </ul>
+        </div>
+    </div>
+    <!--
+            <div id="theMap" ng-model="map" >
+            <script>
+    function initMap() {
+                                    var opt = {
+                                            zoom: 14,
+                                            center: {
+                                                    lat: 52.5126,
+                                                    lng: 13.3219
+                                            }
+                                    }
+                                    var theMap = new google.maps.Map(document.getElementById('theMap'), opt);
+                                    var marker = new google.maps.Marker({
+                                            position: { lat: 52.5126, lng: 13.3219 },
+                                            map: theMap,
+                                            title: "Alba is here"
+                                    });
 
-google.maps.event.addListener(theMap, 'click', function (event) {
-	placeMarker(event.latLng);
-	addLocationM(event.latLng)
+    google.maps.event.addListener(theMap, 'click', function (event) {
+        placeMarker(event.latLng);
+        addLocationM(event.latLng)
 
-});
+    });
 
-function placeMarker(location) {
-	// if currerent service type is manual
-	if ($scope.dispServ.type === "manual") {
-		var marker = new google.maps.Marker({
-			position: location,
-			map: theMap
+    function placeMarker(location) {
+        // if currerent service type is manual
+        if ($scope.dispServ.type === "manual") {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: theMap
 
-		});
-	}
-// else do something
-}
-}
-		</script>
-		</div>
-		--> 
+            });
+        }
+    // else do something
+    }
+    }
+            </script>
+            </div>
+            -->
 </div>
+
+
+
+
+
+
+
 
 
 
