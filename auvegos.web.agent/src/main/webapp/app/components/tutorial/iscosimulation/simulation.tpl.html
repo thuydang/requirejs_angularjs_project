@@ -55,7 +55,7 @@
                                         <md-input-container>
                                             <label>Sensor</label>
                                             <md-select ng-model="sensor">
-                                                <md-option ng-repeat=" item in dispServ.sensor" ng-value="item">
+                                                <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
                                                     {{ item}}
                                                 </md-option>
                                             </md-select>
@@ -64,15 +64,19 @@
 
                                         <md-input-container>
                                             <label>Type</label>
+
+
+
                                             <md-select ng-model="serviceType">
 
-                                                <md-option value="random" ng-click="setRandom()">Random</md-option>
-                                                <md-option value="manual" ng-click="setManual()">Manual</md-option>
+
+                                                <md-option ng-value="random" ng-click="makeRandom()"> Random</md-option>
+                                                <md-option ng-value="manual" ng-click="setManual()">Manual</md-option>
 
                                             </md-select>
                                         </md-input-container>
 
-                                        <md-input-container>
+                                        <md-input-container ng-show="setRandom">
                                             <label>Area</label>
                                             <input>
                                         </md-input-container> <br>
@@ -98,11 +102,26 @@
                             </md-button>
                             <ul class="service-list">
                                 <li ng-repeat="service in serviceList  | filter: search">
-                                    <h5> {{service}} </h5>
+                                    <h5> {{service.name}} </h5>
                                 </li>
                             </ul>
 
                             <md-divider ng-if="!$last"></md-divider>
+                        </div>
+
+                        <div layout="row">
+                            <md-input-container>
+                                <label>Services</label>
+                                <md-select ng-model="serviceToVisualise">
+
+                                    <input type="search" placeholder="Search for a service.." ng-model="searchTerm" />
+
+
+                                    <md-option ng-value="service" ng-repeat="service in serviceList |
+              filter:searchTerm">{{service.name}}</md-option>
+
+                                </md-select>
+                            </md-input-container>
                         </div>
                     </md-content>
                 </md-tab>
@@ -123,15 +142,12 @@
     </style>
 
     <div id="theMap">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.onclick">
-          <ui-gmap-marker ng-repeat="item in markers" options="item.options" position="item.position" idkey="item.id" icon="item.icon" setMap="map"> 
-               
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
+            <ui-gmap-marker ng-repeat="item in map.markers" coords="item.coords" icon="item.icon" idkey="item.id">
+
         </ui-gmap-google-map>
-        <div ng-cloak>
-            <ul>
-                <li>coords update ctr: {{coordsUpdates}}</li>
-                <li>dynamic move ctr: {{dynamicMoveCtr}}</li>
-            </ul>
+        <div ng-cloak ng-show="setRandom">
+            Draw a circle in the desired area
         </div>
     </div>
     <!--
@@ -188,46 +204,46 @@
 
 
 <!--   <button ng- click="removeService($index)" >
-	Remove
-	</button >
+    Remove
+    </button >
 
-	</div >
-	<!--   <button ng- click="editService(service.name)" >
-	 Edit
-	 </button > <br /> <br />
-
-
-
-	 <div ng-show="addBar">
-	 <form name="AddService" ng-submit="addServices()">
-	 <input type="text" name="newService" ng-model="newService" required />
-	 <button ng-disabled="servicesFrm.$invalid" ng-click="addServices()">Add</button>
-	 </form>
-
-	 <!---  <input type="form" ng-model="addMe" aria-label="Toggle ngShow"> -->
-	 <!-- <div class="search-outer" ng-show="adding"> <input ng-model="search" placeholder="Add another service..."></div> -->
-	 <!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
-	 <!--  <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
-		<ul ng-model="serviceList">
-		<li ng-repeat="item in serviceList | filter:search" markable>
-		Name: {{ item.name }} <br />
-		Area: {{ item.area }}<br />
-		Type: {{ item.type }}<br />
-		<button class="btn btn-default" ng-click="removeService($index)">
-		Remove
-		</button>
-		<button class="btn btn-default" ng-click="updateService($index)">
-		Edit
-		</button>
+    </div >
+    <!--   <button ng- click="editService(service.name)" >
+     Edit
+     </button > <br /> <br />
 
 
-		<!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">
-		<br>
 
-		</li>
-		</ul>
-		</div>
-		-->
+     <div ng-show="addBar">
+     <form name="AddService" ng-submit="addServices()">
+     <input type="text" name="newService" ng-model="newService" required />
+     <button ng-disabled="servicesFrm.$invalid" ng-click="addServices()">Add</button>
+     </form>
+
+     <!---  <input type="form" ng-model="addMe" aria-label="Toggle ngShow"> -->
+<!-- <div class="search-outer" ng-show="adding"> <input ng-model="search" placeholder="Add another service..."></div> -->
+<!-- <ul ui-sortable ng-model="list" class="mCustomScrollbar" data-mcs-theme="light-thin"> -->
+<!--  <div class="scroll-outer mCustomScrollbar" data-mcs-theme="light-thin">
+   <ul ng-model="serviceList">
+   <li ng-repeat="item in serviceList | filter:search" markable>
+   Name: {{ item.name }} <br />
+   Area: {{ item.area }}<br />
+   Type: {{ item.type }}<br />
+   <button class="btn btn-default" ng-click="removeService($index)">
+   Remove
+   </button>
+   <button class="btn btn-default" ng-click="updateService($index)">
+   Edit
+   </button>
+
+
+   <!-- <input field-value="item.name" field-type="text" on-update="updateService('name', value)">
+   <br>
+
+   </li>
+   </ul>
+   </div>
+   -->
 <!--         <style>
                                             #theMap {
                                                 height: 600px;
@@ -322,12 +338,6 @@
    </div>
 
    <p class="error">{{errortext}}</p> -->
-
-
-
-
-
-	 <!--
+<!--
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
 -->
-
