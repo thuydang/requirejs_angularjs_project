@@ -52,28 +52,21 @@ define([
                             }
 
                             else if ($scope.setRandom === true) {
-                           //     var e = arguments[0];
-                             //   $scope.lat = e.latLng.lat();
-                              //  $scope.lng = e.latLng.lng();
-                                $scope.circle = new google.maps.Circle({
-                                    center: { latitude: 52.512230, longitude: 13.327135 },
-                              
-                                    radius: 500,
-                                    editable: true
+                           				var e = arguments[0];
+                             			$scope.circles[0].center.latitude = e.latLng.lat();
+                             			$scope.circles[0].center.longitude = e.latLng.lng();
+																	
+																	// refresh circle center
+															    $scope.$apply();
+															    //$scope.map.refresh = true;
 
-                                })
-
-                               // $scope.dispServ.area = cirlce;
-                                //put the selected area in the temporary service (which is being modified)
-                                console.log();
-                                //see if markers are added in the array
-                                
-                              //  $scope.$apply();
-                              
-
-
+	                                //$scope.circle = new google.maps.Circle({
+                                  //  center: { latitude: 52.512230, longitude: 13.327135 },
+                                  //  radius: 500,
+                                  //  editable: true
 
                             }
+
                             else {
                                 return;
                             }
@@ -83,11 +76,45 @@ define([
                 $scope.options = { scrollwheel: true };
                
                 
+							// Circle
+							$scope.circles = [
+								{
+									id: 1,
+                  center: {},
+									radius: 500,
+									stroke: {
+										color: '#08B21F',
+										weight: 2,
+										opacity: 1
+									},
+									fill: {
+										color: '#08B21F',
+										opacity: 0.5
+									},
+									geodesic: true, // optional: defaults to false
+									draggable: true, // optional: defaults to false
+									clickable: true, // optional: defaults to true
+									editable: true, // optional: defaults to false
+									visible: true, // optional: defaults to true
+									control: {},
+									events: {
+										radius_changed: function(googleCircle, eventName, circle) {
+											console.log("Radius changed 1: " + googleCircle + " " +
+																	"2: " + eventName + " " +
+																	"3: " + circle);
+										},
+										center_changed: function(googleCircle, eventName, circle) {
+											console.log("Center changed 2: " + googleCircle + " " +
+																	"2: " + eventName + " " +
+																	"3: " + circle);
+										}
+									}
+								}
+							];
 
 
 
-
-                //uiGmapGoogleMapApi.then(function(maps) {
+							//uiGmapGoogleMapApi.then(function(maps) {
                 //});
 
                 // -------------------------------------------
