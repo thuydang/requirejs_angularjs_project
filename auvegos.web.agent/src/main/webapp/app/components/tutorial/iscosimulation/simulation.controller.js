@@ -23,8 +23,14 @@ define([
                 //
                 ///center at TU
 
+
+
                 $scope.manual = false;
+
                 $scope.map = {
+
+                   
+                
                     center: { latitude: 52.512230, longitude: 13.327135 },
                     zoom: 14,
                     markers: [],
@@ -32,40 +38,43 @@ define([
                         click: function (maps, eventName, arguments) {
                             //
                             if ($scope.manual === true) {
-                                var e = arguments[0];
-                                $scope.lat = e.latLng.lat();
-                                $scope.lng = e.latLng.lng();
-                                console.log("my lat is:" + $scope.lat + ", lng is:" + $scope.lng);
-                                var marker = {
-                                    id: Date.now(),
-                                    coords: {
-                                        latitude: $scope.lat,
-                                        longitude: $scope.lng
-                                    }
-                                };
-                                $scope.map.markers.push(marker);
-                                //put the selected area in the temporary service (which is being modified)
-                                $scope.dispServ.locations = $scope.map.markers;
-                                //see if markers are added in the array
-                                console.log($scope.dispServ.locations);
-                                $scope.$apply();
+                                if ($scope.dispServ.name === "") {
+                                    alert("Select service first");
+                                    console.log($scope.dispServ.name);
+                                }
+                                else {
+                                    console.log($scope.dispServ.name);
+                                    var e = arguments[0];
+                                    $scope.lat = e.latLng.lat();
+                                    $scope.lng = e.latLng.lng();
+                                    console.log("my lat is:" + $scope.lat + ", lng is:" + $scope.lng);
+                                    var marker = {
+                                        id: Date.now(),
+                                        coords: {
+                                            latitude: $scope.lat,
+                                            longitude: $scope.lng
+                                        }
+                                    };
+                                    $scope.map.markers.push(marker);
+                                    //put the selected area in the temporary service (which is being modified)
+                                    $scope.dispServ.locations = $scope.map.markers;
+                                    //see if markers are added in the array
+                                    console.log($scope.dispServ.locations);
+                                    $scope.$apply();
+                                }
                             }
 
                             else if ($scope.setRandom === true) {
+
+                            } 
                            //     var e = arguments[0];
                              //   $scope.lat = e.latLng.lat();
                               //  $scope.lng = e.latLng.lng();
-                                $scope.circle = new google.maps.Circle({
-                                    center: { latitude: 52.512230, longitude: 13.327135 },
-                              
-                                    radius: 500,
-                                    editable: true
-
-                                })
+                               
 
                                // $scope.dispServ.area = cirlce;
                                 //put the selected area in the temporary service (which is being modified)
-                                console.log();
+                               
                                 //see if markers are added in the array
                                 
                               //  $scope.$apply();
@@ -73,7 +82,7 @@ define([
 
 
 
-                            }
+                            
                             else {
                                 return;
                             }
@@ -81,6 +90,31 @@ define([
                     }
                 };
                 $scope.options = { scrollwheel: true };
+             /*   var drawingManager = new google.maps.drawing.DrawingManager({
+                    //drawingMode: google.maps.drawing.OverlayType.MARKER,
+                    drawingControl: true,
+                    drawingControlOptions: {
+                        position: google.maps.ControlPosition.TOP_RIGHT,
+                        drawingModes: [
+                            google.maps.drawing.OverlayType.MARKER,
+                            google.maps.drawing.OverlayType.CIRCLE
+                        ]
+                    },
+                    markerOptions: {
+                        icon: 'images/POI-1.png'
+                    },                                                              
+                    circleOptions: {
+                        fillColor: '#A0A0A0',
+                        fillOpacity: 0.3,
+                        strokeWeight: 1,
+                        strokeOpacity: 0.5,
+                        clickable: true,
+                        editable: true,
+                        draggable: true,
+                        zIndex: 1
+                    }
+                });
+                drawingManager.setMap($scope.map); */
                
                 
 
@@ -98,7 +132,14 @@ define([
                 // 
 
                 //service to display in details
-                $scope.dispServ = "";
+                $scope.dispServ = {
+                    name: "",
+                    area: {},
+                    sensor: "",
+                    selectedSensor: "",
+                    selectedTypeOfSensor: "",
+                    locations: []
+                };
 
                 //type of services
                 $scope.setRandom = false;
@@ -112,6 +153,9 @@ define([
 
                 //service to visualize
                 $scope.searchTerm;
+
+                //sensor to be added
+                $scope.newSensor;
 
                 // List of services
                 $scope.serviceList = [
@@ -186,6 +230,20 @@ define([
                 //when cancel button is pressed
                 $scope.cancelAll = function () {
                     $scope.tempArr = $scope.serviceList;
+                    $scope.dispServ = {
+                        name: "",
+                        area: {},
+                        sensor: "",
+                        selectedSensor: "",
+                        selectedTypeOfSensor: "",
+                        locations: []
+                    };
+                    console.log($scope.tempArr);
+                    console.log($scope.serviceList);
+                    console.log($scope.dispServ.name);
+                    console.log($scope.dispServ.sensor);
+
+                   
                 };
 
 

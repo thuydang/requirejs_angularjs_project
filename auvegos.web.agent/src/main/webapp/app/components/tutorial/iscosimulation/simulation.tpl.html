@@ -1,10 +1,13 @@
 
-<link rel="stylesheet" href="StyleSheet1.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="styles.css">
 
-<div layout="row" layout-sm="column">
-    <div ng-cloak flex>
+
+
+
+<div class="row">
+    <div class="col-sm-4">
 
 
         <md-content style=" background-color: rgb(84, 190, 171)">
@@ -16,14 +19,16 @@
                             <div class="service-list">
                                 <br />
                                 <input type="text" placeholder="Search service..." ng-model="search" />
-                                <md-button ng-click="addServices()" style="background-color: rgb(95,225,192)">
-                                    Add service
-                                </md-button>
+
+                                <button type="button" class="btn btn-default" ng-click="addServices()" style="background-color: rgb(95,225,192)">Add service</button>
+
                                 <br /> <br />
                                 <!--       <md-content flex layout-padding> -->
 
                                 <ul class="service-list">
                                     <li ng-repeat="service in serviceList  | filter: search" ng-click="getService(service)">
+
+
                                         <h5 href="#"> {{service.name}} </h5>
 
 
@@ -40,7 +45,7 @@
                             <md-card ng-show="detailed" style="background-color: lavender">
                                 <md-card-title>
                                     <md-card-title-text>
-                                        <span class="md-headline" style="color:indianred">Service properties</span>
+                                        <span class="md-headline" style="color:indianred">Details</span>
                                     </md-card-title-text>
                                 </md-card-title>
 
@@ -49,32 +54,48 @@
                                         <md-input-container>
                                             <label>Name</label>
 
-                                            <input placeholder={{dispServ.name}}>
+                                            <input type="text" placeholder="Name.." ng-model="dispServ.name" />
                                         </md-input-container>
 
-                                        <md-input-container>
-                                            <label>Sensor</label>
-                                            <md-select ng-model="sensor">
-                                                <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
-                                                    {{ item}}
-                                                </md-option>
-                                            </md-select>
 
-                                        </md-input-container>
+                                        <hr>
+                                        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Sensor details</button>
+                                        <hr>
+                                        <div uib-collapse="isCollapsed">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-md-6">
+                                                    <input type="text" placeholder="Add" ng-model="search" />
+                                                </div>
+                                                <div class="col-xs-6 col-md-6">
 
-                                        <md-input-container>
-                                            <label>Type</label>
-
-
-
-                                            <md-select ng-model="serviceType">
+                                                    <md-input-container>
 
 
-                                                <md-option ng-value="random" ng-click="makeRandom()"> Random</md-option>
-                                                <md-option ng-value="manual" ng-click="setManual()">Manual</md-option>
+                                                        <md-select ng-model="sensor" placeholder="Select sensor">
+                                                            <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
+                                                                {{ item}}
+                                                            </md-option>
+                                                        </md-select>
 
-                                            </md-select>
-                                        </md-input-container>
+                                                    </md-input-container>
+                                                </div>
+                                                <div class="col-xs-6 col-md-6">
+                                                    <md-input-container>
+                                                        <md-select ng-model="serviceType" placeholder="type">
+
+
+                                                            <md-option ng-value="random" ng-click="makeRandom()"> Random</md-option>
+                                                            <md-option ng-value="manual" ng-click="setManual()">Manual</md-option>
+
+                                                        </md-select>
+                                                    </md-input-container>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
 
                                         <md-input-container ng-show="setRandom">
                                             <label>Area</label>
@@ -129,26 +150,28 @@
             </md-tabs>
         </md-content>
     </div>
+    <div class="col-sm-8" style="background-color:lavenderblush">
+        <style>
+            .angular-google-map-container {
+                height: 500px;
+            }
 
-    <style>
-        .angular-google-map-container {
-            height: 400px;
-        }
+            #theMap {
+                height: 100%;
+                width: 100%;
+            }
+        </style>
 
-        #theMap {
-            height: 600px;
-            width: 60%;
-        }
-    </style>
+        <div id="theMap">
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
+                <ui-gmap-marker ng-repeat="item in map.markers" coords="item.coords" icon="item.icon" idkey="item.id">
 
-    <div id="theMap">
-        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
-            <ui-gmap-marker ng-repeat="item in map.markers" coords="item.coords" icon="item.icon" idkey="item.id">
-
-        </ui-gmap-google-map>
-        <div ng-cloak ng-show="setRandom">
-            Draw a circle in the desired area
+            </ui-gmap-google-map>
+            <div ng-cloak ng-show="setRandom">
+                Draw a circle in the desired area
+            </div>
         </div>
+
     </div>
     <!--
             <div id="theMap" ng-model="map" >
@@ -337,7 +360,11 @@
        <span ng-click="addItem()" class="add-btn"></span>
    </div>
 
-   <p class="error">{{errortext}}</p> -->
+   <p class="error">{{errortext}}</p>
+
+     <md-button ng-click="addServices()" style="background-color: rgb(95,225,192)">
+                                    Add service
+                                </md-button>-->
 <!--
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
 -->
