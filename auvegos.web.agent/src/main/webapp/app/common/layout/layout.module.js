@@ -125,6 +125,11 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
 		// Tutorials
 		//----------------
 		//------------- angular wizard demo --------------------
+
+
+
+
+       
 		.state('main.angularwizard', {
 			url: '/angularwizard', /* e.g http://localhost:8000/#/home */
 			//parent:'main.tutorial',
@@ -158,7 +163,102 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
 				}]
 			}
             })
+            // ISCO Simulation
+            // Parent state TODO__________________________________________________________________________________________
 
+
+            // Parent state for pages with a network map
+            .state('main.serviceParent', {
+                abstract: true,
+                //url: '/serviceParent',
+                views: {
+                    'content@main': {
+                        controller: 'ServiceCtrl',
+                        //templateUrl: 'app/components/tutorial/index.html'
+                        templateUrl: 'app/components/tutorial/iscosimulation/simulation.tpl.html'
+                    },
+                    'mapElements@main.serviceParent': {
+                        controller: 'MapElementsCtrl',
+                        templateUrl: 'app/components/tutorial/iscosimulation/mapElements.tpl.html'
+                        //template: '<div>thisis the map</div><div ui-view="mapmap"></div>'
+                    },
+                    'serviceElements@main.serviceParent': {
+                        templateUrl: 'app/components/tutorial/iscosimulation/serviceElements.tpl.html',
+                        controller: 'ServiceElementsCtrl'
+                    }
+
+                },
+                resolve: {
+                    loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: [
+                                //'app/core/banners/banners.css',
+                                //'assets/libs/bootstrap-css/css/bootstrap.min.css',
+                                'app/components/tutorial/iscosimulation/servicemodule.service',
+                                'app/components/tutorial/iscosimulation/simulation.controller',
+                                'app/components/tutorial/iscosimulation/serviceElements.controller',
+                                'app/components/tutorial/iscosimulation/mapElements.controller',
+
+
+                                //other files (ctrl, html)
+                            ]
+                        });
+                    }]
+                  
+                }
+            })
+            // serviceElements details (view1)
+            .state('main.serviceParent.serviceElements', {
+                url: '/serviceElements',
+                parent: 'main.serviceParent',
+                views: {
+                    
+                    'serviceElements@main.serviceParent': {
+                        templateUrl: 'app/components/tutorial/iscosimulation/serviceElements.tpl.html',
+                        controller: 'ServiceElementsCtrl'
+                    }
+                },
+                resolve: {
+                    loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            files: [
+                                'app/components/tutorial/iscosimulation/serviceElements.controller',
+                                'app/components/tutorial/iscosimulation/mapElements.controller'
+                            ]
+                        });
+                    }]
+                }
+            })
+            // defined above
+            .state('main.serviceParent.mapElements', {
+                parent: 'main.serviceParent',
+                url: '/mapElements',
+                //params: { reload: true },
+                views: {
+                 
+                    'mapElements@main.serviceParent': {
+                        controller: 'MapElementsCtrl',
+                        templateUrl: 'app/components/tutorial/iscosimulation/mapElements.tpl.html'
+                       // template: '<div>thisis the map</div><div ui-view="mapmap"></div>'
+                    }
+                  
+
+                },
+                resolve: {
+                    loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                        return $ocLazyLoad.load({
+                            
+                            files: [
+                                'app/components/tutorial/iscosimulation/mapElements.controller']
+                        });
+                    }],
+                   
+
+                }
+            })
+            // tBD...
+
+       /*     // Child state for left section: service details
             .state('main.services', {
                 //parent: 'main.networkParent',
                 url: '/services',
@@ -179,6 +279,7 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                         return $ocLazyLoad.load({
                             //files: ['app/app.controller'].concat(TopBarHelperProvider.getControllers()).concat(NavHelperProvider.getControllers())
                             files: [
+			 	                'app/components/tutorial/iscosimulation/servicemodule.service',
                                 'app/components/tutorial/iscosimulation/simulation.controller',
                                 //'app/components/tutorial/gmap/gmap.controller',
                                 //'assets/libs/angular-wizard/dist/angular-wizard.min.css',
@@ -187,7 +288,8 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                         });
                     }]
                 }
-            })
+            })  */
+            // Child state for right section: map
 		//------------ end tutorial-------------
 		.state('main.home', {
 			url: '/home', /* e.g http://localhost:8000/#/home */
@@ -212,7 +314,8 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
 				loadCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
 					return $ocLazyLoad.load({
 						//files: ['app/app.controller'].concat(TopBarHelperProvider.getControllers()).concat(NavHelperProvider.getControllers())
-						files: ['app/core/header/header.controller']
+						files: [
+							'app/core/header/header.controller']
 					});
 				}]
 			}
