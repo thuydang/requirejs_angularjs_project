@@ -6,187 +6,202 @@
 
 
 
-    
-
-            
-                <md-tabs md-dynamic-height md-border-bottom md-swipe-content="true" class="col-md-12">
-                    <md-tab label="Create" flex>
-                        <md-content class="md-padding" style="overflow:unset">
-
-                            <section style="background-color: lightcyan">
-                                <div class="service-list">
-                                    <br />
-                                    <input type="text" placeholder="Search service..." ng-model="search" />
-
-                                    <button type="button" class="btn btn-default" ng-click="addServices()" style="background-color: rgb(95,225,192)">Add service</button>
-
-                                    <br /> <br />
-                                    <!--       <md-content flex layout-padding> -->
-
-                                    <ul class="service-list">
-                                        <li ng-repeat="service in serviceList  | filter: search" ng-click="getService(service)">
-
-
-                                            <h5 href="#"> {{service.name}} </h5>
 
 
 
-                                        </li>
-                                    </ul>
-                                    <md-divider ng-if="!$last"></md-divider>
-                                </div>
+<md-tabs md-dynamic-height md-border-bottom md-swipe-content="true" class="col-md-12">
+    <md-tab label="Create" flex>
+        <md-content class="md-padding" style="overflow:unset">
 
-                            </section>
+            <section style="background-color: lightcyan">
+                <div class="service-list">
+                    <br />
+                    <input type="text" placeholder="Search service..." ng-model="search" />
 
+                    <button type="button" class="btn btn-default" ng-click="addServices()" style="background-color: rgb(95,225,192)">Add service</button>
 
-                            <section>
-                                <md-card ng-show="detailed" style="background-color: lavender">
-                                    <md-card-title>
-                                        <md-card-title-text>
-                                            <span class="md-headline" style="color:indianred">Details</span>
-                                        </md-card-title-text>
-                                    </md-card-title>
+                    <br /> <br />
+                    <!--       <md-content flex layout-padding> -->
 
-                                    <md-card-content>
-                                        <div layout="column">
-                                            <md-input-container>
-                                                <label>Name</label>
-
-                                                <input type="text" placeholder="Name.." ng-model="dispServ.name" />
-                                            </md-input-container>
+                    <ul class="service-list">
+                        <li ng-repeat="service in serviceList  | filter: search" ng-click="getService(service)">
 
 
-                                            <hr>
-                                            <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Sensor details</button>
-                                            <hr>
-                                            <div uib-collapse="isCollapsed">
-
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-sm-2">
+                            <h5 href="#"> {{service.name}} </h5>
 
 
 
+                        </li>
+                    </ul>
+                    <md-divider ng-if="!$last"></md-divider>
+                </div>
+
+            </section>
 
 
-                                                            <md-input-container>
+            <section>
+                <md-card ng-show="detailed" style="background-color: lavender">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline" style="color:indianred">Details</span>
+                        </md-card-title-text>
+                    </md-card-title>
 
-                                                                <md-select ng-model="sensor" placeholder="Select sensor" flex>
-                                                                    <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
-                                                                        {{ item}}
-                                                                    </md-option>
-                                                                </md-select>
+                    <md-card-content>
+                        <div layout="column">
+                            <md-input-container>
+                                <label>Service Name</label>
+
+                                <input type="text" placeholder="Name.." ng-model="dispServ.name" />
+                            </md-input-container>
 
 
-                                                            </md-input-container>
-                                                        </div>
+                            <hr>
+                            <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Sensor details</button>
+                            <hr>
+                            <div uib-collapse="isCollapsed">
+                                <!---------------------------------------------->
+                                <md-tabs md-dynamic-height md-border-bottom md-swipe-content="true" class="col-md-12" style="background-color: rgb(95,225,192)">
+                                    <md-tab label="Select" flex>
+                                        <md-content class="md-padding" style="overflow:unset">
 
-                                                        <div class="col-sm-1">
+                                            <section style="background-color: whitesmoke">
+
+                                                <md-input-container>
+
+                                                    <md-select ng-model="sensor" placeholder="Select Sensor" flex>
+                                                        <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
+                                                            {{ item}}
+                                                        </md-option>
+                                                    </md-select>
+                                                </md-input-container>
+                                            </section>
+                                        </md-content>
+                                    </md-tab>
+
+                                    <md-tab label="Add" flex>
+                                        <md-content class="md-padding" style="overflow:unset">
 
 
-                                                            <button type="button" class="btn btn-default" ng-click="addSensor()" style="background-color: rgb(95,225,192)" flex>+</button>
+                                            <section style="background-color: papayawhip">
+                                                <md-input-container>
+                                                    <div class="col-sm-4" style="left:unset">
+                                                        <label>New sensor...</label>
+                                                        <input type="text" ng-model="newSensor" />
 
-
-                                                        </div>
                                                     </div>
+                                                    <md-input-container>
+                                                        <div class="col-sm-3" style="right:unset">
+                                                            <button type="button" class="btn btn-default" ng-click="saveNewSenor()" style="background-color: rgb(95,225,192)">Add sensor</button>
 
-                                                    <div class="row" ng-show="newSensorBool">
-
-                                                        <div class="col-sm-2">
-                                                            <input type="text" placeholder="New sensor..." ng-model="newSensor" />
                                                         </div>
-                                                        <div class="col-sm-2">
-                                                            <button type="button" class="btn btn-default" ng-click="saveNewSenor()" style="background-color: rgb(95,225,192)" flex>Add</button>
-                                                        </div>
-                                                    </div>
+                                            </section>
+                                        </md-content>
+                                    </md-tab>
 
+                                    <md-tab label="Type & area" flex>
+                                        <md-content class="md-padding" style="overflow:unset">
 
+                                            <section style="background-color: lightcyan">
 
+                                                <md-input-container ng-show="showType">
+                                                    <md-input-container>
 
+                                                        <md-select ng-model="serviceType" placeholder="Service Type..">
 
-                                                    <md-input-container ng-show="showType">
-                                                        Type of sensor
+                                                            <md-option ng-value="random" ng-click="makeRandom()">Random</md-option>
+                                                            <md-option ng-value="manual" ng-click="setManual()">Manual</md-option>
+
+                                                        </md-select>
+
+                                                    </md-input-container>
+
+                                                    <div ng-show="setRandom">
                                                         <md-input-container>
                                                             <div class="col-sm-3">
-                                                                <md-select ng-model="serviceType" placeholder="the Type..">
 
+                                                                <label>Area</label>
+                                                                <input>
+                                                            </div>
 
-                                                                    <md-option ng-value="random" ng-click="makeRandom()">Random</md-option>
-                                                                    <md-option ng-value="manual" ng-click="setManual()">Manual</md-option>
-
-                                                                </md-select>
+                                                        </md-input-container>
+                                                        <md-input-container>
+                                                            <div class="col-sm-3">
+                                                                <label>Number of sensors</label>
+                                                                <input type="text" ng-model="nrOfRandomSensors" />
                                                             </div>
                                                         </md-input-container>
-                                                        <div ng-show="setRandom">
-                                                            <label>Area</label>
-                                                            <input>
-                                                        </div>
-                                                    </md-input-container>
-                                                </div>
+                                                    </div>
 
-                                            </div>
-                                    </md-card-content>
-                                </md-card>
+                                            </section>
+                                        </md-content>
+                                    </md-tab>
+                                </md-tabs>
 
 
-                            </section>
-                            <section>
-                                <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="saveChanges()">Save</md-button>
-                                <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="cancelAll()">Cancel</md-button>
-                            </section>
 
-                        </md-content>
-                    </md-tab>
-                    <md-tab label="Visualize" flex>
-                        <md-content class="md-padding" flex>
-                            <div>
-                                <input type="text" placeholder="Search service..." ng-model="search" />
-                                <md-button ng-click="Visualize()" style="background-color: rgb(95,225,192)">
-                                    Visualize
-                                </md-button>
-                                <ul class="service-list">
-                                    <li ng-repeat="service in serviceList  | filter: search">
-                                        <h5> {{service.name}} </h5>
-                                    </li>
-                                </ul>
 
-                                <md-divider ng-if="!$last"></md-divider>
+                                <!-------------------------------------------------------------------------------------------------------->
                             </div>
 
-                            <div layout="row">
-                                <md-input-container>
-                                    <label>Services</label>
-                                    <md-select ng-model="serviceToVisualise">
-
-                                        <input type="search" placeholder="Search for a service.." ng-model="searchTerm" />
+                        </div>
 
 
-                                        <md-option ng-value="service" ng-repeat="service in serviceList |
+
+                    </md-card-content>
+                </md-card>
+
+
+            </section>
+            <section>
+                <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="saveChanges()">Save</md-button>
+                <md-button class="md-accent md-raised md-hue-1" ng-show="detailed" ng-click="cancelAll()">Cancel</md-button>
+            </section>
+
+        </md-content>
+    </md-tab>
+
+    <md-tab label="Visualize" flex>
+        <md-content class="md-padding" flex>
+
+            <div>
+                <input type="text" placeholder="Search service..." ng-model="search" />
+                <md-button ng-click="Visualize()" style="background-color: rgb(95,225,192)">
+                    Visualize
+                </md-button>
+                <ul class="service-list">
+                    <li ng-repeat="service in serviceList  | filter: search">
+                        <h5> {{service.name}} </h5>
+                    </li>
+                </ul>
+
+                <md-divider ng-if="!$last"></md-divider>
+            </div>
+
+            <div layout="row">
+                <md-input-container>
+                    <label>Services</label>
+                    <md-select ng-model="serviceToVisualise">
+
+                        <input type="search" placeholder="Search for a service.." ng-model="searchTerm" />
+
+
+                        <md-option ng-value="service" ng-repeat="service in serviceList |
               filter:searchTerm">{{service.name}}</md-option>
 
-                                    </md-select>
-                                </md-input-container>
-                            </div>
-                        </md-content>
-                    </md-tab>
+                    </md-select>
+                </md-input-container>
+            </div>
+        </md-content>
+    </md-tab>
 
-                </md-tabs>
-            
-
-
-
-            <!-- __________________________________________________________________-
-            -->
+</md-tabs>
 
 
 
 
-          
-
-
-
-
-
+<!-- __________________________________________________________________-
+-->
 <!--
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6Vl-B8jI0thVnkTPO_Bi5NvEGymvf4YE&callback=initMap" async defer></script>
 -->

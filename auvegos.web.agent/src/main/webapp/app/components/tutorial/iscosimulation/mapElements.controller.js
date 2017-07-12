@@ -13,7 +13,7 @@ define([
 
     app.register.controller('MapElementsCtrl',
 			/* needed services */['$state', '$scope', '$timeout', '$uibModal', '$log', '$mdDialog',
-                'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 'ServiceModuleService', 'uiGmapGoogleMapApi', '$element',
+            'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 'ServiceModuleService', 'uiGmapGoogleMapApi', '$element',
             function ($state, $scope, $timeout, $uibModal, $log, $mdDialog,
                 EventAggregator, NetworkInfoWebsocketService, NetworkInfoRestServices, ServiceModuleService, uiGmapGoogleMapApi, $element) {
 
@@ -24,23 +24,28 @@ define([
                 //
                 ///center at TU
 
+
+
+
                 $scope.map = {
-
-
-
                     center: { latitude: 52.512230, longitude: 13.327135 },
                     zoom: 14,
                     markers: [],
                     events: {
                         click: function (maps, eventName, arguments) {
-                            //
-                            if ($scope.manual === true) {
-                                if ($scope.dispServ.name === "") {
-                                    alert("Select service first");
-                                    console.log($scope.dispServ.name);
+                            //chose markers or circle
+                            console.log("entering the map");
+                            console.log("Selected  sensor type: " + ServiceModuleService.dispServ.selectedTypeOfSensor);
+                           
+
+                            if (ServiceModuleService.dispServ.selectedTypeOfSensor === "Manual") {
+                                if (ServiceModuleService.dispServ.name === "") {
+                                    alert("Select Service first");
                                 }
+                            
                                 else {
-                                    console.log($scope.dispServ.name);
+                                    console.log("inside manual");
+
                                     var e = arguments[0];
                                     $scope.lat = e.latLng.lat();
                                     $scope.lng = e.latLng.lng();
@@ -53,38 +58,44 @@ define([
                                         }
                                     };
                                     $scope.map.markers.push(marker);
-                                    //put the selected area in the temporary service (which is being modified)
-                                    $scope.dispServ.locations = $scope.map.markers;
-                                    //see if markers are added in the array
-                                    console.log($scope.dispServ.locations);
                                     $scope.$apply();
+
+                                    //put the selected area in the temporary service (which is being modified)
+                                    ServiceModuleService.dispServ.locations = $scope.map.markers;
+                                    
+                                    console.log("MArkerks: " + ServiceModuleService.dispServ.locations);
+                                   
+
+
+
                                 }
                             }
 
-                            else if ($scope.setRandom === true) {
+
+                            else if (ServiceModuleService.dispServ.selectedTypeOfSensor === "Random") {
                                 var e = arguments[0];
                                 $scope.circles[0].center.latitude = e.latLng.lat();
                                 $scope.circles[0].center.longitude = e.latLng.lng();
 
                                 // refresh circle center
                                 $scope.$apply();
-                                //$scope.map.refresh = true;
 
-                                //$scope.circle = new google.maps.Circle({
-                                //  center: { latitude: 52.512230, longitude: 13.327135 },
-                                //  radius: 500,
-                                //  editable: true
+
+
+                                ServiceModuleService.dispServ.area = $scope.circles;
+                                console.log(ServiceModuleService.dispServ.area);
 
                             }
 
                             else {
                                 return;
+
                             }
                         }
                     }
                 };
+
                 $scope.options = { scrollwheel: true };
-                
 
 
                 // Circle
@@ -123,15 +134,9 @@ define([
                     }
                 ];
 
-
-
-            
-          
                 // end of controller  */
-
             }]);
 
 });
 
 
-   

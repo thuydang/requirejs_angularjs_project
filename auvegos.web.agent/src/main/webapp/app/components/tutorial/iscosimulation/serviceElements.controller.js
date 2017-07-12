@@ -13,130 +13,160 @@ define([
 
     app.register.controller('ServiceElementsCtrl',
 			/* needed services */['$state', '$scope', '$timeout', '$uibModal', '$log', '$mdDialog',
-                'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 'ServiceModuleService', 'uiGmapGoogleMapApi', '$element',
+            'EventAggregator', 'NetworkInfoWebsocketService', 'NetworkInfoRestServices', 'ServiceModuleService', 'uiGmapGoogleMapApi', '$element',
             function ($state, $scope, $timeout, $uibModal, $log, $mdDialog,
                 EventAggregator, NetworkInfoWebsocketService, NetworkInfoRestServices, ServiceModuleService, uiGmapGoogleMapApi, $element) {
 
-                // Controller Logic
-                //
-                // GMAP Control
-                //
-                //
-                ///center at TU
+                // elements needed from service module
+                $scope.serviceList = ServiceModuleService.serviceList;
+                $scope.dispServ = ServiceModuleService.dispServ;
+                $scope.setRandom = true;
 
 
-
-                $scope.manual = false;
-
-                
-                //service to display in details
-                $scope.dispServ = {
-                    name: "",
-                    area: {},
-                    sensor: [],
-                    selectedSensor: "",
-                    selectedTypeOfSensor: "",
-                    locations: []
-                };
-
-                //type of services
-                $scope.setRandom = false;
-
-                //open the details' card
-                $scope.detailed = false;
-
-                //manual set locations
-                $scope.locations = [];
-
-
-                //service to visualize
-                $scope.searchTerm;
-
-                //to show adding part of the menu
+                //view helper elements
                 $scope.newSensorBool = false;
-
-                //new sensor name
+                $scope.detailed = false;
+                $scope.showType = false;
+                $scope.manual = false;
+                $scope.setRandom = false;
                 $scope.newSensor;
 
+                //array of temp changes (copied by value)
+                $scope.tempArr = ServiceModuleService.serviceList.slice();
 
-                //showtype of sensor
-                $scope.showType = false;
+                //-----FUNCTIONS-------------------------------------------------------
 
-
-                // List of services
-                $scope.serviceList = ServiceModuleService.getServiceList();
-
-                //array of temp changes
-                $scope.tempArr = $scope.serviceList.slice();
-
-                // service functions
-
-                //when a service is selected
-                //assign the existing service parameters to the temporary one (which is being modified)
-                $scope.getService = function (service) {
-                    console.log(service);
-                    $scope.detailed = true;
-                    $scope.dispServ = service;
-                    $scope.dispServ.sensor = service.sensor;
-
-                };
-
-                //decide the sensor
-                $scope.selectSensor = function (item) {
-                    $scope.dispServ.selectedSensor = item;
-                    console.log($scope.dispServ.selectedSensor);
-                    $scope.showType = true;
-                }
-                //allow manual selection
-                $scope.setManual = function () {
-
-                    console.log("inside");
-                    $scope.dispServ.selectedTypeOfSensor = "Manual";
-                    $scope.manual = true;
-                    console.log($scope.dispServ.selectedTypeOfSensor);
-
-                };
-
-                //add new service
+                //add new service (WORKS)
                 $scope.addServices = function () {
+                    if ($scope.dispServ.name === "") {
+                        $scope.dispServ.name = $scope.search;
+                        ServiceModuleService.addServices($scope.search);
+
+                        $scope.tempArr.push({ 'name': $scope.search });
+                        $scope.search = '';
+                        $scope.detailed = true;
+                        console.log("Temporary array: " + $scope.tempArr);
+
+                        console.log("Disp Servicee: " + $scope.dispServ.name);
+                    }
+                    else {
+                        //to prevent overwriting a service
+                        alert("Pres cancel or save to finish with  " + $scope.dispServ.name + "  Service and continue with a new service");
+                    }
+                };
+
+
+                //select one of the services which u want to modify (i.e change sensor, add sensor, change area etc) (WORKS)
+                $scope.getService = function (service) {
                     $scope.detailed = true;
-                    $scope.tempArr.push({ 'name': $scope.search });
-                    $scope.dispServ.name = $scope.search;
-                    $scope.search = '';
-                    console.log($scope.tempArr);
-                    //check if it is added to the real service list
-                    console.log($scope.serviceList);
-                    //check dispServ
-                    console.log("DispServ" + $scope.dispServ.name);
+                    ServiceModuleService.getService(service);
+                    $scope.dispServ.name = service.name;
+                    $scope.dispServ.sensor = service.sensor;
+                };
+
+                //decide the sensor (WORKS)
+                $scope.selectSensor = function (item) {
+                    ServiceModuleService.selectSensor(item);
+                    $scope.showType = true;
+                    $scope.dispServ.selectedSensor = item;
+                    console.log("Selected Sensor: " + $scope.dispServ.selectedSensor);
+                };
+
+                //display the input box for new service (WORKS)
+                $scope.addSensor = function () {
+                    $scope.newSensorBool = true;
+                    console.log($scope.newSensorBool);
+                };
+
+
+                //allow manual selection (WORKS)
+                $scope.setManual = function () {
+                    $scope.manual = true;
+                    $scope.setRandom = false;
+                    ServiceModuleService.setManual();
+                    $scope.dispServ.selectedTypeOfSensor = "Manual";
+                    console.log("Selected type of sensor: " + $scope.dispServ.selectedTypeOfSensor);
 
                 };
+
+                //allow random selections (WORKS)
+                $scope.makeRandom = function () {
+                    $scope.setRandom = true;
+                    ServiceModuleService.makeRandom();
+                    $scope.dispServ.selectedTypeOfSensor = "Random";
+                };
+
+
+                //add new sensor to the sensor list of the dispServ obj (changes will be ultimately saved on Save press) (WORKS)
+                $scope.saveNewSenor = function () {
+                    if ($scope.newSensor === '') {
+                        alert("enter a sensor first");
+                        console.log("Newwww: " + $scope.newSensor);
+                    }
+                    else {
+                        ServiceModuleService.saveNewSenor($scope.newSensor);
+                        $scope.dispServ.selectedSensor = $scope.newSensor;
+                        $scope.showType = true;
+                        console.log("Service list: " + $scope.serviceList);
+                        console.log("In scope sensors: " + $scope.dispServ.sensor);
+                        console.log("In scope selected sensor: " + $scope.dispServ.selectedSensor);
+                    }
+                }
+
 
 
                 //when save button is pressed
                 $scope.saveChanges = function () {
-                    $scope.serviceList = $scope.tempArr;
+                    if ($scope.dispServ.name === "") {
+                        alert("You do not have any changes to be saved");
+                    }
+                    else {
+                        for (var i = 0; i < $scope.serviceList.length; i++) {
+                            if ($scope.dispServ.name === $scope.serviceList[i].name) {
+                                console.log("xx " + JSON.stringify($scope.dispServ));
+                                console.log("yy " + JSON.stringify($scope.serviceList[i]));
+                                if (!angular.equals($scope.serviceList[i].selectedSensor, $scope.dispServ.selectedSensor)) {
+                                    $scope.serviceList[i] = $scope.dispServ;
+                                    console.log("Updated service: " + $scope.serviceList[i].name);
+                                    return;
+                                }
+                                else {
+                                    alert("You cannot add an existing service");
+                                }
+                                return;
+                            }
+                            else {
+                                $scope.serviceList.push($scope.dispServ);
+                                return;
+                            }
+                        };
+                        ServiceModuleService.saveChanges($scope.serviceList);
+                        console.log("Locations: " + $scope.dispServ.locations);
+                        $scope.dispServ = {
+                            name: "",
+                            area: {},
+                            sensor: [],
+                            selectedSensor: "",
+                            selectedTypeOfSensor: "",
+                            locations: []
+                        };
+                    }
+
+
                     //check if locations are saved
-                    console.log($scope.serviceList[0].locations);
-                    console.log($scope.serviceList[0].selectedSensor);
+                    //  console.log(ServiceModuleService.serviceList[0].locations);
+                    //  console.log(ServiceModuleService.serviceList[0].selectedSensor);
                 };
 
-                //display the input box for new service
-                $scope.addSensor = function () {
-                    $scope.newSensorBool = true;
-                }
 
-                //add new sensor to the sensor list of the dispServ obj (changes will be ultimately saved on Save press)
-                $scope.saveNewSenor = function () {
-                    $scope.dispServ.sensor.push( $scope.newSensor );
-                    $scope.dispServ.selectedSensor = $scope.newSensor;
-                    $scope.showType = true;
-                    console.log($scope.dispServ.sensor);
-                    console.log($scope.dispServ.selectedSensor);
-                }
+
 
                 //when cancel button is pressed
                 $scope.cancelAll = function () {
-                    $scope.tempArr = $scope.serviceList;
+                    ServiceModuleService.cancelAll();
+                    $scope.tempArr = ServiceModuleService.serviceList;
+                    $scope.detailed = false;
+
                     $scope.dispServ = {
                         name: "",
                         area: {},
@@ -145,22 +175,17 @@ define([
                         selectedTypeOfSensor: "",
                         locations: []
                     };
-                    $scope.circles[0].center = {};
-                    console.log($scope.tempArr);
-                    console.log($scope.serviceList);
-                    console.log($scope.dispServ.name);
-                    console.log($scope.dispServ.sensor);
+                    //    $scope.circles[0].center = {};
+                    console.log("Temparr: " + $scope.tempArr);
+                    console.log("ServiceList: " + $scope.serviceList);
+                    console.log("Dispserv: " + $scope.dispServ.name);
+                    console.log("DispSErv sensor: " + $scope.dispServ.sensor);
 
 
                 };
 
 
-                $scope.makeRandom = function () {
-                    $scope.setRandom = true;
-                    $scope.dispServ.selectedTypeOfSensor = "Random";
 
-
-                };
 
                 $scope.visualize = function (service) {
 
@@ -173,10 +198,7 @@ define([
                     $scope.positions = [[52.5128, 13.3119], [52.5127, 13.3120], [52.5125, 13.3121]];
                 };
 
-                $scope.addSensor = function () {
-                    $scope.newSensorBool = true;
-                    $scope.setRandom = true;
-                };
+
                 $scope.clearSearchTerm = function () {
                     $scope.searchTerm = '';
                 };
