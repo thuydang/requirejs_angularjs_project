@@ -165,7 +165,15 @@ define([
                                 }
                                 else {
                                     console.log("No updates");
-                                    alert("You cannot add an existing service with no updates");
+                                    $scope.dispServ = {
+                                        name: "",
+                                        area: {},
+                                        sensor: [],
+                                        selectedSensor: "",
+                                        selectedTypeOfSensor: "",
+                                        locations: []
+                                    };
+                                    console.log("this is the disp Serv name after saving, it should be nothing: " + $scope.dispServ.name);
                                     return;
                                 }
 
