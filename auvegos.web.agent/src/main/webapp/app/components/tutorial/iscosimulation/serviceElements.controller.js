@@ -29,7 +29,8 @@ define([
                 $scope.showType = false;
                 $scope.manual = false;
                 $scope.setRandom = false;
-                $scope.newSensor;
+                $scope.newSensor = "";
+                $scope.search = "";
 
                 //array of temp changes (copied by value)
                 $scope.tempArr = ServiceModuleService.serviceList.slice();
@@ -38,30 +39,41 @@ define([
 
                 //add new service (WORKS)
                 $scope.addServices = function () {
-                    if ($scope.dispServ.name === "") {
-                        $scope.dispServ.name = $scope.search;
-                        ServiceModuleService.addServices($scope.search);
+                    if ($scope.search.length !== 0) {
+                        if ($scope.dispServ.name === "") {
+                            $scope.dispServ.name = $scope.search;
+                            ServiceModuleService.addServices($scope.search);
 
-                        $scope.tempArr.push({ 'name': $scope.search });
-                        $scope.search = '';
-                        $scope.detailed = true;
-                        console.log("Temporary array: " + $scope.tempArr);
+                            $scope.tempArr.push({ 'name': $scope.search });
+                            $scope.search = '';
+                            $scope.detailed = true;
+                            console.log("Inside add service (Temporary array): " + $scope.tempArr);
 
-                        console.log("Disp Servicee: " + $scope.dispServ.name);
+                            console.log("Inside add service(Disp Service name): " + $scope.dispServ.name);
+                        }
+                        else {
+                            //to prevent overwriting a service
+                            alert("Pres cancel or save to finish with  " + $scope.dispServ.name + "  Service and continue with a new service");
+                        }
                     }
                     else {
-                        //to prevent overwriting a service
-                        alert("Pres cancel or save to finish with  " + $scope.dispServ.name + "  Service and continue with a new service");
+                        alert("You have not entered a valid name");
                     }
                 };
 
 
                 //select one of the services which u want to modify (i.e change sensor, add sensor, change area etc) (WORKS)
                 $scope.getService = function (service) {
-                    $scope.detailed = true;
-                    ServiceModuleService.getService(service);
-                    $scope.dispServ.name = service.name;
-                    $scope.dispServ.sensor = service.sensor;
+                    if ($scope.dispServ.name === "") {
+                        $scope.detailed = true;
+                        ServiceModuleService.getService(service);
+                        $scope.dispServ.name = service.name;
+                        $scope.dispServ.sensor = service.sensor;
+                        $scope.dispServ.locations = service.locations;
+                    }
+                    else {
+                        alert("Pres cancel or save to finish with " + $scope.dispServ.name + " Service and continue with a new service ")
+                    }
                 };
 
                 //decide the sensor (WORKS)
@@ -72,7 +84,7 @@ define([
                     console.log("Selected Sensor: " + $scope.dispServ.selectedSensor);
                 };
 
-                //display the input box for new service (WORKS)
+                //display the input box for the new sensor adding for the new service created (WORKS)
                 $scope.addSensor = function () {
                     $scope.newSensorBool = true;
                     console.log($scope.newSensorBool);
@@ -99,49 +111,72 @@ define([
 
                 //add new sensor to the sensor list of the dispServ obj (changes will be ultimately saved on Save press) (WORKS)
                 $scope.saveNewSenor = function () {
-                    if ($scope.newSensor === '') {
+                    if ($scope.newSensor.length === 0) {
                         alert("enter a sensor first");
-                        console.log("Newwww: " + $scope.newSensor);
+
                     }
                     else {
                         ServiceModuleService.saveNewSenor($scope.newSensor);
-                        $scope.dispServ.selectedSensor = $scope.newSensor;
+                        $scope.dispServ.selectedSensor = $scope.newSensor; //does this cause a wrong pass by reff???
+                        $scope.dispServ.sensor.push($scope.newSensor);
                         $scope.showType = true;
-                        console.log("Service list: " + $scope.serviceList);
-                        console.log("In scope sensors: " + $scope.dispServ.sensor);
-                        console.log("In scope selected sensor: " + $scope.dispServ.selectedSensor);
+                        console.log("Inside saveNewSensor(Service list): " + $scope.serviceList);
+                        console.log("Inside saveNewSensor In serviceElementsController ( sensors): " + $scope.dispServ.sensor);
+                        console.log("Inside saveNewSensor In serviceElementsController( selected sensor:) " + $scope.dispServ.selectedSensor);
                     }
                 }
 
 
 
-                //when save button is pressed
+                //when save button is pressed (Problems with updating)
                 $scope.saveChanges = function () {
                     if ($scope.dispServ.name === "") {
-                        alert("You do not have any changes to be saved");
+                        alert("You do not have any changes to be saved");  //this is not necessary if the detailed card is closed 
                     }
+
                     else {
+                     //   console.log("The length of service list is : " + $scope.serviceList.length);
                         for (var i = 0; i < $scope.serviceList.length; i++) {
+                       //     console.log("Inside save: DispServ name: " + $scope.dispServ.name);
+                        //    console.log("Inside save: Servicelist[i] name: " + $scope.serviceList[i].name);
+
                             if ($scope.dispServ.name === $scope.serviceList[i].name) {
-                                console.log("xx " + JSON.stringify($scope.dispServ));
-                                console.log("yy " + JSON.stringify($scope.serviceList[i]));
-                                if (!angular.equals($scope.serviceList[i].selectedSensor, $scope.dispServ.selectedSensor)) {
-                                    $scope.serviceList[i] = $scope.dispServ;
-                                    console.log("Updated service: " + $scope.serviceList[i].name);
+
+
+                                if (!(angular.equals($scope.dispServ), $scope.serviceList[i])) {
+                                    
+
+                                    angular.copy($scope.dispServ, $scope.serviceList[i]);
+                                    console.log("Inside save: DispServ : " + JSON.stringify($scope.dispServ));
+                                    console.log("Inside save: Servicelist[i] : " + JSON.stringify($scope.serviceList[i]));
+                                    console.log("Updated service sensor: " + $scope.serviceList[i].sensor);
+                                    ServiceModuleService.saveChanges($scope.serviceList);
+                                    $scope.dispServ = {
+                                        name: "",
+                                        area: {},
+                                        sensor: [],
+                                        selectedSensor: "",
+                                        selectedTypeOfSensor: "",
+                                        locations: []
+                                    };
+                                  //  console.log("this is the disp Serv name after saving, it should be nothing: " + $scope.dispServ.name);
+                                    console.log("The service was updated");
                                     return;
                                 }
                                 else {
-                                    alert("You cannot add an existing service");
+                                    console.log("No updates");
+                                    alert("You cannot add an existing service with no updates");
+                                    return;
                                 }
-                                return;
+
                             }
-                            else {
-                                $scope.serviceList.push($scope.dispServ);
-                                return;
-                            }
-                        };
+                        }
+
+                        $scope.serviceList.push($scope.dispServ);
                         ServiceModuleService.saveChanges($scope.serviceList);
-                        console.log("Locations: " + $scope.dispServ.locations);
+                        console.log("(inside save function) Locations: " + $scope.dispServ.locations);
+                        console.log("The length of service list is : " + $scope.serviceList.length);
+
                         $scope.dispServ = {
                             name: "",
                             area: {},
@@ -150,81 +185,89 @@ define([
                             selectedTypeOfSensor: "",
                             locations: []
                         };
+                        console.log("this is the disp Serv name after saving, it should be nothing: " + $scope.dispServ.name);
+
+
+
                     }
 
 
-                    //check if locations are saved
-                    //  console.log(ServiceModuleService.serviceList[0].locations);
-                    //  console.log(ServiceModuleService.serviceList[0].selectedSensor);
-                };
+                
+            };
+
+
+    //check if locations are saved
+    //  console.log(ServiceModuleService.serviceList[0].locations);
+    //  console.log(ServiceModuleService.serviceList[0].selectedSensor);
 
 
 
 
-                //when cancel button is pressed
-                $scope.cancelAll = function () {
-                    ServiceModuleService.cancelAll();
-                    $scope.tempArr = ServiceModuleService.serviceList;
-                    $scope.detailed = false;
 
-                    $scope.dispServ = {
-                        name: "",
-                        area: {},
-                        sensor: [],
-                        selectedSensor: "",
-                        selectedTypeOfSensor: "",
-                        locations: []
-                    };
-                    //    $scope.circles[0].center = {};
-                    console.log("Temparr: " + $scope.tempArr);
-                    console.log("ServiceList: " + $scope.serviceList);
-                    console.log("Dispserv: " + $scope.dispServ.name);
-                    console.log("DispSErv sensor: " + $scope.dispServ.sensor);
+    //when cancel button is pressed
+    $scope.cancelAll = function () {
+        ServiceModuleService.cancelAll();
+        $scope.tempArr = ServiceModuleService.serviceList;
+        $scope.detailed = false;
 
-
-                };
+        $scope.dispServ = {
+            name: "",
+            area: {},
+            sensor: [],
+            selectedSensor: "",
+            selectedTypeOfSensor: "",
+            locations: []
+        };
+        //    $scope.circles[0].center = {};
+        console.log("Temparr: " + $scope.tempArr);
+        console.log("ServiceList: " + $scope.serviceList);
+        console.log("Dispserv: " + $scope.dispServ.name);
+        console.log("DispSErv sensor: " + $scope.dispServ.sensor);
 
 
-
-
-                $scope.visualize = function (service) {
-
-
-                };
-
-                //allow random generation (TODO)
-                $scope.randomPos = function (event) {
-                    $scope.setRandom = true;
-                    $scope.positions = [[52.5128, 13.3119], [52.5127, 13.3120], [52.5125, 13.3121]];
-                };
-
-
-                $scope.clearSearchTerm = function () {
-                    $scope.searchTerm = '';
-                };
-                // The md-select directive eats keydown events for some quick select
-                // logic. Since we have a search input here, we don't need that logic.
-                //  $element.find('input').on('keydown', function (ev) {
-                //      ev.stopPropagation();
-                // });
-
-                //remove service (still not decided)
-                $scope.removeService = function (index) {
-                    //can add alert later
-
-
-                    var x = document.getElementById("my select");
-                    x.remove(x.selectedIndex);
-                    // $scope.serviceList.splice(index, 1);
-                    //  console.log(index)
-                };
+    };
 
 
 
 
-                // end of controller  */
+    $scope.visualize = function (service) {
 
-            }]);
+
+    };
+
+    //allow random generation (TODO)
+    $scope.randomPos = function (event) {
+        $scope.setRandom = true;
+        $scope.positions = [[52.5128, 13.3119], [52.5127, 13.3120], [52.5125, 13.3121]];
+    };
+
+
+    $scope.clearSearchTerm = function () {
+        $scope.searchTerm = '';
+    };
+    // The md-select directive eats keydown events for some quick select
+    // logic. Since we have a search input here, we don't need that logic.
+    //  $element.find('input').on('keydown', function (ev) {
+    //      ev.stopPropagation();
+    // });
+
+    //remove service (still not decided)
+    $scope.removeService = function (index) {
+        //can add alert later
+
+
+        var x = document.getElementById("my select");
+        x.remove(x.selectedIndex);
+        // $scope.serviceList.splice(index, 1);
+        //  console.log(index)
+    };
+
+
+
+
+    // end of controller  */
+
+}]);
 
 });
 

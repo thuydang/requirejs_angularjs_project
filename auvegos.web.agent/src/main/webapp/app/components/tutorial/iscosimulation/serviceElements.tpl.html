@@ -24,7 +24,7 @@
                     <!--       <md-content flex layout-padding> -->
 
                     <ul class="service-list">
-                        <li ng-repeat="service in serviceList  | filter: search" ng-click="getService(service)">
+                        <li ng-repeat="service in serviceList  | filter: search" track by service.selectedSensor ng-click="getService(service)">  <!--track by problematic-->
 
 
                             <h5 href="#"> {{service.name}} </h5>
@@ -43,7 +43,7 @@
                 <md-card ng-show="detailed" style="background-color: lavender">
                     <md-card-title>
                         <md-card-title-text>
-                            <span class="md-headline" style="color:indianred">Details</span>
+                            <span class="md-headline" style="color:darksalmon">Details</span>
                         </md-card-title-text>
                     </md-card-title>
 
@@ -70,7 +70,7 @@
                                                 <md-input-container>
 
                                                     <md-select ng-model="sensor" placeholder="Select Sensor" flex>
-                                                        <md-option ng-repeat=" item in dispServ.sensor" ng-value="item" ng-click="selectSensor(item)">
+                                                        <md-option ng-repeat=" item in dispServ.sensor"  ng-value="item"  track by $index ng-click="selectSensor(item)">
                                                             {{ item}}
                                                         </md-option>
                                                     </md-select>

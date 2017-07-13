@@ -25,9 +25,6 @@ define([
                     locations: []
                 };
 
-                //manual set locations
-                ServiceData.locations = [];
-
                 ServiceData.serviceList = [
                     {
                         name: "Weather",
@@ -57,13 +54,6 @@ define([
                 //---------------FUNCTIONS--------------------------------------------
 
 
-                ServiceData.getHelpfulBools = function () {
-                    return helpfulBools;
-                }
-
-                ServiceData.getNewSensorBool = function () {
-                    return ServiceData.newSensorBool;
-                };
 
                 ServiceData.getTypeOfSensor = function () {
                     return ServiceData.dispServ.selectedTypeOfSensor;
@@ -95,7 +85,7 @@ define([
                 //when a service is selected
                 //assign the existing service parameters to the temporary one (which is being modified)
                 ServiceData.getService = function (service) {
-                    console.log(service);
+                    console.log("This is the current service we will work on: " + service.name);
                     ServiceData.dispServ = service;
                     ServiceData.dispServ.sensor = service.sensor;
                     console.log("DispServ: " + ServiceData.dispServ.name);
@@ -106,7 +96,7 @@ define([
                 ServiceData.addServices = function (newServ) {
                     ServiceData.dispServ.name = newServ;
                     //check if it is added to the real service list
-                    console.log("Service List: " + ServiceData.serviceList);
+                    console.log("Inside add service (The service List): " + ServiceData.serviceList);
                     //check dispServ
                     //  console.log("DispServ: " + ServiceData.dispServ.name);
                 };
@@ -122,7 +112,7 @@ define([
                 //allow manual or random  selection
                 ServiceData.setManual = function () {
                     ServiceData.dispServ.selectedTypeOfSensor = "Manual";
-                    console.log("Service Data: " + ServiceData.dispServ.selectedTypeOfSensor);
+                    console.log("Service Data selectedTypeOF sensor: " + ServiceData.dispServ.selectedTypeOfSensor);
 
                 };
 
@@ -133,7 +123,7 @@ define([
 
                 //add the sensor to the list of sensors
                 ServiceData.saveNewSenor = function (sens) {
-                    ServiceData.dispServ.sensor.push(sens);
+                  
                     ServiceData.dispServ.selectedSensor = sens;
                     //test
                     console.log("List of sensors: " + ServiceData.dispServ.sensor);
@@ -146,7 +136,7 @@ define([
                     ServiceData.serviceList = arr;
                     //check if locations are saved
    
-                    console.log(" sensors of weather " + ServiceData.serviceList[0].sensor);
+              
                     console.log("Service list array: " + ServiceData.serviceList);
                     console.log("locations in services file : " + ServiceData.dispServ.locations)
                     ServiceData.dispServ = {

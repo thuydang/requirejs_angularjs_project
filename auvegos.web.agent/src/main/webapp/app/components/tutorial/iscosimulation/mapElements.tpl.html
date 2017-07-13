@@ -13,22 +13,24 @@
     }
 </style>
 
-           
-                <div id="theMap">
-                    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
-                        <ui-gmap-marker ng-repeat="item in map.markers" coords="item.coords" icon="item.icon" idkey="item.id"></ui-gmap-marker>
 
-                        <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
-                                        visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+<div id="theMap">
+    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" events="map.events">
+        <div ng-show="showMarkers">
+            <ui-gmap-marker ng-repeat="item in map.markers" coords="item.coords" icon="item.icon" idkey="item.id"></ui-gmap-marker>
+        </div>
+        <div ng-show="showCircle">
+            <ui-gmap-circle ng-repeat="c in circles track by c.id" center="c.center" stroke="c.stroke" fill="c.fill" radius="c.radius"
+                            visible="c.visible" geodesic="c.geodesic" editable="c.editable" draggable="c.draggable" clickable="c.clickable" control="c.control"></ui-gmap-circle>
+        </div>
+    </ui-gmap-google-map>
 
-                    </ui-gmap-google-map>
+    <div ng-cloak ng-show="setRandom">
+        Draw a circle in the desired area
+    </div>
 
-                    <div ng-cloak ng-show="setRandom">
-                        Draw a circle in the desired area
-                    </div>
+</div>
 
-                </div>
-           
 
 
 

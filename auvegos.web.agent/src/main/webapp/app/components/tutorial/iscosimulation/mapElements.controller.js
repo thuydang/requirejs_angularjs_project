@@ -23,9 +23,10 @@ define([
                 //
                 //
                 ///center at TU
+                $scope.showCircle = false;
+                $scope.showMarkers = false;
 
-
-
+              
 
                 $scope.map = {
                     center: { latitude: 52.512230, longitude: 13.327135 },
@@ -39,12 +40,17 @@ define([
                            
 
                             if (ServiceModuleService.dispServ.selectedTypeOfSensor === "Manual") {
+                                
                                 if (ServiceModuleService.dispServ.name === "") {
                                     alert("Select Service first");
                                 }
                             
                                 else {
+
                                     console.log("inside manual");
+                                    
+                                    $scope.showMarkers = true;
+                                    $scope.showCircle = false;
 
                                     var e = arguments[0];
                                     $scope.lat = e.latLng.lat();
@@ -55,7 +61,9 @@ define([
                                         coords: {
                                             latitude: $scope.lat,
                                             longitude: $scope.lng
-                                        }
+                                           
+                                        },
+                                        options: { draggable: true }
                                     };
                                     $scope.map.markers.push(marker);
                                     $scope.$apply();
@@ -64,15 +72,16 @@ define([
                                     ServiceModuleService.dispServ.locations = $scope.map.markers;
                                     
                                     console.log("MArkerks: " + ServiceModuleService.dispServ.locations);
-                                   
-
-
-
+       
                                 }
                             }
 
 
                             else if (ServiceModuleService.dispServ.selectedTypeOfSensor === "Random") {
+                                $scope.map.markers = [];
+                                $scope.$apply();
+                                $scope.showMarkers = false;
+                                $scope.showCircle = true;
                                 var e = arguments[0];
                                 $scope.circles[0].center.latitude = e.latLng.lat();
                                 $scope.circles[0].center.longitude = e.latLng.lng();
