@@ -173,17 +173,17 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                 //url: '/serviceParent',
                 views: {
                     'content@main': {
-                        controller: 'ServiceCtrl',
+                        //controller: 'ServiceCtrl',
                         //templateUrl: 'app/components/tutorial/index.html'
                         templateUrl: 'app/components/tutorial/iscosimulation/simulation.tpl.html'
                     },
                     'mapElements@main.serviceParent': {
                         controller: 'MapElementsCtrl',
-                        templateUrl: 'app/components/tutorial/iscosimulation/mapElements.tpl.html'
+                        templateUrl: 'app/components/tutorial/iscosimulation/_map/mapElements.tpl.html'
                         //template: '<div>thisis the map</div><div ui-view="mapmap"></div>'
                     },
                     'serviceElements@main.serviceParent': {
-                        templateUrl: 'app/components/tutorial/iscosimulation/serviceElements.tpl.html',
+                        templateUrl: 'app/components/tutorial/iscosimulation/_services/serviceElements.tpl.html',
                         controller: 'ServiceElementsCtrl'
                     }
 
@@ -195,9 +195,9 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                                 //'app/core/banners/banners.css',
                                 //'assets/libs/bootstrap-css/css/bootstrap.min.css',
                                 'app/components/tutorial/iscosimulation/servicemodule.service',
-                                'app/components/tutorial/iscosimulation/simulation.controller',
-                                'app/components/tutorial/iscosimulation/serviceElements.controller',
-                                'app/components/tutorial/iscosimulation/mapElements.controller',
+                                //'app/components/tutorial/iscosimulation/simulation.controller',
+                                'app/components/tutorial/iscosimulation/_services/serviceElements.controller',
+                                'app/components/tutorial/iscosimulation/_map/mapElements.controller',
 
 
                                 //other files (ctrl, html)
@@ -214,7 +214,7 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                 views: {
                     
                     'serviceElements@main.serviceParent': {
-                        templateUrl: 'app/components/tutorial/iscosimulation/serviceElements.tpl.html',
+                        templateUrl: 'app/components/tutorial/iscosimulation/_services/serviceElements.tpl.html',
                         controller: 'ServiceElementsCtrl'
                     }
                 },
@@ -222,8 +222,8 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                     loadCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
                         return $ocLazyLoad.load({
                             files: [
-                                'app/components/tutorial/iscosimulation/serviceElements.controller',
-                                'app/components/tutorial/iscosimulation/mapElements.controller'
+                                'app/components/tutorial/iscosimulation/_services/serviceElements.controller',
+                                'app/components/tutorial/iscosimulation/_map/mapElements.controller'
                             ]
                         });
                     }]
@@ -238,7 +238,7 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                  
                     'mapElements@main.serviceParent': {
                         controller: 'MapElementsCtrl',
-                        templateUrl: 'app/components/tutorial/iscosimulation/mapElements.tpl.html'
+                        templateUrl: 'app/components/tutorial/iscosimulation/_map/mapElements.tpl.html'
                        // template: '<div>thisis the map</div><div ui-view="mapmap"></div>'
                     }
                   
@@ -249,7 +249,7 @@ define(['angularAMD', 'angular-ui-router', 'ocLazyLoad'], function(ng) {
                         return $ocLazyLoad.load({
                             
                             files: [
-                                'app/components/tutorial/iscosimulation/mapElements.controller']
+                                'app/components/tutorial/iscosimulation/_map/mapElements.controller']
                         });
                     }],
                    

@@ -18,35 +18,134 @@ define([
                 //put here because it's needed it the map as well
                 ServiceData.dispServ = {
                     name: "",
+                    id: "",
+                    providers: ["first", "second", "third"],
+                    chosenProvider: "",
+                    description: "",
+                    acessibility: "",
                     area: {},
-                    sensor: [],
-                    selectedSensor: "",
-                    selectedTypeOfSensor: "",
-                    locations: []
+                    priority: "",
+                    device: {
+                        name: "",
+                        owner: [],
+                        activationStatus: "",
+                        operationalArea: {
+                            lat: "",
+                            lng: "",
+                            alt: "",
+                        },
+                        sensor: [],
+                        selectedSensor: "",
+                        selectedTypeOfSensor: "",
+                        locations: [],
+
+                    }
+
                 };
 
                 ServiceData.serviceList = [
                     {
                         name: "Weather",
+                        id: "1",
+                        providers: ["first", "second", "third"],
+                        description: "bla bla bla blaa",
+                        acessibility: "",
+                        domain: "",
                         area: {},
-                        sensor: ['Temperature', 'Humidity'],
-                        selectedSensor: "",
-                        selectedTypeOfSensor: "",
-                        type: "manual",
-                        locations: [],
-                        area: [],
+                        priority: "",
+                        device: {
+                            name: "",
+                            owner: [],
+                            activationStatus: "",
+                            sensor: ['Temperature', 'Humidity'],
+                            selectedSensor: "",
+                            selectedTypeOfSensor: "",
+                            type: "manual",
+                            locations: [],
+                            area: {
+                                lat: "",
+                                lng: "",
+                                alt: "",
+                            },
+                        }
 
                     },
                     {
                         name: "Parking",
+                        id: "2",
+                        providers: ["first", "second", "third"],
+                        description: "Parking lalalala",
+                        acessibility: "",
+                        domain: "",
                         area: {},
-                        sensor: ['Bike', 'Car'],
-                        selectedSensor: "",
-                        selectedTypeOfSensor: "",
-                        locations: [],
-                        area: []
+                        device: {
+                            name: "",
+                            owner: [],
+                            activationStatus: "",
+                            sensor: ['Bike', 'Car'],
+                            selectedSensor: "",
+                            selectedTypeOfSensor: "",
+                            locations: [],
+                            area: {
+                                lat: "",
+                                lng: "",
+                                alt: "",
+                            },
+                        }
+                    },
+                    {
+                        name: "Sharing",
+                        id: "3",
+                        providers: ["first", "second", "third"],
+                        description: "Sharing lalalala",
+                        acessibility: "",
+                        domain: "",
+                        area: {},
+                        device: {
+                            name: "",
+                            owner: [],
+                            activationStatus: "",
 
-                    }];
+                            sensor: ['Items', 'Rent'],
+                            selectedSensor: "",
+                            selectedTypeOfSensor: "",
+                            locations: [],
+                            area: {
+                                lat: "",
+                                lng: "",
+                                alt: "",
+                            },
+                        }
+
+                    },
+
+                    {
+                        name: "Drone",
+                        id: "4",
+                        providers: ["first", "second", "third"],
+                        description: "Drone services lalalala",
+                        acessibility: "",
+                        domain: "",
+                        area: {},
+                        device: {
+                            owner: [],
+                            activationStatus: "",
+
+                            sensor: ['City', 'Neighbourhood'],
+                            selectedSensor: "",
+                            selectedTypeOfSensor: "",
+                            locations: [],
+                            area: {
+                                lat: "",
+                                lng: "",
+                                alt: "",
+                            },
+                        }
+                    },
+
+
+
+                ];
 
 
                 //service to visualize
@@ -82,15 +181,15 @@ define([
 
                 };
 
-                //when a service is selected
+                //when a service is selected   (may not be needed)
                 //assign the existing service parameters to the temporary one (which is being modified)
-                ServiceData.getService = function (service) {
-                    console.log("This is the current service we will work on: " + service.name);
-                    ServiceData.dispServ = service;
-                    ServiceData.dispServ.sensor = service.sensor;
-                    console.log("DispServ: " + ServiceData.dispServ.name);
+              //  ServiceData.getService = function (service) {
+             //       console.log("This is the current service we will work on: " + service.name);
+             //       ServiceData.dispServ = service;
+             //       ServiceData.dispServ.sensor = service.sensor;
+             //       console.log("DispServ: " + ServiceData.dispServ.name);
 
-                };
+             //   };
 
                 //add new service (Works)
                 ServiceData.addServices = function (newServ) {
@@ -123,7 +222,7 @@ define([
 
                 //add the sensor to the list of sensors
                 ServiceData.saveNewSenor = function (sens) {
-                  
+
                     ServiceData.dispServ.selectedSensor = sens;
                     //test
                     console.log("List of sensors: " + ServiceData.dispServ.sensor);
@@ -135,8 +234,8 @@ define([
                 ServiceData.saveChanges = function (arr) {
                     ServiceData.serviceList = arr;
                     //check if locations are saved
-   
-              
+
+
                     console.log("Service list array: " + ServiceData.serviceList);
                     console.log("locations in services file : " + ServiceData.dispServ.locations)
                     ServiceData.dispServ = {
@@ -159,7 +258,7 @@ define([
                         selectedTypeOfSensor: "",
                         locations: []
                     };
-                    
+
                     console.log("ServiceData serviceList: " + ServiceData.serviceList)
 
                 };
